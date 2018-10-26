@@ -5,13 +5,13 @@
   
   <title>Hexo进阶高级教程（二） | Tigerliu Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言接上一篇Hexo进阶高级教程(一)继续探讨Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.site/">
+  <meta name="description" content="前言接上一篇Hexo 进阶高级教程(一)继续探讨 Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO 优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud 阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.s">
 <meta name="keywords" content="hexo进阶,hexo+七牛,hexo百度收录,hexo百度统计,hexo seo,hexo google统计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo进阶高级教程（二）">
 <meta property="og:url" content="http://tigerliu.site/2017/06/hexo-2/index.html">
 <meta property="og:site_name" content="Tigerliu Blog">
-<meta property="og:description" content="前言接上一篇Hexo进阶高级教程(一)继续探讨Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.site/">
+<meta property="og:description" content="前言接上一篇Hexo 进阶高级教程(一)继续探讨 Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO 优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud 阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.s">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-23/90984910.jpg-img_big_black">
 <meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-23/70531066.jpg-img_big_black">
@@ -35,10 +35,10 @@
 <meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-29/99712768.jpg-img_big75_black">
 <meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-29/98002129.jpg-img_big75_black">
 <meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-29/97375087.jpg-img_big75_black">
-<meta property="og:updated_time" content="2018-10-26T03:47:39.436Z">
+<meta property="og:updated_time" content="2018-10-26T06:25:42.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo进阶高级教程（二）">
-<meta name="twitter:description" content="前言接上一篇Hexo进阶高级教程(一)继续探讨Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.site/">
+<meta name="twitter:description" content="前言接上一篇Hexo 进阶高级教程(一)继续探讨 Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。下面会讲解：  七牛云图床–用来做图片存储管理 SEO 优化–让更多的人通过搜索引擎搜到我们 网易云跟帖–文章的留言区 leancloud 阅读统计–统计阅读量 百度、谷歌统计–网站流量统计  本文地址：http://tigerliu.s">
 <meta name="twitter:image" content="http://orkta94wi.bkt.clouddn.com/17-6-23/90984910.jpg-img_big_black">
   
     <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
@@ -277,66 +277,69 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接上一篇<a href="http://tigerliu.site/2017/06/hexo-1/">Hexo进阶高级教程(一)</a>继续探讨Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。<br>下面会讲解：</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接上一篇<a href="http://tigerliu.site/2017/06/hexo-1/">Hexo 进阶高级教程(一)</a>继续探讨 Hexo,主要的功能都有了，要想让整个博客更丰富，访问速度更快更流畅，就需要添加一些附加的功能，做一些优化处理。<br>下面会讲解：</p>
 <ul>
 <li>七牛云图床–用来做图片存储管理</li>
-<li>SEO优化–让更多的人通过搜索引擎搜到我们</li>
+<li>SEO 优化–让更多的人通过搜索引擎搜到我们</li>
 <li>网易云跟帖–文章的留言区</li>
-<li>leancloud阅读统计–统计阅读量</li>
+<li>leancloud 阅读统计–统计阅读量</li>
 <li>百度、谷歌统计–网站流量统计</li>
 </ul>
-<p>本文地址：<a href="http://tigerliu.site/2017/06/hexo-2">http://tigerliu.site/2017/06/hexo-2</a><br><a id="more"></a></p>
+<p>本文地址：<a href="http://tigerliu.site/2017/06/hexo-2">http://tigerliu.site/2017/06/hexo-2</a></p>
+<a id="more"></a>
 <h2 id="七牛云图床"><a href="#七牛云图床" class="headerlink" title="七牛云图床"></a>七牛云图床</h2><p>在写博文的时候，难免都会添加一些图片在文章内，正常情况下，我们都使用外链形式添加到我们的博文，为什么要选七牛云呢？让我们来看看它的特点：</p>
 <ul>
 <li>10G 免费流量（图片尽量压缩 200k 以内）</li>
 <li>服务稳定（写作才是核心，就别总折腾图片的事情了）</li>
 <li>便宜（就算付费也相对比较便宜，作为学生党觉得可以接受）</li>
 </ul>
-<h3 id="注册七牛云"><a href="#注册七牛云" class="headerlink" title="注册七牛云"></a>注册七牛云</h3><p>永远不变的第一步，骚年得先去注个册，有了ID才能继续玩，链接：<a href="https://portal.qiniu.com/signup/choice" target="_blank" rel="noopener">七牛云注册</a> ，按照提示一步一步来就好了。</p>
+<h3 id="注册七牛云"><a href="#注册七牛云" class="headerlink" title="注册七牛云"></a>注册七牛云</h3><p>永远不变的第一步，骚年得先去注个册，有了 ID 才能继续玩，链接：<a href="https://portal.qiniu.com/signup/choice" target="_blank" rel="noopener">七牛云注册</a> ，按照提示一步一步来就好了。</p>
 <blockquote>
 <p>PS：登录七牛云，验证邮箱， <strong>实名认证</strong> ，可选择支付宝实名认证–前提是你支付宝已经实名认证 ，正常情况下 支付宝实名认证 即刻就可以通过（推荐）</p>
 </blockquote>
 <h3 id="创建对象存储"><a href="#创建对象存储" class="headerlink" title="创建对象存储"></a>创建对象存储</h3><p>登录七牛云，默认进来就是资源主页，然后在七牛云官方资源栏–》对象存储 点击立即添加，如下图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/90984910.jpg-img_big_black" alt=""><br>按照提示填写好存储空间名称，存储区域默认就好了，访问控制–<strong>选择公开空间</strong></p>
 <blockquote>
-<p>PS：选择私有空间 需要有Key值才能访问，这里选择公开空间 上传完后 直接就可以获取外链 比较方便</p>
+<p>PS：选择私有空间 需要有 Key 值才能访问，这里选择公开空间 上传完后 直接就可以获取外链 比较方便</p>
 </blockquote>
-<h3 id="上传图片，获取外链"><a href="#上传图片，获取外链" class="headerlink" title="上传图片，获取外链"></a>上传图片，获取外链</h3><p>选择内容管理–》点击上传文件 ，上传完成之后 点关闭，回到列表页就可以看到刚才上传的图片了<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/70531066.jpg-img_big_black" alt=""><br>鼠标悬浮在文件名上 可点击蓝色的笔重命名，右边的眼睛Icon点击 可以获取外链地址，复制外链就可以使用了。</p>
-<h3 id="新增图片样式"><a href="#新增图片样式" class="headerlink" title="新增图片样式"></a>新增图片样式</h3><p>图片样式–》新建图片样式 根据不同业务需要选择场景–》选择合适的缩放方式，是否剪裁，图片水印 这个功能用的比较多（可设置图片水印，文字水印），设置输出格式，然后保存样式。给处理样式命名， 点击下面的保存按钮。<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/12696485.jpg-img_big_black" alt=""><br>我们看到右侧的处理代码，这个是干嘛的呢？我们保存完了之后又怎么使用呢？<br>小编刚开始也是一脸懵逼，复制这段代码，打开刚才上传的图片外链，然后在地址后面用连接符?加上处理的代码，回车就可以看到我们的图片已经加上了水印。不加处理代码就是我们的原图。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片外链?处理代码或者样式名称</span></span><br><span class="line"><span class="comment">//示例：</span></span><br><span class="line">http:<span class="comment">//orzlwnnoa.bkt.clouddn.com/logo.jpg?watermark/2/text/5LiD54mb5LqR/font/5a6L5L2T/fontsize/240/fill/IzAwMDAwMA==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="上传图片，获取外链"><a href="#上传图片，获取外链" class="headerlink" title="上传图片，获取外链"></a>上传图片，获取外链</h3><p>选择内容管理–》点击上传文件 ，上传完成之后 点关闭，回到列表页就可以看到刚才上传的图片了<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/70531066.jpg-img_big_black" alt=""><br>鼠标悬浮在文件名上 可点击蓝色的笔重命名，右边的眼睛 Icon 点击 可以获取外链地址，复制外链就可以使用了。</p>
+<h3 id="新增图片样式"><a href="#新增图片样式" class="headerlink" title="新增图片样式"></a>新增图片样式</h3><p>图片样式–》新建图片样式 根据不同业务需要选择场景–》选择合适的缩放方式，是否剪裁，图片水印 这个功能用的比较多（可设置图片水印，文字水印），设置输出格式，然后保存样式。给处理样式命名， 点击下面的保存按钮。<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/12696485.jpg-img_big_black" alt=""><br>我们看到右侧的处理代码，这个是干嘛的呢？我们保存完了之后又怎么使用呢？<br>博主刚开始也是一脸懵逼，复制这段代码，打开刚才上传的图片外链，然后在地址后面用连接符?加上处理的代码，回车就可以看到我们的图片已经加上了水印。不加处理代码就是我们的原图。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//图片外链?处理代码或者样式名称</span></span><br><span class="line"><span class="comment">//示例：</span></span><br><span class="line">http:<span class="comment">//orzlwnnoa.bkt.clouddn.com/logo.jpg?watermark/2/text/5LiD54mb5LqR/font/5a6L5L2T/fontsize/240/fill/IzAwMDAwMA==/dissolve/100/gravity/SouthEast/dx/10/dy/10|imageslim</span></span><br></pre></td></tr></table></figure>
 <h3 id="与极简图床的结合"><a href="#与极简图床的结合" class="headerlink" title="与极简图床的结合"></a>与极简图床的结合</h3><p>在写博客的时候，每次都要做这样重复的操作，有没有一键上传并且获取外链的方式呢，必须有啊。这里介绍下极简图床与七牛云的结合。<br>打开<a href="https://jiantuku.com" target="_blank" rel="noopener">极简图床</a> 注册，登录 点击右侧的小齿轮 绑定七牛云账号信息<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/15361288.jpg-img_big_white" alt=""></p>
 <ul>
 <li>空间名称：填写在创建对象存储时的空间名称</li>
 <li>域名：拷贝外链默认域名<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/13125582.jpg-img_big_black" alt=""></li>
-<li>AK: 点击左侧的导航栏个人中心–》密钥管理 获取AK信息</li>
-<li>SK:点击左侧的导航栏个人中心–》密钥管理 获取SK信息<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/6779839.jpg-img_big_black" alt=""><br>点击保存就OK了，极简支持截图粘贴，拖拽或者点击上传，上传完可以复制链接/MD链接生成/预览, 有木有很赞，省了很多事！！！</li>
+<li>AK: 点击左侧的导航栏个人中心–》密钥管理 获取 AK 信息</li>
+<li>SK:点击左侧的导航栏个人中心–》密钥管理 获取 SK 信息<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-23/6779839.jpg-img_big_black" alt=""><br>点击保存就 OK 了，极简支持截图粘贴，拖拽或者点击上传，上传完可以复制链接/MD 链接生成/预览, 有木有很赞，省了很多事！！！</li>
 </ul>
-<h2 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h2><p>SEO是由英文Search Engine Optimization缩写而来， 中文意译为“搜索引擎优化”！<br>SEO是指通过对网站进行站内优化(网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。</p>
+<h2 id="SEO-优化"><a href="#SEO-优化" class="headerlink" title="SEO 优化"></a>SEO 优化</h2><p>SEO 是由英文 Search Engine Optimization 缩写而来， 中文意译为“搜索引擎优化”！<br>SEO 是指通过对网站进行站内优化(网站结构调整、网站内容建设、网站代码优化等)和站外优化，从而提高网站的关键词排名以及公司产品的曝光度。</p>
 <blockquote>
-<p>除开站外SEO，我们能做的有两方面。一是针对个人网站的页面排版进行SEO的优化；二是针对搜索引擎进行主动的优化。</p>
+<p>除开站外 SEO，我们能做的有两方面。一是针对个人网站的页面排版进行 SEO 的优化；二是针对搜索引擎进行主动的优化。</p>
 </blockquote>
-<h3 id="SEO准备工作"><a href="#SEO准备工作" class="headerlink" title="SEO准备工作"></a>SEO准备工作</h3><ul>
-<li>sitemap插件安装</li>
+<h3 id="SEO-准备工作"><a href="#SEO-准备工作" class="headerlink" title="SEO 准备工作"></a>SEO 准备工作</h3><ul>
+<li>sitemap 插件安装</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save     </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
 <ul>
-<li>修改博客配置文件<br>在根目录配置文件_config.yml中修改url为你的站点地址<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http:<span class="comment">//tigerliu.site</span></span><br><span class="line">root: <span class="regexp">/</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>修改博客配置文件<br>在根目录配置文件_config.yml 中修改 url 为你的站点地址</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span><br><span class="line">url: http:<span class="comment">//tigerliu.site</span></span><br><span class="line">root: <span class="regexp">/</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>执行完之后就会在网站根目录生成sitemap.xml文件（搜索引擎通用文件）和baidusitemap.xml文件（百度专用文件），然后执行hexo d -g 提交到我们站点，打开链接<a href="http://tigerliu.site/sitemap.xml">http://tigerliu.site/sitemap.xml</a> 查看该文件是否能正确访问。</p>
-</blockquote>
-<ul>
-<li>添加蜘蛛协议robots<br>在根目录source文件下新建robots.txt文件，添加以下文件内容（将Sitemap中的域名切换成自己网站域名）<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: * </span><br><span class="line">Allow: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">Allow: /</span>archives/</span><br><span class="line">Disallow: <span class="regexp">/vendors/</span></span><br><span class="line">Disallow: <span class="regexp">/js/</span></span><br><span class="line">Disallow: <span class="regexp">/css/</span></span><br><span class="line">Disallow: <span class="regexp">/fonts/</span></span><br><span class="line">Disallow: <span class="regexp">/vendors/</span></span><br><span class="line">Disallow: <span class="regexp">/fancybox/</span></span><br><span class="line"></span><br><span class="line">Sitemap: http:<span class="comment">//tigerliu.site/sitemap.xml</span></span><br><span class="line">Sitemap: http:<span class="comment">//tigerliu.site/baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>参数说明： User-agent: * 允许所有robot访问，Allow 允许访问X目录，Disallow 禁止访问X目录</p>
+<p>执行完之后就会在网站根目录生成 sitemap.xml 文件（搜索引擎通用文件）和 baidusitemap.xml 文件（百度专用文件），然后执行 hexo d -g 提交到我们站点，打开链接<a href="http://tigerliu.site/sitemap.xml">http://tigerliu.site/sitemap.xml</a> 查看该文件是否能正确访问。</p>
 </blockquote>
 <ul>
-<li>出站链接添加 “nofollow” 标签<br>nofollow标签是由谷歌领头创新的一个“反垃圾链接”的标签，并被百度、yahoo等各大搜索引擎广泛支持，引用nofollow标签的目的是：用于指示搜索引擎不要追踪（即抓取）网页上的带有nofollow属性的任何出站链接，以减少垃圾链接的分散网站权重。<br>以next主题为例：</li>
+<li>添加蜘蛛协议 robots<br>在根目录 source 文件下新建 robots.txt 文件，添加以下文件内容（将 Sitemap 中的域名切换成自己网站域名）</li>
 </ul>
-<p>1.themes/next/layout/_partials目录 修改footer.swig文件,将下面代码中的a标签 加上rel=”external nofollow” 属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># hexo robots.txt</span><br><span class="line">User-agent: *</span><br><span class="line">Allow: <span class="regexp">/</span></span><br><span class="line"><span class="regexp">Allow: /</span>archives/</span><br><span class="line">Disallow: <span class="regexp">/vendors/</span></span><br><span class="line">Disallow: <span class="regexp">/js/</span></span><br><span class="line">Disallow: <span class="regexp">/css/</span></span><br><span class="line">Disallow: <span class="regexp">/fonts/</span></span><br><span class="line">Disallow: <span class="regexp">/vendors/</span></span><br><span class="line">Disallow: <span class="regexp">/fancybox/</span></span><br><span class="line"></span><br><span class="line">Sitemap: http:<span class="comment">//tigerliu.site/sitemap.xml</span></span><br><span class="line">Sitemap: http:<span class="comment">//tigerliu.site/baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参数说明： User-agent: * 允许所有 robot 访问，Allow 允许访问 X 目录，Disallow 禁止访问 X 目录</p>
+</blockquote>
+<ul>
+<li>出站链接添加 “nofollow” 标签<br>nofollow 标签是由谷歌领头创新的一个“反垃圾链接”的标签，并被百度、yahoo 等各大搜索引擎广泛支持，引用 nofollow 标签的目的是：用于指示搜索引擎不要追踪（即抓取）网页上的带有 nofollow 属性的任何出站链接，以减少垃圾链接的分散网站权重。<br>以 next 主题为例：</li>
+</ul>
+<p>1.themes/next/layout/_partials 目录 修改 footer.swig 文件,将下面代码中的 a 标签 加上 rel=”external nofollow” 属性</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"theme-info"</span>&gt;</span><br><span class="line">  &#123;&#123; __(<span class="string">'footer.theme'</span>) &#125;&#125; -</span><br><span class="line">  &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"theme-link"</span> href=<span class="string">"https://github.com/iissnan/hexo-theme-next"</span> rel=<span class="string">"external nofollow"</span>&gt;</span><br><span class="line">    NexT.&#123;&#123; theme.scheme &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
-<p>2.themes/next/layout/_macro目录,修改sidebar.swig文件,将下面代码中的a标签 加上rel=”external nofollow”属性<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"links-of-blogroll-item"</span>&gt;</span><br><span class="line">  &lt;a href=<span class="string">"&#123;&#123; link &#125;&#125;"</span> title=<span class="string">"&#123;&#123; name &#125;&#125;"</span> target=<span class="string">"_blank"</span> rel=<span class="string">"external nofollow"</span>&gt;&#123;&#123; name &#125;&#125;&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>li&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.themes/next/layout/_macro 目录,修改 sidebar.swig 文件,将下面代码中的 a 标签 加上 rel=”external nofollow”属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;li <span class="class"><span class="keyword">class</span></span>=<span class="string">"links-of-blogroll-item"</span>&gt;</span><br><span class="line">  &lt;a href=<span class="string">"&#123;&#123; link &#125;&#125;"</span> title=<span class="string">"&#123;&#123; name &#125;&#125;"</span> target=<span class="string">"_blank"</span> rel=<span class="string">"external nofollow"</span>&gt;</span><br><span class="line">    &#123;&#123; name &#125;&#125;</span><br><span class="line">  &lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>li&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h3><p>生在我大天朝，使用频率最多的当属百度了，下面简单介绍下百度的一些优化处理。</p>
 <ul>
 <li><p>注册账号<br>打开<a href="http://zhanzhang.baidu.com/" target="_blank" rel="noopener">百度站长</a>，注册登录账号</p>
@@ -345,75 +348,79 @@
 </li>
 </ul>
 <blockquote>
-<p>在第三步 验证网站这里 建议选择文件验证或者CNAME验证，验证规则选项下面已经给出了。<br>PS：将下载下来的文件放至根目录/source目录下，若为HTML格式，需要在文件内加上layout: false 否则在编译的时候 也会一起编译。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line">J9sxxxxx</span><br></pre></td></tr></table></figure></p>
+<p>在第三步 验证网站这里 建议选择文件验证或者 CNAME 验证，验证规则选项下面已经给出了。<br>PS：将下载下来的文件放至根目录/source 目录下，若为 HTML 格式，需要在文件内加上 layout: false 否则在编译的时候 也会一起编译。</p>
 </blockquote>
-<p>继续hexo d -g 将文件上传至我们的网站，查看刚才的文件是否成功上传，然后点击完成验证。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">layout: <span class="literal">false</span></span><br><span class="line">---</span><br><span class="line">J9sxxxxx</span><br></pre></td></tr></table></figure>
+<p>继续 hexo d -g 将文件上传至我们的网站，查看刚才的文件是否成功上传，然后点击完成验证。</p>
 <ul>
-<li><p>链接提交<br>在左侧找到链接提交，右边可以看到提交方式有两种：自动提交，手动提交<br>手动提交我们就不谈了，看看自动提交。主要分为 主动推送，自动推送，sitemap 三种方式。</p>
+<li>链接提交<br>在左侧找到链接提交，右边可以看到提交方式有两种：自动提交，手动提交<br>手动提交我们就不谈了，看看自动提交。主要分为 主动推送，自动推送，sitemap 三种方式。</li>
+</ul>
 <p>1 主动推送<br>安装推送插件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>在根目录的_config.yml配置文件中新增字段：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 100 # 提交最新的一个链接</span><br><span class="line">  host: tigerliu.site # 在百度站长平台中注册的域名</span><br><span class="line">  token: bwxxxxx # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span><br><span class="line">  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里</span><br></pre></td></tr></table></figure></p>
-<p>deploye属性 新增字段<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> - type: baidu_url_submitter</span><br></pre></td></tr></table></figure></p>
-<p> 2 自动推送<br>这里以next主题为例,打开主题配置文件_config.yml将baidu_push设置为true<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO</span><br><span class="line">baidu_push: <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
-<p> 3 sitemap<br> 将上面我们生成的sitemap文件地址 提交到百度，如下图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/20020847.jpg-img_big75_black" alt=""></p>
+<p>在根目录的_config.yml 配置文件中新增字段：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 100 # 提交最新的一个链接</span><br><span class="line">  host: tigerliu.site # 在百度站长平台中注册的域名</span><br><span class="line">  token: bwxxxxx # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!</span><br><span class="line">  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里</span><br></pre></td></tr></table></figure>
+<p>deploye 属性 新增字段</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> - type: baidu_url_submitter</span><br></pre></td></tr></table></figure>
+<p>2 自动推送<br>这里以 next 主题为例,打开主题配置文件_config.yml 将 baidu_push 设置为 true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO</span><br><span class="line">baidu_push: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>3 sitemap<br>将上面我们生成的 sitemap 文件地址 提交到百度，如下图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/20020847.jpg-img_big75_black" alt=""></p>
 <blockquote>
-<p>所有配置完后，可以利用site:域名 在百度搜索栏测试我们的结果 例如： site:tigerliu.site<br>结果是不是什么也没找到，百度收录需要一段时间，耐心等待吧！！！</p>
+<p>所有配置完后，可以利用 site:域名 在百度搜索栏测试我们的结果 例如： site:tigerliu.site<br>结果是不是什么也没找到，百度收录需要一段时间，耐心等待吧！！！</p>
 </blockquote>
-<h3 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h3><p>还是google收录快，比百度快的不是一点半点，设置完成基本2分钟左右即可看到效果。一起来看看！！！</p>
+<h3 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h3><p>还是 google 收录快，比百度快的不是一点半点，设置完成基本 2 分钟左右即可看到效果。一起来看看！！！</p>
 <ul>
-<li>注册登录<br><a href="https://www.google.com/webmasters" target="_blank" rel="noopener">google站长</a></li>
-<li>添加网站<br>跟百度收录类似，验证网站 使用google的推荐方法，也就是百度收录的文件验证。<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/72192731.jpg-img_big75_black" alt=""></li>
+<li>注册登录<br><a href="https://www.google.com/webmasters" target="_blank" rel="noopener">google 站长</a></li>
+<li>添加网站<br>跟百度收录类似，验证网站 使用 google 的推荐方法，也就是百度收录的文件验证。<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/72192731.jpg-img_big75_black" alt=""></li>
 <li>提交站点地图<br>验证完网站后，回到我们的网站列表，点击网站，如下图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/11114596.jpg-img_big75_black" alt=""></li>
 </ul>
-<p>在左侧的抓取–》点击站点地图 ，添加站点地图（把我们刚才生成的sitemap.xml地址添加进去），如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/3783586.jpg-img_black" alt=""></p>
+<p>在左侧的抓取–》点击站点地图 ，添加站点地图（把我们刚才生成的 sitemap.xml 地址添加进去），如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/3783586.jpg-img_black" alt=""></p>
 <ul>
-<li>Google 抓取工具<br>点击左侧的google抓取工具，输入抓取地址，点击右边的抓取按钮，即可抓取我们的网站。默认不输入 即为抓取首页，状态栏显示完成即为抓取成功，然后将该地址提交至索引。如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/88262099.jpg-img_big75_black" alt=""></li>
+<li>Google 抓取工具<br>点击左侧的 google 抓取工具，输入抓取地址，点击右边的抓取按钮，即可抓取我们的网站。默认不输入 即为抓取首页，状态栏显示完成即为抓取成功，然后将该地址提交至索引。如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/88262099.jpg-img_big75_black" alt=""></li>
 </ul>
 <blockquote>
-<p>ps: 至此google配置已经完成了，等待2分钟，回到google搜索页，赶紧试一试！！！</p>
+<p>ps: 至此 google 配置已经完成了，等待 2 分钟，回到 google 搜索页，赶紧试一试！！！</p>
 </blockquote>
 <p><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/77301780.jpg-img_big75_black" alt=""></p>
-<h2 id="网易云跟帖"><a href="#网易云跟帖" class="headerlink" title="网易云跟帖"></a>网易云跟帖</h2><p>博文怎么能少评论功能呢，之前的多说目前已经不可用了，在畅言和网易云跟帖之间，我选了后者。使用之前需要有自己的域名，没有见我的上一篇<a href="http://tigerliu.site/2017/06/hexo-1/">Hexo进阶高级教程(一)</a>文章，注册一个，也不贵。下面就来谈谈云跟帖：</p>
+<h2 id="网易云跟帖"><a href="#网易云跟帖" class="headerlink" title="网易云跟帖"></a>网易云跟帖</h2><p>博文怎么能少评论功能呢，之前的多说目前已经不可用了，在畅言和网易云跟帖之间，我选了后者。使用之前需要有自己的域名，没有见我的上一篇<a href="http://tigerliu.site/2017/06/hexo-1/">Hexo 进阶高级教程(一)</a>文章，注册一个，也不贵。下面就来谈谈云跟帖：</p>
 <blockquote>
 <p>畅言需要备案，如果你的网站已经备案可以添加</p>
 </blockquote>
 <ul>
 <li>注册登录<br>万年不变的注册登录，<a href="https://gentie.163.com/index.html" target="_blank" rel="noopener">网易云跟帖注册</a></li>
 <li>设置站点信息<br>登录后，点击后台管理，填写站点信息，站点名称随便取，站点网址填我们购买的域名，保存。</li>
-<li>获取productKey<br>点击获取代码，在左侧找到App SDK,右侧的APP KEY 即为我们需要的key,点击复制。如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/42216650.jpg-img_big75_black" alt=""><br>以next主题为例，在next主题配置文件_config.yml中设置productKey<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Gentie productKey</span><br><span class="line">gentie_productKey: ea08xxxxx</span><br></pre></td></tr></table></figure>
-</li>
+<li>获取 productKey<br>点击获取代码，在左侧找到 App SDK,右侧的 APP KEY 即为我们需要的 key,点击复制。如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/42216650.jpg-img_big75_black" alt=""><br>以 next 主题为例，在 next 主题配置文件_config.yml 中设置 productKey</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Gentie productKey</span><br><span class="line">gentie_productKey: ea08xxxxx</span><br></pre></td></tr></table></figure>
 <p>效果预览：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-22/66282352.jpg-img_big75_black" alt=""></p>
-<h2 id="阅读统计功能"><a href="#阅读统计功能" class="headerlink" title="阅读统计功能"></a>阅读统计功能</h2><p>next主题集成了leancloud，在使用的时候设置好app_key和app_id 就可以使用了。</p>
+<h2 id="阅读统计功能"><a href="#阅读统计功能" class="headerlink" title="阅读统计功能"></a>阅读统计功能</h2><p>next 主题集成了 leancloud，在使用的时候设置好 app_key 和 app_id 就可以使用了。</p>
 <ul>
-<li>注册登录<br><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">leancloud注册</a></li>
+<li>注册登录<br><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">leancloud 注册</a></li>
 <li><p>创建应用<br>登录后在右上角选择国内节点，创建应用。如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/14281401.jpg-img_big75_black" alt=""></p>
 </li>
-<li><p>主题配置<br>鼠标悬浮到新创建的应用上，点击右上角的齿轮进入设置界面,点击应用key获取app_key和app_id 如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/85376605.jpg-img_big75_black" alt=""><br>将刚才获取到的key,id填入主题配置文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https://leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  app_id: yourapp_id</span><br><span class="line">  app_key: yourapp_key</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建Class<br>在左侧点击存储，创建一个名为<strong>Counter</strong>的Class文件，这里的名称一定为<strong>Counter</strong> 不能随意取！！！<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/23716832.jpg-img_big75_black" alt=""></p>
+<li><p>主题配置<br>鼠标悬浮到新创建的应用上，点击右上角的齿轮进入设置界面,点击应用 key 获取 app_key 和 app_id 如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/85376605.jpg-img_big75_black" alt=""><br>将刚才获取到的 key,id 填入主题配置文件</p>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https://leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  app_id: yourapp_id</span><br><span class="line">  app_key: yourapp_key</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建 Class<br>在左侧点击存储，创建一个名为<strong>Counter</strong>的 Class 文件，这里的名称一定为<strong>Counter</strong> 不能随意取！！！<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-28/23716832.jpg-img_big75_black" alt=""></li>
+</ul>
 <blockquote>
-<p>PS：设置完后，回到我的博客，随便点击一篇博文，刷新几次 就可以在leancloud–》存储–》Counter看到我们的浏览记录了，在我们的博文副标题也可以看到浏览记录。</p>
+<p>PS：设置完后，回到我的博客，随便点击一篇博文，刷新几次 就可以在 leancloud–》存储–》Counter 看到我们的浏览记录了，在我们的博文副标题也可以看到浏览记录。</p>
 </blockquote>
-<h2 id="百度、谷歌统计"><a href="#百度、谷歌统计" class="headerlink" title="百度、谷歌统计"></a>百度、谷歌统计</h2><p>如何查看自己的博客每天被多少人访问呢~ 下面一起来看看在hexo中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。</p>
+<h2 id="百度、谷歌统计"><a href="#百度、谷歌统计" class="headerlink" title="百度、谷歌统计"></a>百度、谷歌统计</h2><p>如何查看自己的博客每天被多少人访问呢~ 下面一起来看看在 hexo 中如何使用统计插件，每天看到自己的博客访问量越来越高也是一种享受。</p>
 <ul>
 <li>注册登录<br><a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="noopener">百度统计注册</a>、<a href="https://www.google.com/intl/zh-CN/analytics/" target="_blank" rel="noopener">谷歌统计注册</a></li>
-<li>百度统计<br>登录后 在左侧找到代码管理–》点击代码获取–》右侧新增网站，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/50786367.jpg-img_big75_black" alt=""><br>拷贝统计代码ID<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/99712768.jpg-img_big75_black" alt=""></li>
-<li><p>谷歌统计<br>登录后，新增一个统计网站，填写网站信息，点击下面的获取跟踪ID，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/98002129.jpg-img_big75_black" alt=""><br>进入页面后，你会看到跟踪ID，复制它，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/97375087.jpg-img_big75_black" alt=""></p>
+<li>百度统计<br>登录后 在左侧找到代码管理–》点击代码获取–》右侧新增网站，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/50786367.jpg-img_big75_black" alt=""><br>拷贝统计代码 ID<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/99712768.jpg-img_big75_black" alt=""></li>
+<li><p>谷歌统计<br>登录后，新增一个统计网站，填写网站信息，点击下面的获取跟踪 ID，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/98002129.jpg-img_big75_black" alt=""><br>进入页面后，你会看到跟踪 ID，复制它，如图：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-29/97375087.jpg-img_big75_black" alt=""></p>
 </li>
-<li><p>修改配置文件<br>以next主题为例，修改主题配置文件，添加baidu、googleId</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Baidu Analytics ID</span><br><span class="line">baidu_analytics: <span class="number">9758</span>xxxx</span><br><span class="line"># Google Analytics</span><br><span class="line">google_analytics: UA<span class="number">-3534</span>xxxx</span><br></pre></td></tr></table></figure>
+<li><p>修改配置文件<br>以 next 主题为例，修改主题配置文件，添加 baidu、googleId</p>
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Baidu Analytics ID</span><br><span class="line">baidu_analytics: <span class="number">9758</span>xxxx</span><br><span class="line"># Google Analytics</span><br><span class="line">google_analytics: UA<span class="number">-3534</span>xxxx</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>PS：谷歌统计用的比较少，因为有墙，在加载代码的时候，很容易阻塞。故在国内我们使用百度、CNZZ比较多！！！</p>
+<p>PS：谷歌统计用的比较少，因为有墙，在加载代码的时候，很容易阻塞。故在国内我们使用百度、CNZZ 比较多！！！</p>
 </blockquote>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>看完上面的介绍，有木有感觉配置还是蛮多的，正所谓工欲善其事，必先利其器。当初小编也花了一周多星期才搭建好一个稍微满意点的博客，总之喜欢博客爱折腾，功夫不负有心人，终会弄出一个非常6的博客。祝大家在HEXO的路上玩的嗨皮！！！</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>看完上面的介绍，有木有感觉配置还是蛮多的，正所谓工欲善其事，必先利其器。当初博主也花了一周多星期才搭建好一个稍微满意点的博客，总之喜欢博客爱折腾，功夫不负有心人，终会弄出一个非常 6 的博客。祝大家在 HEXO 的路上玩的嗨皮！！！</p>
 
       
       
@@ -472,7 +479,7 @@
         <p><span>本文标题:</span><a href="/2017/06/hexo-2/">Hexo进阶高级教程（二）</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
         <p><span>发布时间:</span>2017年06月26日 - 13时49分</p>
-        <p><span>最后更新:</span>2018年10月26日 - 11时47分</p>
+        <p><span>最后更新:</span>2018年10月26日 - 14时25分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/hexo-2/" title="Hexo进阶高级教程（二）">http://tigerliu.site/2017/06/hexo-2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2017/06/hexo-2/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -510,7 +517,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七牛云图床"><span class="toc-number">2.</span> <span class="toc-text">七牛云图床</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册七牛云"><span class="toc-number">2.1.</span> <span class="toc-text">注册七牛云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象存储"><span class="toc-number">2.2.</span> <span class="toc-text">创建对象存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传图片，获取外链"><span class="toc-number">2.3.</span> <span class="toc-text">上传图片，获取外链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新增图片样式"><span class="toc-number">2.4.</span> <span class="toc-text">新增图片样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与极简图床的结合"><span class="toc-number">2.5.</span> <span class="toc-text">与极简图床的结合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO优化"><span class="toc-number">3.</span> <span class="toc-text">SEO优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO准备工作"><span class="toc-number">3.1.</span> <span class="toc-text">SEO准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百度收录"><span class="toc-number">3.2.</span> <span class="toc-text">百度收录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌收录"><span class="toc-number">3.3.</span> <span class="toc-text">谷歌收录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易云跟帖"><span class="toc-number">4.</span> <span class="toc-text">网易云跟帖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阅读统计功能"><span class="toc-number">5.</span> <span class="toc-text">阅读统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百度、谷歌统计"><span class="toc-number">6.</span> <span class="toc-text">百度、谷歌统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七牛云图床"><span class="toc-number">2.</span> <span class="toc-text">七牛云图床</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册七牛云"><span class="toc-number">2.1.</span> <span class="toc-text">注册七牛云</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建对象存储"><span class="toc-number">2.2.</span> <span class="toc-text">创建对象存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传图片，获取外链"><span class="toc-number">2.3.</span> <span class="toc-text">上传图片，获取外链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新增图片样式"><span class="toc-number">2.4.</span> <span class="toc-text">新增图片样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与极简图床的结合"><span class="toc-number">2.5.</span> <span class="toc-text">与极简图床的结合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO-优化"><span class="toc-number">3.</span> <span class="toc-text">SEO 优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO-准备工作"><span class="toc-number">3.1.</span> <span class="toc-text">SEO 准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#百度收录"><span class="toc-number">3.2.</span> <span class="toc-text">百度收录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌收录"><span class="toc-number">3.3.</span> <span class="toc-text">谷歌收录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网易云跟帖"><span class="toc-number">4.</span> <span class="toc-text">网易云跟帖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#阅读统计功能"><span class="toc-number">5.</span> <span class="toc-text">阅读统计功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#百度、谷歌统计"><span class="toc-number">6.</span> <span class="toc-text">百度、谷歌统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">7.</span> <span class="toc-text">结语</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
