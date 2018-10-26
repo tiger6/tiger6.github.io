@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://tigerliu.site/"/>
-  <updated>2018-10-26T06:25:42.535Z</updated>
+  <updated>2018-10-26T07:35:28.596Z</updated>
   <id>http://tigerliu.site/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用前端方式挑战 Chrome 小恐龙游戏高分</title>
+    <link href="http://tigerliu.site/2018/10/dinosaur/"/>
+    <id>http://tigerliu.site/2018/10/dinosaur/</id>
+    <published>2018-10-26T06:45:52.000Z</published>
+    <updated>2018-10-26T07:35:28.596Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天看论坛发现有人发帖说 Chrome周年庆祝 在“小恐龙”游戏中埋入了新的菜单，可以触碰的 蛋糕 以及触碰之后获得的 生日帽。<br>看到现在“小恐龙”这个彩蛋的改进，往事历历在目。但是很快，帖子中有人晒高分引起了我的注意：这个游戏虽说简单，但是在分数达到一定程度后，加速度会让玩家很难继续游戏。<br>记得很早之前在机场玩过这个游戏，记忆中获取三千以上的分数还是挺困难的，更别提八千分，所以我这里推测这个玩家应该是有一些“特别的技巧”。</p><a id="more"></a><p>在游戏中取得令人叹为观止的高分，一般来说无非三种手段：</p><blockquote><ul><li>练习：勤学苦练，熟能生巧，加上极致的耐心。</li><li>工具：使用一些辅助设施来模拟人的操作。</li><li>外挂：针对难度或者得分倍数进行改造或者直接对结果进行修改、甚至破坏游戏规则。</li></ul></blockquote><p>第一种方式我们暂且略过，后面如果实在闲，再进行尝试，我们直接开始后面两种方案的尝试。</p><h3 id="编写辅助工具"><a href="#编写辅助工具" class="headerlink" title="编写辅助工具"></a>编写辅助工具</h3><blockquote><p>网上有个老外曾经编写过一个根据判断X轴方向小恐龙和前面物品距离进行自动跳跃的程序，在稍加改造后，将下面的代码贴到控制台中，即可完成小恐龙自动奔跑的神操作。</p></blockquote><p>这里添加了代码避免小恐龙跳过蛋糕、避而不吃，以及调整了对障碍物需要跳跃的高度判断，防止小恐龙看到低飞的鸟儿迎面而上，当然，还有能够在代码执行后，自动开始游戏。</p><p>为了你能够在移动端的复制便捷，这里提供了压缩版的代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TrexRunnerBot</span>(<span class="params"></span>)</span>&#123;<span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;Runner().onKeyDown(d);setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;Runner().onKeyUp(d)&#125;,<span class="number">500</span>)&#125;<span class="keyword">var</span> b=<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;<span class="keyword">return</span>&#123;<span class="attr">keyCode</span>:a,<span class="attr">preventDefault</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;&#125;&#125;,c=b(<span class="number">38</span>),d=b(<span class="number">40</span>),e=b(<span class="number">32</span>);Runner().playing||(Runner().onKeyDown(e),setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;Runner().onKeyUp(e)&#125;,<span class="number">500</span>));<span class="keyword">return</span>&#123;<span class="attr">conquerTheGame</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">if</span>(Runner&amp;&amp;Runner().horizon.obstacles[<span class="number">0</span>])&#123;<span class="keyword">var</span> a=Runner().horizon.obstacles[<span class="number">0</span>];<span class="keyword">if</span>((!a.typeConfig||<span class="string">"SNACK"</span>!==a.typeConfig.type)&amp;&amp;<span class="number">50</span>!==a.yPos&amp;&amp;a.xPos&lt;=<span class="number">18</span>*Runner().currentSpeed)<span class="keyword">if</span>(<span class="number">50</span>=== a.yPos)f();<span class="keyword">else</span>&#123;<span class="keyword">var</span> b=Runner().horizon.obstacles[<span class="number">1</span>];<span class="keyword">if</span>(b&amp;&amp;b.xPos-a.xPos&lt;=<span class="number">42</span>*Runner().currentSpeed)Runner().onKeyDown(c),Runner().onKeyUp(c);<span class="keyword">else</span> Runner().onKeyDown(c)&#125;&#125;&#125;&#125;&#125;<span class="keyword">var</span> bot=TrexRunnerBot(),botInterval=setInterval(bot.conquerTheGame,<span class="number">2</span>);</span><br></pre></td></tr></table></figure></p><blockquote><p>如果你想在桌面端浏览器游玩小恐龙游戏，除了断网的操作外，还可以直接访问 chrome://dino/ 这个地址。</p></blockquote><p>如果你想在手机上体验小恐龙自动奔跑，请参考下面的操作：</p><blockquote><ul><li>飞行模式后打开 Chrome ，然后访问任意页面，呼出小恐龙界面。</li><li>将上面的代码粘贴到地址栏。</li><li>在地址栏前手动加上 javascript: ，然后确认。</li></ul></blockquote><p>你的小恐龙就自个去浪了，不过这里你获取分数的速度依然和正常游玩的玩家是一样的，小恐龙走一步记一分。</p><p>那么，接下来我们换个套路。</p><h3 id="改写计分逻辑"><a href="#改写计分逻辑" class="headerlink" title="改写计分逻辑"></a>改写计分逻辑</h3><p>与其说改写，不如说“劫持”。</p><blockquote><p>ES5 有一个很古老的 API， Object.defineProperty()，借助这个 API<br>，我们能够轻易的修改现有对象上的属性，配合重新定义对象具体内容的 getter、setter<br>描述符，可以做到对于属性的劫持操作，是不是很眼熟？没错，这个方案也是老生常谈的 MVVM 框架的双向数据绑定的实现方案之一。</p></blockquote><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hackScore=<span class="number">0</span>;<span class="built_in">Object</span>.defineProperty(Runner.instance_,<span class="string">"distanceRan"</span>,&#123;<span class="attr">get</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> hackScore&#125;,<span class="attr">set</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;<span class="keyword">return</span> hackScore=a+<span class="built_in">Math</span>.floor(<span class="number">1E3</span>*<span class="built_in">Math</span>.random())&#125;,<span class="attr">configurable</span>:!<span class="number">0</span>,<span class="attr">enumerable</span>:!<span class="number">0</span>&#125;);</span><br></pre></td></tr></table></figure><p>将上面代码执行之后，再次运行程序，你会发现你获取分数的速度提升了一千倍。</p><p>如果你将第一个方案和这个方案的代码结合，会获得一个能够自动奔跑获得高分的“智能小恐龙”。</p><blockquote><p>不过因为我们的“外挂”是基于计时器进行距离计算并模拟用户操作的，当你获得很高很高的分数之后，障碍物推进速度过快，一旦你进行窗口的来回切换，游戏进行暂停和游玩的状态切换，很大概率上“外挂”操作会延时，导致<br>GAME OVER。</p></blockquote><p>如何能避免这个事情呢，我们来讲讲第三个套路。</p><h3 id="破坏规则大法"><a href="#破坏规则大法" class="headerlink" title="破坏规则大法"></a>破坏规则大法</h3><p>如果说第一个方案起码还有付出时间成本，模拟玩家操作一步一步按部就班的获取分数；第二个方案偷天换日，一步当一千步使；那么接下来的方案就显得十分无耻了。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Runner.instance_.gameOver=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br></pre></td></tr></table></figure></p><p>下面代码在执行之后，会清空游戏的中断逻辑，配合第二个方案的快速获得分数的代码，你可以得到一只拥有穿越障碍物能力的小恐龙：勇往无前，永不停歇，分数不停的增长，直到报错。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>相关代码见 <a href="https://github.com/tiger6/trex-runner-bot/tree/master/src" target="_blank" rel="noopener">GitHub</a>上，有兴趣的同学也可以访问，以了解更多内容。</p><p><a href="https://mp.weixin.qq.com/s/aT2kGkXcMmrrjK7U69VBUw" target="_blank" rel="noopener">原文链接</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;今天看论坛发现有人发帖说 Chrome周年庆祝 在“小恐龙”游戏中埋入了新的菜单，可以触碰的 蛋糕 以及触碰之后获得的 生日帽。&lt;br&gt;看到现在“小恐龙”这个彩蛋的改进，往事历历在目。但是很快，帖子中有人晒高分引起了我的注意：这个游戏虽说简单，但是在分数达到一定程度后，加速度会让玩家很难继续游戏。&lt;br&gt;记得很早之前在机场玩过这个游戏，记忆中获取三千以上的分数还是挺困难的，更别提八千分，所以我这里推测这个玩家应该是有一些“特别的技巧”。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="dinosaur" scheme="http://tigerliu.site/categories/dinosaur/"/>
+    
+    
+      <category term="dinosaur" scheme="http://tigerliu.site/tags/dinosaur/"/>
+    
+      <category term="chrome" scheme="http://tigerliu.site/tags/chrome/"/>
+    
+      <category term="恐龙" scheme="http://tigerliu.site/tags/%E6%81%90%E9%BE%99/"/>
+    
+      <category term="高分" scheme="http://tigerliu.site/tags/%E9%AB%98%E5%88%86/"/>
+    
+      <category term="断网" scheme="http://tigerliu.site/tags/%E6%96%AD%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>Sublime 笔记</title>
@@ -378,11 +408,11 @@
       <category term="java" scheme="http://tigerliu.site/categories/java/"/>
     
     
-      <category term="java" scheme="http://tigerliu.site/tags/java/"/>
-    
       <category term="String" scheme="http://tigerliu.site/tags/String/"/>
     
       <category term="字符串" scheme="http://tigerliu.site/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    
+      <category term="java" scheme="http://tigerliu.site/tags/java/"/>
     
   </entry>
   
