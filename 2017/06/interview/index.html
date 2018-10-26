@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>那些年我们遇到过的面试问题总结 | Tigerliu Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="写这篇文档主要记录我们常见的一些面试问题，并附上一些答案（仅供参考，部分答案来源网络，文末可留言，一起讨论学习） 本文为笔者所遇到过的一些问题，做个记录备忘！！！本文地址：http://tigerliu.site/2017/06/interview/">
+<meta name="keywords" content="js,javascript,css,前端,面试,常见问题,html,F2E,浏览器,内核">
+<meta property="og:type" content="article">
+<meta property="og:title" content="那些年我们遇到过的面试问题总结">
+<meta property="og:url" content="http://tigerliu.site/2017/06/interview/index.html">
+<meta property="og:site_name" content="Tigerliu Blog">
+<meta property="og:description" content="写这篇文档主要记录我们常见的一些面试问题，并附上一些答案（仅供参考，部分答案来源网络，文末可留言，一起讨论学习） 本文为笔者所遇到过的一些问题，做个记录备忘！！！本文地址：http://tigerliu.site/2017/06/interview/">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-26T03:47:39.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="那些年我们遇到过的面试问题总结">
+<meta name="twitter:description" content="写这篇文档主要记录我们常见的一些面试问题，并附上一些答案（仅供参考，部分答案来源网络，文末可留言，一起讨论学习） 本文为笔者所遇到过的一些问题，做个记录备忘！！！本文地址：http://tigerliu.site/2017/06/interview/">
+  
+    <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Tigerliu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">人生如果无误，铅笔何须橡皮。</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags">标签</a></li>
+                        
+                            <li><a href="/404.html">公益404</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/tiger6" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1827102445" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl segmentfault" target="_blank" href="https://segmentfault.com/u/tiger6" title="segmentfault">segmentfault</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/F2E/" style="font-size: 10px;">F2E</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Blog/" style="font-size: 10px;">Hexo Blog</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/String/" style="font-size: 12.5px;">String</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/comments/" style="font-size: 10px;">comments</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/css优化/" style="font-size: 10px;">css优化</a> <a href="/tags/dva/" style="font-size: 10px;">dva</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/es7/" style="font-size: 10px;">es7</a> <a href="/tags/es8/" style="font-size: 10px;">es8</a> <a href="/tags/es9/" style="font-size: 10px;">es9</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-dns/" style="font-size: 10px;">hexo dns</a> <a href="/tags/hexo-google统计/" style="font-size: 10px;">hexo google统计</a> <a href="/tags/hexo-seo/" style="font-size: 10px;">hexo seo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-yilia/" style="font-size: 10px;">hexo yilia</a> <a href="/tags/hexo-主题/" style="font-size: 10px;">hexo 主题</a> <a href="/tags/hexo-域名/" style="font-size: 10px;">hexo 域名</a> <a href="/tags/hexo-七牛/" style="font-size: 10px;">hexo+七牛</a> <a href="/tags/hexo命令/" style="font-size: 10px;">hexo命令</a> <a href="/tags/hexo百度收录/" style="font-size: 10px;">hexo百度收录</a> <a href="/tags/hexo百度统计/" style="font-size: 10px;">hexo百度统计</a> <a href="/tags/hexo评论/" style="font-size: 10px;">hexo评论</a> <a href="/tags/hexo进阶/" style="font-size: 12.5px;">hexo进阶</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/node/" style="font-size: 10px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/vue/" style="font-size: 15px;">vue</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue2-0/" style="font-size: 15px;">vue2.0</a> <a href="/tags/vue入坑/" style="font-size: 15px;">vue入坑</a> <a href="/tags/vue组件/" style="font-size: 10px;">vue组件</a> <a href="/tags/内核/" style="font-size: 10px;">内核</a> <a href="/tags/前端/" style="font-size: 12.5px;">前端</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客搭建/" style="font-size: 10px;">博客搭建</a> <a href="/tags/友言/" style="font-size: 10px;">友言</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/字符串/" style="font-size: 12.5px;">字符串</a> <a href="/tags/常见问题/" style="font-size: 10px;">常见问题</a> <a href="/tags/来必力/" style="font-size: 10px;">来必力</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/环境搭建/" style="font-size: 12.5px;">环境搭建</a> <a href="/tags/畅言/" style="font-size: 10px;">畅言</a> <a href="/tags/网易云跟帖/" style="font-size: 10px;">网易云跟帖</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">前端工程师一枚，坐标深圳。博客为个人笔记，仅供参考。文章有些许疑问，文末留言。转载请注明出处，谢谢大家。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Tigerliu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Tigerliu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">人生如果无误，铅笔何须橡皮。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags">标签</a></li>
+                
+                    <li><a href="/404.html">公益404</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/tiger6" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1827102445" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="segmentfault" target="_blank" href="https://segmentfault.com/u/tiger6" title="segmentfault">segmentfault</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-interview" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/06/interview/" class="article-date">
+      <time datetime="2017-06-16T03:39:32.000Z" itemprop="datePublished">2017-06-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      那些年我们遇到过的面试问题总结
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/面试/">面试</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/F2E/">F2E</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内核/">内核</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常见问题/">常见问题</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/浏览器/">浏览器</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试/">面试</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>写这篇文档主要记录我们常见的一些面试问题，并附上一些答案（仅供参考，部分答案来源网络，文末可留言，一起讨论学习） 本文为笔者所遇到过的一些问题，做个记录备忘！！！<br>本文地址：<a href="http://tigerliu.site/2017/06/interview/">http://tigerliu.site/2017/06/interview/</a><br><a id="more"></a></p>
+<blockquote>
+<ul>
+<li>CSS篇<ul>
+<li>常见3栏布局方式有几种</li>
+<li>CSS3不定宽高水平垂直居中</li>
+<li>如何解决1px问题</li>
+</ul>
+</li>
+<li>JavaScript篇<ul>
+<li>get/post区别</li>
+<li>为何要使用json格式</li>
+<li>浏览器内核都有那些</li>
+<li>setTimeout/setInterval区别</li>
+<li>npm中dev-save与save的区别</li>
+<li>写一个方法clone; 实现js五种数据类型(string, number, boolean, array, object)的复制</li>
+<li>AMD(requirejs)/CMD(seajs)区别</li>
+</ul>
+</li>
+<li>HTML篇<ul>
+<li>如何禁止微信横屏</li>
+<li>html5除了video/audio还有其他媒体标签？</li>
+<li>video支持的视频格式有那些</li>
+</ul>
+</li>
+<li>浏览器篇<ul>
+<li>浏览器内核都有那些</li>
+<li>IE下是如何兼容HTML5新属性</li>
+<li>localStorage 与cooice 有什么区别</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="CSS篇"><a href="#CSS篇" class="headerlink" title="CSS篇"></a>CSS篇</h2><h3 id="1-常见3栏布局方式有几种"><a href="#1-常见3栏布局方式有几种" class="headerlink" title="1. 常见3栏布局方式有几种"></a>1. 常见3栏布局方式有几种</h3><ul>
+<li><p>绝对定位<br> css:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">position</span>:absolute; <span class="attribute">top</span>:<span class="number">0</span>; <span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">left</span>:<span class="number">0</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">right</span>:<span class="number">0</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p> html:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>margin负值</p>
+<p> css:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">width</span>:<span class="number">100%</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">float</span>:left;&#125;</span><br><span class="line"><span class="selector-id">#main</span> <span class="selector-id">#body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">float</span>:left; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">200px</span>;&#125;</span><br></pre></td></tr></table></figure>
+<p> html:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"body"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自身浮动</p>
+<p> css:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">margin</span>:<span class="number">0</span> <span class="number">210px</span>; <span class="attribute">background</span>:<span class="number">#ffe6b8</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>; <span class="attribute">background</span>:<span class="number">#a0b3d6</span>;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">float</span>:left;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">float</span>:right;&#125;</span><br></pre></td></tr></table></figure>
+<p> html:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>弹性盒子</p>
+<p> css:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">display</span>:flex;<span class="attribute">flex-flow</span>:row wrap;&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">background</span>:<span class="number">#a0b3d6</span>;<span class="attribute">flex</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">background</span>:<span class="number">#ffe6b8</span>;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">flex</span>:<span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+<p> html:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>圣杯布局</p>
+<p> css:</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>:<span class="number">0</span>; <span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">padding</span>:<span class="number">0</span>&#125;</span><br><span class="line"><span class="selector-tag">body</span>&#123;<span class="attribute">padding-left</span>:<span class="number">100px</span>;<span class="attribute">padding-right</span>:<span class="number">200px</span>&#125;</span><br><span class="line"><span class="selector-id">#left</span>,<span class="selector-id">#right</span>&#123;<span class="attribute">position</span>:relative; <span class="attribute">top</span>:<span class="number">0</span>; <span class="attribute">width</span>:<span class="number">200px</span>; <span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">background</span>:<span class="number">#a0b3d6</span>;<span class="attribute">float</span>:left;&#125;</span><br><span class="line"><span class="selector-id">#left</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">100%</span>;<span class="attribute">left</span>:-<span class="number">100px</span>;&#125;</span><br><span class="line"><span class="selector-id">#right</span>&#123;<span class="attribute">margin-left</span>:-<span class="number">200px</span>;<span class="attribute">right</span>:-<span class="number">200px</span>&#125;</span><br><span class="line"><span class="selector-id">#main</span>&#123;<span class="attribute">background</span>:<span class="number">#ffe6b8</span>;<span class="attribute">width</span>:<span class="number">100%</span>;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">float</span>:left&#125;</span><br></pre></td></tr></table></figure>
+<p> html:</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p> 源自：<br><a href="http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%89%E6%A0%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">http://www.zhangxinxu.com/wordpress/2009/11/%E6%88%91%E7%86%9F%E7%9F%A5%E7%9A%84%E4%B8%89%E7%A7%8D%E4%B8%89%E6%A0%8F%E7%BD%91%E9%A1%B5%E5%AE%BD%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E6%96%B9%E6%B3%95/</a><br><a href="https://juejin.im/post/58481bf8ac502e006ce8c361" target="_blank" rel="noopener">https://juejin.im/post/58481bf8ac502e006ce8c361</a></p>
+</blockquote>
+<h3 id="2-CSS3不定宽高水平垂直居中"><a href="#2-CSS3不定宽高水平垂直居中" class="headerlink" title="2. CSS3不定宽高水平垂直居中"></a>2. CSS3不定宽高水平垂直居中</h3><ul>
+<li><p>Flex<br> 1.justify-content:center;//子元素水平居中<br> 2 align-items:center;//子元素垂直居中<br> 3 display:-webkit-flex;<br> 在父级元素上面加上上面3句话，就可以实现子元素水平垂直居中。</p>
+</li>
+<li><p>Transforms<br>div绝对定位水平垂直居中【Transforms 变形】<br> 这是最简单的方法，不近能实现绝对居中同样的效果，也支持联合可变高度方式使用。内容块定义transform: translate(-50%,-50%)  必须加上top: 50%; left: 50%;</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: pink;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line">    <span class="attribute">-ms-transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%,-50%);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-如何解决1px问题"><a href="#3-如何解决1px问题" class="headerlink" title="3. 如何解决1px问题"></a>3. 如何解决1px问题</h3><p>实现1PX边框的方法有很多，各有优缺点，比如通过背景图片实现、通过transform: scale(0.5)实现。本次实现的是通过VIEWPORT+rem实现的，优点是可以自适应已知的各类手机屏幕,且不存在其它方法存在的变颜色困难、圆角阴影失效问题。缺点嘛，这方法适全新项目，如果老项目想用这种方法，改动量估计会比较大</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*transform: scale(0.5)实现代码*/</span></span><br><span class="line"><span class="selector-tag">-webkit-transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">transform-origin</span>: 0 0;</span><br><span class="line"><span class="selector-tag">-webkit-transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scaleY</span>(0<span class="selector-class">.5</span>);</span><br></pre></td></tr></table></figure>
+<p>源自：<a href="http://blog.csdn.net/bbnbf/article/details/51580569" target="_blank" rel="noopener">http://blog.csdn.net/bbnbf/article/details/51580569</a></p>
+<h2 id="JavaScript篇"><a href="#JavaScript篇" class="headerlink" title="JavaScript篇"></a>JavaScript篇</h2><h3 id="1-get-post区别"><a href="#1-get-post区别" class="headerlink" title="1. get/post区别"></a>1. get/post区别</h3><ul>
+<li>get是从服务器上获取数据，post是向服务器传送数据。</li>
+<li>get是把参数数据队列加到提交表单的ACTION属性所指的URL中，值和表单内各个字段一一对应，在URL中可以看到。</li>
+<li>post是通过HTTP post机制，将表单内各个字段与其内容放置在HTML HEADER内一起传送到ACTION属性所指的URL地址。用户看不到这个过程。</li>
+<li>对于get方式，服务器端用Request.QueryString获取变量的值，对于post方式，服务器端用Request.Form获取提交的数据。</li>
+<li>get传送的数据量较小，不能大于2KB。post传送的数据量较大，一般被默认为不受限制。但理论上，IIS4中最大量为80KB，IIS5中为100KB。</li>
+<li>get安全性非常低，post安全性较高。但是执行效率却比Post方法好。 </li>
+</ul>
+<p>建议：</p>
+<ul>
+<li>get方式的安全性较Post方式要差些，包含机密信息的话，建议用Post数据提交方式；</li>
+<li>在做数据查询时，建议用Get方式；而在做数据添加、修改或删除时，建议用Post方式；</li>
+</ul>
+<h3 id="2-为何要使用json格式"><a href="#2-为何要使用json格式" class="headerlink" title="2. 为何要使用json格式"></a>2. 为何要使用json格式</h3><ul>
+<li><p>方便于传输，较少冗余的字符。当然直接传二进制是最好的，但面临难解析的问题。亦可以是xml、纯字符串的方式，但json有其独到的好处。google有个自己的协议，叫protobuf，有兴趣可了解一下。</p>
+</li>
+<li><p>方便转换。有很多的json api提供了json字符串转成对象、对象转换成json串的方法。</p>
+</li>
+<li>易于阅读。json代码的良好结构，可以很直观地了解存的是什么内容。</li>
+</ul>
+<h3 id="3-浏览器内核都有那些"><a href="#3-浏览器内核都有那些" class="headerlink" title="3. 浏览器内核都有那些"></a>3. 浏览器内核都有那些</h3><p> Trident内核代表产品Internet Explorer，又称其为IE内核<br>Gecko内核代表作品Mozilla FirefoxGecko是一套开放源代码的 FF内核<br>WebKit内核代表作品Safari、Chromewebkit 是一个开源项目 safari/chrome<br>Presto内核代表作品OperaPresto opera内核</p>
+<h3 id="4-setTimeout-setInterval区别"><a href="#4-setTimeout-setInterval区别" class="headerlink" title="4. setTimeout/setInterval区别"></a>4. setTimeout/setInterval区别</h3><ul>
+<li><p>setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式。setTimeout() 只执行 code 一次</p>
+</li>
+<li><p>setInterval() 方法可按照指定的周期（以毫秒计）来调用函数或计算表达式。 setInterval()<br>方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作<br>clearInterval() 方法的参数。</p>
+</li>
+</ul>
+<h3 id="5-npm中dev-save与save的区别"><a href="#5-npm中dev-save与save的区别" class="headerlink" title="5. npm中dev-save与save的区别"></a>5. npm中dev-save与save的区别</h3><ul>
+<li><p>dev-save:放在package.json的devDependencies里面 开发环境用devDep</p>
+</li>
+<li><p>save:一个放在package.json 的dependencies  生产环境用dependencies</p>
+</li>
+</ul>
+<h3 id="6-写一个方法clone-实现js五种数据类型-string-number-boolean-array-object-的复制"><a href="#6-写一个方法clone-实现js五种数据类型-string-number-boolean-array-object-的复制" class="headerlink" title="6. 写一个方法clone; 实现js五种数据类型(string, number, boolean, array, object)的复制"></a>6. 写一个方法clone; 实现js五种数据类型(string, number, boolean, array, object)的复制</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">Obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> buf;</span><br><span class="line">	<span class="keyword">if</span>(Obj <span class="keyword">instanceof</span> <span class="built_in">Array</span>)&#123;  <span class="comment">//数组</span></span><br><span class="line">		buf=[];</span><br><span class="line">		<span class="keyword">var</span> i=Obj.length;</span><br><span class="line">		<span class="keyword">while</span>(i--)&#123;</span><br><span class="line">			buf[i]=clone(Obj[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> buf;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(Obj <span class="keyword">instanceof</span> <span class="built_in">Object</span>)&#123;  <span class="comment">//对象类型</span></span><br><span class="line">		buf=&#123;&#125;;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> Obj)&#123;</span><br><span class="line">			buf[k]=clone(Obj[k]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> buf;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;  <span class="comment">//普通变量</span></span><br><span class="line">		<span class="keyword">return</span> Obj;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//test	</span></span><br><span class="line"><span class="built_in">console</span>.log(clone(<span class="literal">true</span>));</span><br><span class="line"><span class="built_in">console</span>.log(clone(<span class="number">12</span>));</span><br><span class="line"><span class="built_in">console</span>.log(clone(<span class="string">'abc'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(clone(<span class="literal">null</span>));</span><br><span class="line"><span class="built_in">console</span>.log(clone([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]));</span><br><span class="line"><span class="built_in">console</span>.log(clone(&#123;<span class="attr">name</span>:<span class="string">'zh'</span>,<span class="attr">age</span>:<span class="string">'18'</span>&#125;));</span><br></pre></td></tr></table></figure>
+<h3 id="7-AMD-requirejs-CMD-seajs-区别"><a href="#7-AMD-requirejs-CMD-seajs-区别" class="headerlink" title="7. AMD(requirejs)/CMD(seajs)区别"></a>7. AMD(requirejs)/CMD(seajs)区别</h3><ul>
+<li>对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0<br>开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.</li>
+<li>AMD 推崇依赖前置,CMD 推崇依赖就近。</li>
+<li>AMD 的 API 默认是一个当多个用，CMD 的 API 严格区分，推崇职责单一。<br>比如 AMD 里，require 分全局 require 和局部 require，都叫 require。<br>CMD 里，没有全局 require，而是根据模块系统的完备性，提供 seajs.use 来实现模块系统的加载启动。CMD 里，每个 API 都简单纯粹</li>
+</ul>
+<h2 id="HTML篇"><a href="#HTML篇" class="headerlink" title="HTML篇"></a>HTML篇</h2><h3 id="1-如何禁止微信横屏"><a href="#1-如何禁止微信横屏" class="headerlink" title="1.如何禁止微信横屏"></a>1.如何禁止微信横屏</h3><ul>
+<li>通过js或者html5来设置，不让手机页面横屏</li>
+<li>使用QQ浏览器私有meta属性<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- QQ浏览器私有属性：强制竖屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>微信应该不是调用的QQ浏览器，所以不知道有没有效，没见过能限制微信竖屏浏览的代码</p>
+<h3 id="2-html5除了video-audio还有其他媒体标签？"><a href="#2-html5除了video-audio还有其他媒体标签？" class="headerlink" title="2. html5除了video/audio还有其他媒体标签？"></a>2. html5除了video/audio还有其他媒体标签？</h3><pre><code>&lt;video&gt;  标记定义一个视频
+&lt;audio&gt;  标记定义音频内容
+&lt;source&gt; 标记定义媒体资源
+&lt;canvas&gt; 标记定义图片
+&lt;embed&gt;  标记定义外部的可交互的内容或插件 比如flash
+</code></pre><h3 id="3-video支持的视频格式有那些"><a href="#3-video支持的视频格式有那些" class="headerlink" title="3. video支持的视频格式有那些"></a>3. video支持的视频格式有那些</h3><p>  一共支持三种格式： Ogg、MPEG4、WebM。但这三种格式对于浏览器的兼容性却各不同。<br> 注释：Internet Explorer 8 以及更早的版本不支持 &lt;video&gt;标签。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式 IE Firefox Opera Chrome Safari</span><br><span class="line">Ogg No 3.5+ 10.5+ 5.0+ No</span><br><span class="line">MPEG4 9.0+ No No 5.0+ 3.0+</span><br><span class="line">WebM No 4.0+ 10.6+ 6.0+ No</span><br></pre></td></tr></table></figure>
+<h2 id="浏览器篇"><a href="#浏览器篇" class="headerlink" title="浏览器篇"></a>浏览器篇</h2><h3 id="1-浏览器内核都有那些"><a href="#1-浏览器内核都有那些" class="headerlink" title="1. 浏览器内核都有那些"></a>1. 浏览器内核都有那些</h3><p> Trident内核代表产品Internet Explorer，又称其为IE内核<br> Gecko内核代表作品Mozilla FirefoxGecko是一套开放源代码的 FF内核<br> WebKit内核代表作品Safari、Chromewebkit 是一个开源项目 safari/chrome<br> Presto内核代表作品OperaPresto opera内核</p>
+<h3 id="2-IE下是如何兼容HTML5新属性"><a href="#2-IE下是如何兼容HTML5新属性" class="headerlink" title="2. IE下是如何兼容HTML5新属性"></a>2. IE下是如何兼容HTML5新属性</h3><ul>
+<li><p>Coding JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> lt IE9]&gt; </span><br><span class="line">&lt;script&gt; </span><br><span class="line">   (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (! </span><br><span class="line">     <span class="comment">/*@cc_on!@*/</span></span><br><span class="line">     <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">     <span class="keyword">var</span> e = <span class="string">"abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video"</span>.split(<span class="string">', '</span>);</span><br><span class="line">     <span class="keyword">var</span> i= e.length;</span><br><span class="line">     <span class="keyword">while</span> (i--)&#123;</span><br><span class="line">         <span class="built_in">document</span>.createElement(e[i])</span><br><span class="line">     &#125; </span><br><span class="line">&#125;)() </span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用Google的html5shiv包（推荐）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE9]&gt; </span></span><br><span class="line"><span class="comment">&lt;script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>但是不管使用以上哪种方法,都要初始化新标签的CSS.因为HTML5在默认情况下表现为内联元素，对这些元素进行布局我们需要利用CSS手工把它们转为块状元素方便布局<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*html5*/</span></span><br><span class="line"><span class="selector-tag">article</span>,<span class="selector-tag">aside</span>,<span class="selector-tag">dialog</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">header</span>,<span class="selector-tag">section</span>,<span class="selector-tag">footer</span>,<span class="selector-tag">nav</span>,<span class="selector-tag">figure</span>,<span class="selector-tag">menu</span>&#123;<span class="attribute">display</span>:block&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是如果ie6/7/8 禁用脚本的用户,那么就变成了无样式的”白板”网页,我们该怎么解决呢?<br>我们可以参照facebook的做法，即引导用户进入带有noscript标识的 “/?_fb_noscript=1”页面，用 html4 标签替换 html5 标签，这要比为了保持兼容性而写大量 hack 的做法更轻便一些。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--[<span class="keyword">if</span> lte IE <span class="number">8</span>]&gt; </span><br><span class="line">&lt;noscript&gt;</span><br><span class="line">     &lt;style&gt;.html5-wrappers&#123;<span class="attr">display</span>:none!important;&#125;&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">     &lt;div class="ie-noscript-warning"&gt;您的浏览器禁用了脚本，请&lt;a href=""&gt;查看这里&lt;/</span>a&gt;来启用脚本!或者&lt;a href=<span class="string">"/?noscript=1"</span>&gt;继续访问&lt;<span class="regexp">/a&gt;.</span></span><br><span class="line"><span class="regexp">     &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/noscript&gt;</span></span><br><span class="line"><span class="regexp">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>这样可以引导用户开启脚本,或者直接跳转到HTML4标签设计的界面。</p>
+<blockquote>
+<p>来自：<a href="http://www.cnblogs.com/Capricornus/archive/2013/03/26/2982122.html" target="_blank" rel="noopener">http://www.cnblogs.com/Capricornus/archive/2013/03/26/2982122.html</a></p>
+</blockquote>
+<h3 id="3-localStorage-与cooice-有什么区别"><a href="#3-localStorage-与cooice-有什么区别" class="headerlink" title="3. localStorage 与cooice 有什么区别"></a>3. localStorage 与cooice 有什么区别</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th style="text-align:left">Cookie</th>
+<th style="text-align:left">localStorage</th>
+<th style="text-align:left">sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据的生命期</td>
+<td style="text-align:left">一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
+<td style="text-align:left">除非被清除，否则永久保存</td>
+<td style="text-align:left">仅在当前会话下有效，关闭页面或浏览器后被清除</td>
+</tr>
+<tr>
+<td>存放数据大小</td>
+<td style="text-align:left">4K左右</td>
+<td style="text-align:left">一般为5MB</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td>与服务器端通信</td>
+<td style="text-align:left">每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
+<td style="text-align:left">仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td style="text-align:left">需要程序员自己封装，源生的Cookie接口不友好</td>
+<td style="text-align:left">源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
+<td style="text-align:left">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫">
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝"></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信"></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/06/interview/">那些年我们遇到过的面试问题总结</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
+        <p><span>发布时间:</span>2017年06月16日 - 11时39分</p>
+        <p><span>最后更新:</span>2018年10月26日 - 11时47分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/06/interview/" title="那些年我们遇到过的面试问题总结">http://tigerliu.site/2017/06/interview/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2017/06/interview/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/06/linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Linux常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/Hexo-github/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo的那些事儿</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS篇"><span class="toc-number">1.</span> <span class="toc-text">CSS篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-常见3栏布局方式有几种"><span class="toc-number">1.1.</span> <span class="toc-text">1. 常见3栏布局方式有几种</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CSS3不定宽高水平垂直居中"><span class="toc-number">1.2.</span> <span class="toc-text">2. CSS3不定宽高水平垂直居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-如何解决1px问题"><span class="toc-number">1.3.</span> <span class="toc-text">3. 如何解决1px问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript篇"><span class="toc-number">2.</span> <span class="toc-text">JavaScript篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-get-post区别"><span class="toc-number">2.1.</span> <span class="toc-text">1. get/post区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-为何要使用json格式"><span class="toc-number">2.2.</span> <span class="toc-text">2. 为何要使用json格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-浏览器内核都有那些"><span class="toc-number">2.3.</span> <span class="toc-text">3. 浏览器内核都有那些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-setTimeout-setInterval区别"><span class="toc-number">2.4.</span> <span class="toc-text">4. setTimeout/setInterval区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-npm中dev-save与save的区别"><span class="toc-number">2.5.</span> <span class="toc-text">5. npm中dev-save与save的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-写一个方法clone-实现js五种数据类型-string-number-boolean-array-object-的复制"><span class="toc-number">2.6.</span> <span class="toc-text">6. 写一个方法clone; 实现js五种数据类型(string, number, boolean, array, object)的复制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-AMD-requirejs-CMD-seajs-区别"><span class="toc-number">2.7.</span> <span class="toc-text">7. AMD(requirejs)/CMD(seajs)区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML篇"><span class="toc-number">3.</span> <span class="toc-text">HTML篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-如何禁止微信横屏"><span class="toc-number">3.1.</span> <span class="toc-text">1.如何禁止微信横屏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-html5除了video-audio还有其他媒体标签？"><span class="toc-number">3.2.</span> <span class="toc-text">2. html5除了video/audio还有其他媒体标签？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-video支持的视频格式有那些"><span class="toc-number">3.3.</span> <span class="toc-text">3. video支持的视频格式有那些</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器篇"><span class="toc-number">4.</span> <span class="toc-text">浏览器篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-浏览器内核都有那些"><span class="toc-number">4.1.</span> <span class="toc-text">1. 浏览器内核都有那些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-IE下是如何兼容HTML5新属性"><span class="toc-number">4.2.</span> <span class="toc-text">2. IE下是如何兼容HTML5新属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-localStorage-与cooice-有什么区别"><span class="toc-number">4.3.</span> <span class="toc-text">3. localStorage 与cooice 有什么区别</span></a></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+      <!--PC和WAP自适应版-->
+<div id="SOHUCS" class="cy-box"></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = "cyt7jw4dO"; 
+var conf = "670c68e1272c450a9c32e96abdaacf03"; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/06/linux/" title="上一篇: Linux常用命令">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/06/Hexo-github/" title="下一篇: Hexo的那些事儿">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/10/sublime-1/">Sublime 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/Git-1/">Git 二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/vue2-k/">VUE使用中遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/css/">优雅的写CSS样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/es8/">ES8新特性整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/vue2-2/">Vue2.0最全入坑指南(组件初识篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/vue2-1/">Vue2.0最全入坑指南(配置篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/hexo-3/">Hexo进阶高级教程（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/dva/">初探基于React+Redux前端应用框架Dva</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/vue2/">Vue2.0最全入坑指南(初识篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/node/">Node本地环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/string2/">常见字符串拼接方式(JAVA篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/string1/">常见字符串拼接方式(JS篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/hexo-2/">Hexo进阶高级教程（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/hexo-1/">Hexo进阶高级教程(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/json/">深入理解JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/linux/">Linux常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/interview/">那些年我们遇到过的面试问题总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/Hexo-github/">Hexo的那些事儿</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Tigerliu
+            </div>
+            <div class="footer-right">
+                <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow">Coding Pages</a></p>
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">用户到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 22;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9758eb7262d2dc9c4853675d4fe1bb60";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    (function () {
+        'use strict';
+
+        function getMatchData(keyword, data) {
+            var matchData = [];
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].title.toLowerCase().indexOf(keyword) >= 0)
+                    matchData.push(data[i])
+            }
+            return matchData;
+        }
+        var $input = $('#local-search-input');
+        var $resultContent = $('#local-search-result');
+        $input.keyup(function () {
+            $.ajax({
+                url: '/content.json',
+                dataType: "json",
+                success: function (json) {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keyword = $input.val().trim().toLowerCase();
+                    $resultContent.innerHTML = "";
+                    if ($input.val().trim().length <= 0) {
+                        $resultContent.empty();
+                        $('#switch-area').show();
+                        return;
+                    }
+                    var results = getMatchData(keyword, json);
+                    if (results.length === 0) {
+                        $resultContent.empty();
+                        $('#switch-area').show();
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        str += "<li><a href='/" + results[i].path +
+                            "' class='search-result-title'>" + results[i].title + "</a></li>";
+                    }
+                    str += "</ul>";
+                    $resultContent.empty();
+                    $resultContent.append(str);
+                    $('#switch-area').hide();
+                }
+            });
+        });
+    })();
+</script>
+
+  </div>
+</body>
+</html>
