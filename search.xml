@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[vue history模式在nginx下404的解决方案]]></title>
+    <url>%2F2018%2F10%2Fvue-history%2F</url>
+    <content type="text"><![CDATA[前言众所周知vue默认的路由为hash模式，在URL上面会带一个#号，然而某些时候并不是我们想要的。如何去掉#号？去掉#号后的一些问题如何处理？下面我们简单探讨下这块内容。 使用history模式如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。 修改路由模式 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 修改config/index.js config/index.js中build下的assetsPublicPath从’./‘改成’/‘ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 在nginx下的配置 Apache 12345678 &lt;IfModule mod_rewrite.c&gt; RewriteEngine On RewriteBase / RewriteRule ^index\.html$ - [L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-f RewriteCond %&#123;REQUEST_FILENAME&#125; !-d RewriteRule . /index.html [L]&lt;/IfModule&gt; 除了 mod_rewrite，你也可以使用 FallbackResource nginx 123 location / &#123; try_files $uri $uri/ /index.html;&#125; 原生 Node.js 12345678910111213141516171819const http = require('http') const fs = require('fs') const httpPort = 80 http.createServer((req, res) =&gt; &#123; fs.readFile('index.htm', 'utf-8', (err, content) =&gt; &#123; if (err) &#123; console.log('We cannot open "index.htm" file.') &#125; res.writeHead(200, &#123; 'Content-Type': 'text/html; charset=utf-8' &#125;) res.end(content) &#125;) &#125;).listen(httpPort, () =&gt; &#123; console.log('Server listening on: http://localhost:%s', httpPort) &#125;) 详细配置见官方配置 404的解决方案第一种方式见上面–在nginx下的配置，还是贴一下： 123location / &#123; try_files $uri $uri/ /index.html;&#125; 第二招，逻辑类似 12345678location / &#123; root /data/nginx/html; index index.html index.htm; if (!-e $request_filename) &#123; rewrite ^/(.*) /index.html last; break; &#125; &#125; 第三式,直接转发到index.html 12345location / &#123; root /data/nginx/html; index index.html index.htm; error_page 404 /index.html; &#125; 第四招，类似第二招12345678 location / &#123; root html; try_files $uri $uri/ @router; index index.html index.htm;&#125;location @router &#123; rewrite ^.*$ /index.html last;&#125; Uncaught SyntaxError: Unexpected token &lt;错误配置好了刷新后一片空白？打开控制台一看什么鬼，Uncaught SyntaxError: Unexpected token &lt;错误？貌似是JS的错误，下面我们逐一排查。 错误排查 检查配置有没有问题： 检查config/index.js中build下的assetsPublicPath是否正确？ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 检查模式是否为history 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 检查路由路径你的子路径需要加上去，给每一个component加上name，例如：12345678910111213141516171819const router = new Router(&#123; mode: 'history', routes: [ &#123; path: '/', component: Index, name: 'index', redirect: '/home', children: [&#123; path: 'home', //这里会不会有问题？ component: Home &#125;, &#123; path: 'goodsDetails', //子路径需要配完整，应该是/home/goodsDetails component: goodsDetails &#125;, &#125; ] &#125;) 以上都检查完，打包重新部署看看 修复问题如果还有问题，试试下面的配置，其实js、css、png文件我们不需要转到index.html12345location / &#123; root html; rewrite ^.+(?&lt;!js|css|png|map)$ /index.html break; index index.html index.htm;&#125; 结语遇到问题，先分析下具体的原因，一步一步排查，总归还是有解决办法的。出现404，空白页，JS问题，总觉得是我们前端哪儿有问题，排查完才发现是配置问题，以上几招供大家参考，能解决问题的方法就是好方法！]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+        <tag>node</tag>
+        <tag>history</tag>
+        <tag>nginx</tag>
+        <tag>tomcat</tag>
+        <tag>生产环境</tag>
+        <tag>hash</tag>
+        <tag>router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用前端方式挑战 Chrome 小恐龙游戏高分]]></title>
     <url>%2F2018%2F10%2Fdinosaur%2F</url>
     <content type="text"><![CDATA[前言今天看论坛发现有人发帖说 Chrome周年庆祝 在“小恐龙”游戏中埋入了新的菜单，可以触碰的 蛋糕 以及触碰之后获得的 生日帽。看到现在“小恐龙”这个彩蛋的改进，往事历历在目。但是很快，帖子中有人晒高分引起了我的注意：这个游戏虽说简单，但是在分数达到一定程度后，加速度会让玩家很难继续游戏。记得很早之前在机场玩过这个游戏，记忆中获取三千以上的分数还是挺困难的，更别提八千分，所以我这里推测这个玩家应该是有一些“特别的技巧”。 在游戏中取得令人叹为观止的高分，一般来说无非三种手段： 练习：勤学苦练，熟能生巧，加上极致的耐心。 工具：使用一些辅助设施来模拟人的操作。 外挂：针对难度或者得分倍数进行改造或者直接对结果进行修改、甚至破坏游戏规则。 第一种方式我们暂且略过，后面如果实在闲，再进行尝试，我们直接开始后面两种方案的尝试。 编写辅助工具 网上有个老外曾经编写过一个根据判断X轴方向小恐龙和前面物品距离进行自动跳跃的程序，在稍加改造后，将下面的代码贴到控制台中，即可完成小恐龙自动奔跑的神操作。 这里添加了代码避免小恐龙跳过蛋糕、避而不吃，以及调整了对障碍物需要跳跃的高度判断，防止小恐龙看到低飞的鸟儿迎面而上，当然，还有能够在代码执行后，自动开始游戏。 为了你能够在移动端的复制便捷，这里提供了压缩版的代码1function TrexRunnerBot()&#123;function f()&#123;Runner().onKeyDown(d);setTimeout(function()&#123;Runner().onKeyUp(d)&#125;,500)&#125;var b=function(a)&#123;return&#123;keyCode:a,preventDefault:function()&#123;&#125;&#125;&#125;,c=b(38),d=b(40),e=b(32);Runner().playing||(Runner().onKeyDown(e),setTimeout(function()&#123;Runner().onKeyUp(e)&#125;,500));return&#123;conquerTheGame:function()&#123;if(Runner&amp;&amp;Runner().horizon.obstacles[0])&#123;var a=Runner().horizon.obstacles[0];if((!a.typeConfig||"SNACK"!==a.typeConfig.type)&amp;&amp;50!==a.yPos&amp;&amp;a.xPos&lt;=18*Runner().currentSpeed)if(50=== a.yPos)f();else&#123;var b=Runner().horizon.obstacles[1];if(b&amp;&amp;b.xPos-a.xPos&lt;=42*Runner().currentSpeed)Runner().onKeyDown(c),Runner().onKeyUp(c);else Runner().onKeyDown(c)&#125;&#125;&#125;&#125;&#125;var bot=TrexRunnerBot(),botInterval=setInterval(bot.conquerTheGame,2); 如果你想在桌面端浏览器游玩小恐龙游戏，除了断网的操作外，还可以直接访问 chrome://dino/ 这个地址。 如果你想在手机上体验小恐龙自动奔跑，请参考下面的操作： 飞行模式后打开 Chrome ，然后访问任意页面，呼出小恐龙界面。 将上面的代码粘贴到地址栏。 在地址栏前手动加上 javascript: ，然后确认。 你的小恐龙就自个去浪了，不过这里你获取分数的速度依然和正常游玩的玩家是一样的，小恐龙走一步记一分。 那么，接下来我们换个套路。 改写计分逻辑与其说改写，不如说“劫持”。 ES5 有一个很古老的 API， Object.defineProperty()，借助这个 API，我们能够轻易的修改现有对象上的属性，配合重新定义对象具体内容的 getter、setter描述符，可以做到对于属性的劫持操作，是不是很眼熟？没错，这个方案也是老生常谈的 MVVM 框架的双向数据绑定的实现方案之一。 1var hackScore=0;Object.defineProperty(Runner.instance_,"distanceRan",&#123;get:function()&#123;return hackScore&#125;,set:function(a)&#123;return hackScore=a+Math.floor(1E3*Math.random())&#125;,configurable:!0,enumerable:!0&#125;); 将上面代码执行之后，再次运行程序，你会发现你获取分数的速度提升了一千倍。 如果你将第一个方案和这个方案的代码结合，会获得一个能够自动奔跑获得高分的“智能小恐龙”。 不过因为我们的“外挂”是基于计时器进行距离计算并模拟用户操作的，当你获得很高很高的分数之后，障碍物推进速度过快，一旦你进行窗口的来回切换，游戏进行暂停和游玩的状态切换，很大概率上“外挂”操作会延时，导致GAME OVER。 如何能避免这个事情呢，我们来讲讲第三个套路。 破坏规则大法如果说第一个方案起码还有付出时间成本，模拟玩家操作一步一步按部就班的获取分数；第二个方案偷天换日，一步当一千步使；那么接下来的方案就显得十分无耻了。1Runner.instance_.gameOver=function()&#123;&#125;; 下面代码在执行之后，会清空游戏的中断逻辑，配合第二个方案的快速获得分数的代码，你可以得到一只拥有穿越障碍物能力的小恐龙：勇往无前，永不停歇，分数不停的增长，直到报错。 结语相关代码见 GitHub上，有兴趣的同学也可以访问，以了解更多内容。 原文链接]]></content>
@@ -194,9 +212,9 @@
         <category>java</category>
       </categories>
       <tags>
+        <tag>java</tag>
         <tag>String</tag>
         <tag>字符串</tag>
-        <tag>java</tag>
       </tags>
   </entry>
   <entry>
