@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[vue history模式在nginx下404的解决方案]]></title>
+    <title><![CDATA[vue history模式在nginx下错误的解决方案]]></title>
     <url>%2F2018%2F10%2Fvue-history%2F</url>
     <content type="text"><![CDATA[前言众所周知vue默认的路由为hash模式，在URL上面会带一个#号，然而某些时候并不是我们想要的。如何去掉#号？去掉#号后的一些问题如何处理？下面我们简单探讨下这块内容。 使用history模式如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。 修改路由模式 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 修改config/index.js config/index.js中build下的assetsPublicPath从’./‘改成’/‘ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 在nginx下的配置 Apache 12345678 &lt;IfModule mod_rewrite.c&gt; RewriteEngine On RewriteBase / RewriteRule ^index\.html$ - [L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-f RewriteCond %&#123;REQUEST_FILENAME&#125; !-d RewriteRule . /index.html [L]&lt;/IfModule&gt; 除了 mod_rewrite，你也可以使用 FallbackResource nginx 123 location / &#123; try_files $uri $uri/ /index.html;&#125; 原生 Node.js 12345678910111213141516171819const http = require('http') const fs = require('fs') const httpPort = 80 http.createServer((req, res) =&gt; &#123; fs.readFile('index.htm', 'utf-8', (err, content) =&gt; &#123; if (err) &#123; console.log('We cannot open "index.htm" file.') &#125; res.writeHead(200, &#123; 'Content-Type': 'text/html; charset=utf-8' &#125;) res.end(content) &#125;) &#125;).listen(httpPort, () =&gt; &#123; console.log('Server listening on: http://localhost:%s', httpPort) &#125;) 详细配置见官方配置 404的解决方案第一种方式见上面–在nginx下的配置，还是贴一下： 123location / &#123; try_files $uri $uri/ /index.html;&#125; 第二招，逻辑类似 12345678location / &#123; root /data/nginx/html; index index.html index.htm; if (!-e $request_filename) &#123; rewrite ^/(.*) /index.html last; break; &#125; &#125; 第三式,直接转发到index.html 12345location / &#123; root /data/nginx/html; index index.html index.htm; error_page 404 /index.html; &#125; 第四招，类似第二招12345678 location / &#123; root html; try_files $uri $uri/ @router; index index.html index.htm;&#125;location @router &#123; rewrite ^.*$ /index.html last;&#125; Uncaught SyntaxError: Unexpected token &lt;错误配置好了刷新后一片空白？打开控制台一看什么鬼，Uncaught SyntaxError: Unexpected token &lt;错误？貌似是JS的错误，下面我们逐一排查。 错误排查 检查配置有没有问题： 检查config/index.js中build下的assetsPublicPath是否正确？ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 检查模式是否为history 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 检查路由路径你的子路径需要加上去，给每一个component加上name，例如：12345678910111213141516171819const router = new Router(&#123; mode: 'history', routes: [ &#123; path: '/', component: Index, name: 'index', redirect: '/home', children: [&#123; path: 'home', //这里会不会有问题？ component: Home &#125;, &#123; path: 'goodsDetails', //子路径需要配完整，应该是/home/goodsDetails component: goodsDetails &#125;, &#125; ] &#125;) 以上都检查完，打包重新部署看看 修复问题如果还有问题，试试下面的配置，其实js、css、png文件我们不需要转到index.html12345location / &#123; root html; rewrite ^.+(?&lt;!js|css|png|map)$ /index.html break; index index.html index.htm;&#125; 结语遇到问题，先分析下具体的原因，一步一步排查，总归还是有解决办法的。出现404，空白页，JS问题，总觉得是我们前端哪儿有问题，排查完才发现是配置问题，以上几招供大家参考，能解决问题的方法就是好方法！]]></content>
       <categories>
@@ -16,6 +16,9 @@
         <tag>生产环境</tag>
         <tag>hash</tag>
         <tag>router</tag>
+        <tag>404</tag>
+        <tag>token</tag>
+        <tag>SyntaxError</tag>
       </tags>
   </entry>
   <entry>
@@ -212,9 +215,9 @@
         <category>java</category>
       </categories>
       <tags>
-        <tag>java</tag>
         <tag>String</tag>
         <tag>字符串</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
