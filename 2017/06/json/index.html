@@ -5,23 +5,23 @@
   
   <title>深入理解JSON | Tigerliu Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http://t">
+  <meta name="description" content="什么是 JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c 制定的 js 规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http">
 <meta name="keywords" content="js,javascript,json,jsonp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入理解JSON">
 <meta property="og:url" content="http://tigerliu.site/2017/06/json/index.html">
 <meta property="og:site_name" content="Tigerliu Blog">
-<meta property="og:description" content="什么是JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http://t">
+<meta property="og:description" content="什么是 JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c 制定的 js 规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-20/60629167.jpg-img_small_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-20/43652522.jpg-img_small">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-20/3166222.jpg-img_small">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-20/73434649.jpg-img_small_white">
-<meta property="og:updated_time" content="2018-10-26T03:47:39.439Z">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/60629167.jpg?x-oss-process=style/img_small_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/43652522.jpg?x-oss-process=style/img_small">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/3166222.jpg?x-oss-process=style/img_small">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/73434649.jpg?x-oss-process=style/img_small_white">
+<meta property="og:updated_time" content="2018-11-05T09:35:29.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解JSON">
-<meta name="twitter:description" content="什么是JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http://t">
-<meta name="twitter:image" content="http://orkta94wi.bkt.clouddn.com/17-6-20/60629167.jpg-img_small_white">
+<meta name="twitter:description" content="什么是 JSONJSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c 制定的 js 规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。本文地址：http">
+<meta name="twitter:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/60629167.jpg?x-oss-process=style/img_small_white">
   
     <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
   
@@ -259,22 +259,23 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="什么是JSON"><a href="#什么是JSON" class="headerlink" title="什么是JSON"></a>什么是JSON</h2><p>JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c制定的js规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。<br>本文地址：<a href="http://tigerliu.site/2017/06/json/">http://tigerliu.site/2017/06/json/</a><br><a id="more"></a></p>
+        <h2 id="什么是-JSON"><a href="#什么是-JSON" class="headerlink" title="什么是 JSON"></a>什么是 JSON</h2><p>JSON(JavaScript Object Notation, JS 对象标记) 是一种轻量级的数据交换格式。它基于 ECMAScript (w3c 制定的 js 规范)的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。简洁和清晰的层次结构使得 JSON 成为理想的数据交换语言。 易于人阅读和编写，同时也易于机器解析和生成，并有效地提升网络传输效率。<br>本文地址：<a href="http://tigerliu.site/2017/06/json/">http://tigerliu.site/2017/06/json/</a></p>
+<a id="more"></a>
 <blockquote>
 <ul>
-<li>JSON与JS对象的区别</li>
+<li>JSON 与 JS 对象的区别</li>
 <li>JSON.stringify()</li>
 <li>JSON.parse()</li>
-<li>JSON.stringify() –&gt;toJSON的使用</li>
+<li>JSON.stringify() –&gt;toJSON 的使用</li>
 </ul>
 </blockquote>
-<h3 id="1-JSON与JS对象的区别"><a href="#1-JSON与JS对象的区别" class="headerlink" title="1. JSON与JS对象的区别"></a>1. JSON与JS对象的区别</h3><p>JSON是可以传输的，因为它是文本格式，但是JS对象是没办法传输的，在语法上，JSON也会更加严格，但是JS对象就很松了</p>
+<h3 id="1-JSON-与-JS-对象的区别"><a href="#1-JSON-与-JS-对象的区别" class="headerlink" title="1. JSON 与 JS 对象的区别"></a>1. JSON 与 JS 对象的区别</h3><p>JSON 是可以传输的，因为它是文本格式，但是 JS 对象是没办法传输的，在语法上，JSON 也会更加严格，但是 JS 对象就很松了</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">对比内容</th>
 <th style="text-align:left">JSON</th>
-<th style="text-align:left">JS对象</th>
+<th style="text-align:left">JS 对象</th>
 </tr>
 </thead>
 <tbody>
@@ -285,7 +286,7 @@
 </tr>
 <tr>
 <td style="text-align:left">属性值</td>
-<td style="text-align:left">只能是数值（10进制）、字符串（双引号）、布尔值和null,也可以是数组或者符合JSON要求的对象，不能是函数、NaN,Infinity,-Infinity和undefined</td>
+<td style="text-align:left">只能是数值（10 进制）、字符串（双引号）、布尔值和 null,也可以是数组或者符合 JSON 要求的对象，不能是函数、NaN,Infinity,-Infinity 和 undefined</td>
 <td style="text-align:left">爱啥啥</td>
 </tr>
 <tr>
@@ -295,21 +296,22 @@
 </tr>
 <tr>
 <td style="text-align:left">数值</td>
-<td style="text-align:left">前导0不能用，小数点后必须有数字</td>
+<td style="text-align:left">前导 0 不能用，小数点后必须有数字</td>
 <td style="text-align:left">没限制</td>
 </tr>
 </tbody>
 </table>
-<p>json不是JS的子集<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> code = <span class="string">'"\u2028\u2029"'</span>;  </span><br><span class="line"><span class="built_in">JSON</span>.parse(code); <span class="comment">// works fine  </span></span><br><span class="line"><span class="built_in">eval</span>(code); <span class="comment">// fails</span></span><br></pre></td></tr></table></figure></p>
-<p>这两个字符\u2028和\u2029分别表示行分隔符和段落分隔符，JSON.parse可以正常解析，但是当做js解析时会报错</p>
+<p>json 不是 JS 的子集</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> code = <span class="string">'"\u2028\u2029"'</span>;</span><br><span class="line"><span class="built_in">JSON</span>.parse(code); <span class="comment">// works fine</span></span><br><span class="line"><span class="built_in">eval</span>(code); <span class="comment">// fails</span></span><br></pre></td></tr></table></figure>
+<p>这两个字符\u2028 和\u2029 分别表示行分隔符和段落分隔符，JSON.parse 可以正常解析，但是当做 js 解析时会报错</p>
 <h3 id="2-JSON-stringify"><a href="#2-JSON-stringify" class="headerlink" title="2. JSON.stringify()"></a>2. JSON.stringify()</h3><blockquote>
 <p>规则：<code>JSON.stringify(value[, replacer [, space]])</code></p>
 </blockquote>
 <ul>
 <li>第二个参数可以是函数，也可以是一个数组</li>
 <li>如果第二个参数是一个函数，那么序列化过程中的每个属性都会被这个函数转化和处理</li>
-<li>如果第二个参数是一个数组，那么只有包含在这个数组中的属性才会被序列化到最终的JSON字符串中</li>
-<li>如果第二个参数是null，那作用上和空着没啥区别，但是不想设置第二个参数，只是想设置第三个参数的时候，就可以设置第二个参数为null<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-20/60629167.jpg-img_small_white" alt="http://orkta94wi.bkt.clouddn.com/17-6-20/60629167.jpg"></li>
+<li>如果第二个参数是一个数组，那么只有包含在这个数组中的属性才会被序列化到最终的 JSON 字符串中</li>
+<li>如果第二个参数是 null，那作用上和空着没啥区别，但是不想设置第二个参数，只是想设置第三个参数的时候，就可以设置第二个参数为 null<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/60629167.jpg?x-oss-process=style/img_small_white" alt="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/60629167.jpg"></li>
 <li>第三个参数用于美化输出——不建议用</li>
 </ul>
 <blockquote>
@@ -319,23 +321,23 @@
 <li>最后一个属性后面有逗号的，会被自动去掉</li>
 <li>非数组对象的属性不能保证以特定的顺序出现在序列化后的字符串中 这个好理解，也就是对非数组对象在最终字符串中不保证属性顺序和原来一致</li>
 <li>布尔值、数字、字符串的包装对象在序列化过程中会自动转换成对应的原始值</li>
-<li>也就是你的什么new String(“bala”)会变成”bala”，new Number(2017)会变成2017</li>
-<li>undefined、任意的函数,以及 symbol 值（symbol详见ES6对symbol的介绍）</li>
+<li>也就是你的什么 new String(“bala”)会变成”bala”，new Number(2017)会变成 2017</li>
+<li>undefined、任意的函数,以及 symbol 值（symbol 详见 ES6 对 symbol 的介绍）</li>
 </ul>
 </blockquote>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-20/43652522.jpg-img_small" alt="http://orkta94wi.bkt.clouddn.com/17-6-20/43652522.jpg"></p>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/43652522.jpg?x-oss-process=style/img_small" alt="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/43652522.jpg"></p>
 <h3 id="3-JSON-parse"><a href="#3-JSON-parse" class="headerlink" title="3. JSON.parse()"></a>3. JSON.parse()</h3><blockquote>
 <p>规则：<code>JSON.parse(text[, reviver])</code></p>
 </blockquote>
-<p>值得注意的是这里有一个可选的第二个参数，这个参数必须是一个函数，这个函数作用在属性已经被解析但是还没返回前，将属性处理后再返回<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-20/3166222.jpg-img_small" alt="http://orkta94wi.bkt.clouddn.com/17-6-20/3166222.jpg"></p>
+<p>值得注意的是这里有一个可选的第二个参数，这个参数必须是一个函数，这个函数作用在属性已经被解析但是还没返回前，将属性处理后再返回<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/3166222.jpg?x-oss-process=style/img_small" alt="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/3166222.jpg"></p>
 <blockquote>
 <p>注意：</p>
 <ul>
 <li>如果 reviver 返回 undefined，则当前属性会从所属对象中删除，如果返回了其他值，则返回的值会成为当前属性新的属性值。</li>
-<li>你可以注意到上面例子最后一组输出看上去没有key，其实这个key是一个空字符串，而最后的object是最后解析完成对象，因为到了最上层，已经没有真正的属性了</li>
+<li>你可以注意到上面例子最后一组输出看上去没有 key，其实这个 key 是一个空字符串，而最后的 object 是最后解析完成对象，因为到了最上层，已经没有真正的属性了</li>
 </ul>
 </blockquote>
-<h3 id="4-JSON-stringify-–-gt-toJSON的使用"><a href="#4-JSON-stringify-–-gt-toJSON的使用" class="headerlink" title="4. JSON.stringify()  –&gt;toJSON的使用"></a>4. JSON.stringify()  –&gt;toJSON的使用</h3><p>如果你在一个JS对象上实现了toJSON方法，那么调用JSON.stringify去序列化这个JS对象时，JSON.stringify会把这个对象的toJSON方法返回的值作为参数去进行序列化<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-20/73434649.jpg-img_small_white" alt="73434649"></p>
+<h3 id="4-JSON-stringify-–-gt-toJSON-的使用"><a href="#4-JSON-stringify-–-gt-toJSON-的使用" class="headerlink" title="4. JSON.stringify() –&gt;toJSON 的使用"></a>4. JSON.stringify() –&gt;toJSON 的使用</h3><p>如果你在一个 JS 对象上实现了 toJSON 方法，那么调用 JSON.stringify 去序列化这个 JS 对象时，JSON.stringify 会把这个对象的 toJSON 方法返回的值作为参数去进行序列化<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-20/73434649.jpg?x-oss-process=style/img_small_white" alt="73434649"></p>
 
       
       
@@ -394,7 +396,7 @@
         <p><span>本文标题:</span><a href="/2017/06/json/">深入理解JSON</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
         <p><span>发布时间:</span>2017年06月20日 - 11时43分</p>
-        <p><span>最后更新:</span>2018年10月26日 - 11时47分</p>
+        <p><span>最后更新:</span>2018年11月05日 - 17时35分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/06/json/" title="深入理解JSON">http://tigerliu.site/2017/06/json/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2017/06/json/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -432,7 +434,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是JSON"><span class="toc-number">1.</span> <span class="toc-text">什么是JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JSON与JS对象的区别"><span class="toc-number">1.1.</span> <span class="toc-text">1. JSON与JS对象的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSON-stringify"><span class="toc-number">1.2.</span> <span class="toc-text">2. JSON.stringify()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-parse"><span class="toc-number">1.3.</span> <span class="toc-text">3. JSON.parse()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-JSON-stringify-–-gt-toJSON的使用"><span class="toc-number">1.4.</span> <span class="toc-text">4. JSON.stringify()  –&gt;toJSON的使用</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-JSON"><span class="toc-number">1.</span> <span class="toc-text">什么是 JSON</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JSON-与-JS-对象的区别"><span class="toc-number">1.1.</span> <span class="toc-text">1. JSON 与 JS 对象的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSON-stringify"><span class="toc-number">1.2.</span> <span class="toc-text">2. JSON.stringify()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-JSON-parse"><span class="toc-number">1.3.</span> <span class="toc-text">3. JSON.parse()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-JSON-stringify-–-gt-toJSON-的使用"><span class="toc-number">1.4.</span> <span class="toc-text">4. JSON.stringify() –&gt;toJSON 的使用</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 

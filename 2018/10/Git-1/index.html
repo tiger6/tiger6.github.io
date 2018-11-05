@@ -5,31 +5,31 @@
   
   <title>Git 二三事 | Tigerliu Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是Git  Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。   Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。  本文地址：http://tigerliu.site/2017/06">
+  <meta name="description" content="什么是 GitGit 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。本文地址：http://tigerliu.site/2017/06/G">
 <meta name="keywords" content="github,git,git命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git 二三事">
 <meta property="og:url" content="http://tigerliu.site/2018/10/Git-1/index.html">
 <meta property="og:site_name" content="Tigerliu Blog">
-<meta property="og:description" content="什么是Git  Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。   Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。  本文地址：http://tigerliu.site/2017/06">
+<meta property="og:description" content="什么是 GitGit 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。本文地址：http://tigerliu.site/2017/06/G">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/35413501.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/47686275.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/99902253.jpg-img_black">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/45889336.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/82517391.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/618844.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/48770181.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/86222959.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/24159927.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/34974497.jpg-img_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/12366375.jpg-img_black">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/28571949.jpg-img_white">
-<meta property="og:updated_time" content="2018-10-26T03:47:39.428Z">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/35413501.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/47686275.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/99902253.jpg?x-oss-process=style/img_black">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/45889336.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/82517391.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/618844.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/48770181.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/86222959.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/24159927.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/34974497.jpg?x-oss-process=style/img_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/12366375.jpg?x-oss-process=style/img_black">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/28571949.jpg?x-oss-process=style/img_white">
+<meta property="og:updated_time" content="2018-11-05T09:34:56.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 二三事">
-<meta name="twitter:description" content="什么是Git  Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。   Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。  本文地址：http://tigerliu.site/2017/06">
-<meta name="twitter:image" content="http://orkta94wi.bkt.clouddn.com/17-6-15/35413501.jpg-img_white">
+<meta name="twitter:description" content="什么是 GitGit 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。本文地址：http://tigerliu.site/2017/06/G">
+<meta name="twitter:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/35413501.jpg?x-oss-process=style/img_white">
   
     <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
   
@@ -267,12 +267,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="什么是Git"><a href="#什么是Git" class="headerlink" title="什么是Git"></a>什么是Git</h2><p>  Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。</p>
-<p>  Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。<br>  本文地址：<a href="http://tigerliu.site/2017/06/Git-1/">http://tigerliu.site/2017/06/Git-1/</a><br> <a id="more"></a></p>
-<h3 id="1-Git版本库"><a href="#1-Git版本库" class="headerlink" title="1. Git版本库"></a>1. Git版本库</h3><p>  什么是版本库？版本库又名仓库，英文名repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被Git管理起来，每个文件的修改，删除，Git都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。<br>  所以创建一个版本库也非常简单，如下我是D盘 –&gt; www下 目录下新建一个testgit版本库<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/35413501.jpg-img_white" alt="此处输入图片的描述"></p>
-<p>通过命令 git init 把这个目录变成git可以管理的仓库，如下：<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/47686275.jpg-img_white" alt="此处输入图片的描述"></p>
-<p>这时候你当前testgit目录下会多了一个.git的目录，这个目录是Git来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把git仓库给破坏了。如下：<br>    <img src="http://orkta94wi.bkt.clouddn.com/17-6-15/99902253.jpg-img_black" alt="此处输入图片的描述"><br>    把文件添加到版本库中。<br>    首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如txt文件，网页，所有程序的代码等，Git也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从1kb变成2kb，但是到底改了啥，版本控制也不知道。</p>
-<h3 id="2-Git常用命令"><a href="#2-Git常用命令" class="headerlink" title="2. Git常用命令"></a>2. Git常用命令</h3><p><strong>git init</strong> 初始化git仓库</p>
+        <h2 id="什么是-Git"><a href="#什么是-Git" class="headerlink" title="什么是 Git"></a>什么是 Git</h2><p>Git 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。</p>
+<p>Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。<br>本文地址：<a href="http://tigerliu.site/2017/06/Git-1/">http://tigerliu.site/2017/06/Git-1/</a></p>
+ <a id="more"></a>
+<h3 id="1-Git-版本库"><a href="#1-Git-版本库" class="headerlink" title="1. Git 版本库"></a>1. Git 版本库</h3><p>什么是版本库？版本库又名仓库，英文名 repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改，删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。<br>所以创建一个版本库也非常简单，如下我是 D 盘 –&gt; www 下 目录下新建一个 testgit 版本库<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/35413501.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
+<p>通过命令 git init 把这个目录变成 git 可以管理的仓库，如下：<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/47686275.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
+<p>这时候你当前 testgit 目录下会多了一个.git 的目录，这个目录是 Git 来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把 git 仓库给破坏了。如下：<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/99902253.jpg?x-oss-process=style/img_black" alt="此处输入图片的描述"><br>把文件添加到版本库中。<br>首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如 txt 文件，网页，所有程序的代码等，Git 也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从 1kb 变成 2kb，但是到底改了啥，版本控制也不知道。</p>
+<h3 id="2-Git-常用命令"><a href="#2-Git-常用命令" class="headerlink" title="2. Git 常用命令"></a>2. Git 常用命令</h3><p><strong>git init</strong> 初始化 git 仓库</p>
 <p><strong>git add</strong> 添加到暂存区</p>
 <ul>
 <li>git add .</li>
@@ -284,16 +285,16 @@
 <li>git add -u</li>
 </ul>
 <blockquote>
-<p>他仅监控已经被add的文件（即tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked<br>file）。（git add –update的缩写）</p>
+<p>他仅监控已经被 add 的文件（即 tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked<br>file）。（git add –update 的缩写）</p>
 </blockquote>
 <ul>
 <li>git add -A</li>
 </ul>
 <blockquote>
-<p>是上面两个功能的合集（git add –all的缩写）</p>
+<p>是上面两个功能的合集（git add –all 的缩写）</p>
 </blockquote>
 <ul>
-<li>git add xx文件名</li>
+<li>git add xx 文件名</li>
 </ul>
 <blockquote>
 <p>单个文件添加到仓库</p>
@@ -304,14 +305,15 @@
 ·  git add .  提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件
 </code></pre><hr>
 <ul>
-<li><p>提交到仓库</p>
+<li>提交到仓库</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m <span class="string">'注释xxx'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看是否还有文件未提交</p>
+<ul>
+<li>查看是否还有文件未提交</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看某文件是否有改动</p>
-</li>
+<ul>
+<li>查看某文件是否有改动</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff xxx文件名</span><br></pre></td></tr></table></figure>
 <ul>
@@ -323,99 +325,104 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git log –pretty=oneline</span><br></pre></td></tr></table></figure>
 <ul>
-<li>那么如果要回退到上上个版本只需把HEAD^ 改成 HEAD^^</li>
+<li>那么如果要回退到上上个版本只需把 HEAD^ 改成 HEAD^^</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset –-hard HEAD^</span><br></pre></td></tr></table></figure>
 <ul>
-<li>以此类推。那如果要回退到前100个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作</li>
+<li>以此类推。那如果要回退到前 100 个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset –-hard HEAD~<span class="number">100</span></span><br></pre></td></tr></table></figure>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/45889336.jpg-img_white" alt="此处输入图片的描述"></p>
-<p>可以通过如下命令即可获取到版本号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/82517391.jpg-img_white" alt="此处输入图片的描述"><br>通过上面的显示我们可以知道，增加内容3333的版本号是 6fcfc89.我们现在可以命令<br>git reset –hard 6fcfc89来恢复了<br><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/618844.jpg-img_white" alt="此处输入图片的描述"></p>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/45889336.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
+<p>可以通过如下命令即可获取到版本号</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reflog</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/82517391.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"><br>通过上面的显示我们可以知道，增加内容 3333 的版本号是 6fcfc89.我们现在可以命令<br>git reset –hard 6fcfc89 来恢复了<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/618844.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
 <ul>
-<li>查看文件内容<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat xxx文件名</span><br></pre></td></tr></table></figure>
-</li>
+<li>查看文件内容</li>
 </ul>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/48770181.jpg-img_white" alt="此处输入图片的描述"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat xxx文件名</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/48770181.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
 <ul>
-<li>可以丢弃工作区的修改<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file</span><br></pre></td></tr></table></figure>
-</li>
+<li>可以丢弃工作区的修改</li>
 </ul>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/86222959.jpg-img_white" alt="此处输入图片的描述"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- file</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/86222959.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
 <ul>
-<li>删除文件命令<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br></pre></td></tr></table></figure>
-</li>
+<li>删除文件命令</li>
 </ul>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/24159927.jpg-img_white" alt="此处输入图片的描述"><br>如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上rm命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行commit命令 提交掉</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rm file</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/24159927.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"><br>如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上 rm 命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行 commit 命令 提交掉</p>
 <pre><code>只要没有commit之前，如果我想在版本库中恢复此文件如何操作呢？
 可以使用如下命令 git checkout — b.txt，如下所示：
-</code></pre><p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/34974497.jpg-img_white" alt="此处输入图片的描述"></p>
-<h3 id="3-Git修改用户名以及提交邮箱"><a href="#3-Git修改用户名以及提交邮箱" class="headerlink" title="3. Git修改用户名以及提交邮箱"></a>3. Git修改用户名以及提交邮箱</h3><ul>
-<li>git 修改当前的project的用户名的命令为：</li>
+</code></pre><p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/34974497.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
+<h3 id="3-Git-修改用户名以及提交邮箱"><a href="#3-Git-修改用户名以及提交邮箱" class="headerlink" title="3. Git 修改用户名以及提交邮箱"></a>3. Git 修改用户名以及提交邮箱</h3><ul>
+<li>git 修改当前的 project 的用户名的命令为：</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.name 你的目标用户名;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>git 修改当前的project提交邮箱的命令为：</li>
+<li>git 修改当前的 project 提交邮箱的命令为：</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config user.email 你的目标邮箱名;</span><br></pre></td></tr></table></figure>
 <p>如果你要修改当前全局的用户名和邮箱时，需要在上面的两条命令中添加一个参数，<strong>–global</strong>，代表的是全局。</p>
-<p>命令分别为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config  --global user.name 你的目标用户名；</span><br><span class="line">$ git config  --global user.email 你的目标邮箱名;</span><br></pre></td></tr></table></figure></p>
-<p>当然，你还可以直接修改git的配置文件的方式来进行修改。</p>
-<p>打开全局的.gitconfig文件的命令为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~<span class="regexp">/.gitconfig;</span></span><br></pre></td></tr></table></figure></p>
+<p>命令分别为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config  --global user.name 你的目标用户名；</span><br><span class="line">$ git config  --global user.email 你的目标邮箱名;</span><br></pre></td></tr></table></figure>
+<p>当然，你还可以直接修改 git 的配置文件的方式来进行修改。</p>
+<p>打开全局的.gitconfig 文件的命令为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~<span class="regexp">/.gitconfig;</span></span><br></pre></td></tr></table></figure>
 <p>然后在文件中直接修改即可.</p>
-<p>打开当前project 中的config文件，该文件在每个project中的.git目录下，直接进入该目录进行编辑即可。当然，如果没有进行过修改的话，默认打开时没有对应的用户名和密码的。只有进行过修改之后，才会在config中产生对应字段</p>
-<h3 id="4-Git本地仓库与Github远程仓库关联"><a href="#4-Git本地仓库与Github远程仓库关联" class="headerlink" title="4. Git本地仓库与Github远程仓库关联"></a>4. Git本地仓库与Github远程仓库关联</h3><pre><code>如果你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，那就需要用到SSH Key，github拿到了你的公钥就会知道内容是你推送的
-</code></pre><p><strong>SSH Key的配置：</strong></p>
+<p>打开当前 project 中的 config 文件，该文件在每个 project 中的.git 目录下，直接进入该目录进行编辑即可。当然，如果没有进行过修改的话，默认打开时没有对应的用户名和密码的。只有进行过修改之后，才会在 config 中产生对应字段</p>
+<h3 id="4-Git-本地仓库与-Github-远程仓库关联"><a href="#4-Git-本地仓库与-Github-远程仓库关联" class="headerlink" title="4. Git 本地仓库与 Github 远程仓库关联"></a>4. Git 本地仓库与 Github 远程仓库关联</h3><pre><code>如果你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，那就需要用到SSH Key，github拿到了你的公钥就会知道内容是你推送的
+</code></pre><p><strong>SSH Key 的配置：</strong></p>
 <ul>
-<li>Windows下打开Git Bash，创建SSH Key，按提示输入密码，可以不填密码一路回车</li>
+<li>Windows 下打开 Git Bash，创建 SSH Key，按提示输入密码，可以不填密码一路回车</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"注册邮箱"</span></span><br></pre></td></tr></table></figure>
 <pre><code>然后用户主目录/.ssh/下有两个文件，id_rsa是私钥，id_rsa.pub是公钥
 </code></pre><ul>
-<li><p>获取key，打开.ssh下的id_rsa.pub文件，里面的内容就是key的内容</p>
+<li>获取 key，打开.ssh 下的 id_rsa.pub 文件，里面的内容就是 key 的内容</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ start ~<span class="regexp">/.ssh/i</span>d_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>登录GitHub，打开”SSH Keys”页面，快捷地址：<a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a><br><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/12366375.jpg-img_black" alt="此处输入图片的描述"></p>
-</li>
+<ul>
+<li>登录 GitHub，打开”SSH Keys”页面，快捷地址：<a href="https://github.com/settings/ssh" target="_blank" rel="noopener">https://github.com/settings/ssh</a><br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/12366375.jpg?x-oss-process=style/img_black" alt="此处输入图片的描述"></li>
 </ul>
 <blockquote>
-<p>测试ssh key是否成功，使用命令“<strong>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></strong>”，如果出现You’ve successfully<br>authenticated, but GitHub does not provide shell<br>access。这就表示已成功连上github</p>
+<p>测试 ssh key 是否成功，使用命令“<strong>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></strong>”，如果出现 You’ve successfully<br>authenticated, but GitHub does not provide shell<br>access。这就表示已成功连上 github</p>
 <ul>
-<li>从远程克隆一份到本地可以通过git clone</li>
+<li>从远程克隆一份到本地可以通过 git clone</li>
 </ul>
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git@github.com:tiger6/xxx.git</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>本地库关联远程库，在本地仓库目录运行命令：</p>
+<li>本地库关联远程库，在本地仓库目录运行命令：</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:tiger6/xxx.git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送master分支的所有内容</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>第一次使用加上了-u参数，是推送内容并关联分支。</p>
-<p>推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<p>如果我们现在要推送到其他分支，比如dev分支上，我们还是那个命令 git<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br></pre></td></tr></table></figure></p>
-<p>把最新内容推送到Github</p>
 <ul>
-<li><p>取回远程主机某个分支的更新(master主分支)</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
-<p> 当你从远程库克隆时候，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且远程库的默认名称是origin。</p>
-</li>
+<li>推送 master 分支的所有内容</li>
 </ul>
-<p>要查看远程库的信息 使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure></p>
-<p>要查看远程库的详细信息 使用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote –v</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-6-15/28571949.jpg-img_white" alt="此处输入图片的描述"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>第一次使用加上了-u 参数，是推送内容并关联分支。</p>
+<p>推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<p>如果我们现在要推送到其他分支，比如 dev 分支上，我们还是那个命令 git</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin dev</span><br></pre></td></tr></table></figure>
+<p>把最新内容推送到 Github</p>
+<ul>
+<li>取回远程主机某个分支的更新(master 主分支)</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git pull origin master</span><br></pre></td></tr></table></figure>
+<pre><code>当你从远程库克隆时候，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且远程库的默认名称是origin。
+</code></pre><p>要查看远程库的信息 使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote</span><br></pre></td></tr></table></figure>
+<p>要查看远程库的详细信息 使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote –v</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-6-15/28571949.jpg?x-oss-process=style/img_white" alt="此处输入图片的描述"></p>
 <hr>
 <ul>
-<li><p>实战练习<br>本地创建文本test.txt，运行:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add text.txt</span><br><span class="line">$ git commit -m <span class="string">"添加新文件"</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
-<p>查看github是否同步</p>
-</li>
+<li>实战练习<br>本地创建文本 test.txt，运行:</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add text.txt</span><br><span class="line">$ git commit -m <span class="string">"添加新文件"</span></span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<p>查看 github 是否同步</p>
 <hr>
 <p>基本常用命令如下：</p>
 <pre><code>mkdir： XX (创建一个空目录 XX指目录名)
@@ -510,7 +517,7 @@ git push origin master Git会把master分支推送到远程库对应的远程分
         <p><span>本文标题:</span><a href="/2018/10/Git-1/">Git 二三事</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
         <p><span>发布时间:</span>2018年10月26日 - 11时47分</p>
-        <p><span>最后更新:</span>2018年10月26日 - 11时47分</p>
+        <p><span>最后更新:</span>2018年11月05日 - 17时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2018/10/Git-1/" title="Git 二三事">http://tigerliu.site/2018/10/Git-1/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2018/10/Git-1/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -548,7 +555,7 @@ git push origin master Git会把master分支推送到远程库对应的远程分
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Git"><span class="toc-number">1.</span> <span class="toc-text">什么是Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Git版本库"><span class="toc-number">1.1.</span> <span class="toc-text">1. Git版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Git常用命令"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Git修改用户名以及提交邮箱"><span class="toc-number">1.3.</span> <span class="toc-text">3. Git修改用户名以及提交邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Git本地仓库与Github远程仓库关联"><span class="toc-number">1.4.</span> <span class="toc-text">4. Git本地仓库与Github远程仓库关联</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是-Git"><span class="toc-number">1.</span> <span class="toc-text">什么是 Git</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Git-版本库"><span class="toc-number">1.1.</span> <span class="toc-text">1. Git 版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Git-常用命令"><span class="toc-number">1.2.</span> <span class="toc-text">2. Git 常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Git-修改用户名以及提交邮箱"><span class="toc-number">1.3.</span> <span class="toc-text">3. Git 修改用户名以及提交邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Git-本地仓库与-Github-远程仓库关联"><span class="toc-number">1.4.</span> <span class="toc-text">4. Git 本地仓库与 Github 远程仓库关联</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 

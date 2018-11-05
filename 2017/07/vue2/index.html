@@ -5,22 +5,22 @@
   
   <title>Vue2.0最全入坑指南(初识篇) | Tigerliu Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。">
+  <meta name="description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。">
 <meta name="keywords" content="vue,Vue,vue2.0,前端框架,js,javascript,vue入坑,环境搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue2.0最全入坑指南(初识篇)">
 <meta property="og:url" content="http://tigerliu.site/2017/07/vue2/index.html">
 <meta property="og:site_name" content="Tigerliu Blog">
-<meta property="og:description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。">
+<meta property="og:description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-7-7/17020944.jpg-img_big75_white">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-7-7/39825756.jpg-img_big75_black">
-<meta property="og:image" content="http://orkta94wi.bkt.clouddn.com/17-7-7/53660799.jpg-img_big75_white">
-<meta property="og:updated_time" content="2018-10-26T03:47:39.449Z">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/17020944.jpg?x-oss-process=style/img_big75_white">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/39825756.jpg?x-oss-process=style/img_big75_black">
+<meta property="og:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/53660799.jpg?x-oss-process=style/img_big75_white">
+<meta property="og:updated_time" content="2018-11-05T09:34:01.092Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue2.0最全入坑指南(初识篇)">
-<meta name="twitter:description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。">
-<meta name="twitter:image" content="http://orkta94wi.bkt.clouddn.com/17-7-7/17020944.jpg-img_big75_white">
+<meta name="twitter:description" content="前言Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。">
+<meta name="twitter:image" content="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/17020944.jpg?x-oss-process=style/img_big75_white">
   
     <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
   
@@ -258,43 +258,49 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的 渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。</p>
 <a id="more"></a>
-<h3 id="安装node-js-git"><a href="#安装node-js-git" class="headerlink" title="安装node.js/git"></a>安装node.js/git</h3><p>未安装node.js、git的同学请戳这里<a href="http://tigerliu.site/2017/07/node/">Node本地环境搭建</a></p>
-<h3 id="安装webpack-选装"><a href="#安装webpack-选装" class="headerlink" title="安装webpack(选装)"></a>安装webpack(选装)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
-<p>输入webpack -v版本检测：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$ webpack -v</span><br><span class="line">3.1.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装-node-js-git"><a href="#安装-node-js-git" class="headerlink" title="安装 node.js/git"></a>安装 node.js/git</h3><p>未安装 node.js、git 的同学请戳这里<a href="http://tigerliu.site/2017/07/node/">Node 本地环境搭建</a></p>
+<h3 id="安装-webpack-选装"><a href="#安装-webpack-选装" class="headerlink" title="安装 webpack(选装)"></a>安装 webpack(选装)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack -g</span><br></pre></td></tr></table></figure>
+<p>输入 webpack -v 版本检测：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$ webpack -v</span><br><span class="line">3.1.0</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>PS: -g 代表全局安装，最新的 vue 项目模板中，都带有 webpack 插件，所以这里可以不安装 webpack</p>
 </blockquote>
-<h3 id="安装vue-cli"><a href="#安装vue-cli" class="headerlink" title="安装vue-cli"></a>安装vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br></pre></td></tr></table></figure>
-<p>输入vue -V(大写)安装检测：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$ vue -V</span><br><span class="line">2.8.1</span><br><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装-vue-cli"><a href="#安装-vue-cli" class="headerlink" title="安装 vue-cli"></a>安装 vue-cli</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br></pre></td></tr></table></figure>
+<p>输入 vue -V(大写)安装检测：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$ vue -V</span><br><span class="line">2.8.1</span><br><span class="line">xxx@xxx-PC MINGW64 /</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>PS: 正确输出版本号代表安装成功,如果提示“无法识别 ‘vue’ ” ，有可能是 npm 版本过低，可以使用 npm install -g npm 来更新版本</p>
 </blockquote>
-<h3 id="vue项目初始化"><a href="#vue项目初始化" class="headerlink" title="vue项目初始化"></a>vue项目初始化</h3><p>在你喜欢的目录下新建文件夹，例如（D:\vue2）,cd 切换至该目录<br>vue init webpack xxx-project(项目名称)，默认回车安装<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:/vue2</span><br><span class="line">vue init webpack</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://orkta94wi.bkt.clouddn.com/17-7-7/17020944.jpg-img_big75_white" alt=""></p>
+<h3 id="vue-项目初始化"><a href="#vue-项目初始化" class="headerlink" title="vue 项目初始化"></a>vue 项目初始化</h3><p>在你喜欢的目录下新建文件夹，例如（D:\vue2）,cd 切换至该目录<br>vue init webpack xxx-project(项目名称)，默认回车安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> d:/vue2</span><br><span class="line">vue init webpack</span><br></pre></td></tr></table></figure>
+<p><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/17020944.jpg?x-oss-process=style/img_big75_white" alt=""></p>
 <blockquote>
-<p>PS:安装到Use ESLint to lint your code?<br>这里的时建议选N,如果为Yes在我们编写程序的时候会严格按照ESLint语法进行检测，很容易出错。<br>运行到Documentation can be found at <a href="https://vuejs-templates.github.io/webpack" target="_blank" rel="noopener">https://vuejs-templates.github.io/webpack</a> 可以按Ctrl+C退出</p>
+<p>PS:安装到 Use ESLint to lint your code?<br>这里的时建议选 N,如果为 Yes 在我们编写程序的时候会严格按照 ESLint 语法进行检测，很容易出错。<br>运行到 Documentation can be found at <a href="https://vuejs-templates.github.io/webpack" target="_blank" rel="noopener">https://vuejs-templates.github.io/webpack</a> 可以按 Ctrl+C 退出</p>
 </blockquote>
-<p>安装依赖包<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install或cnpm install(推荐)</span><br></pre></td></tr></table></figure></p>
+<p>安装依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install或cnpm install(推荐)</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>PS：等待几分钟。。。cnpm较快建议使用</p>
+<p>PS：等待几分钟。。。cnpm 较快建议使用</p>
 </blockquote>
-<h3 id="运行第一个vue项目"><a href="#运行第一个vue项目" class="headerlink" title="运行第一个vue项目"></a>运行第一个vue项目</h3><p>接下来执行npm run dev<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev或cnpm run dev</span><br></pre></td></tr></table></figure></p>
-<p>效果：<br><img src="http://orkta94wi.bkt.clouddn.com/17-7-7/39825756.jpg-img_big75_black" alt=""></p>
+<h3 id="运行第一个-vue-项目"><a href="#运行第一个-vue-项目" class="headerlink" title="运行第一个 vue 项目"></a>运行第一个 vue 项目</h3><p>接下来执行 npm run dev</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev或cnpm run dev</span><br></pre></td></tr></table></figure>
+<p>效果：<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/39825756.jpg?x-oss-process=style/img_big75_black" alt=""></p>
 <blockquote>
-<p>PS:看到上面的界面，就代表我们的第一个vue运行成功了！！！</p>
+<p>PS:看到上面的界面，就代表我们的第一个 vue 运行成功了！！！</p>
 </blockquote>
-<p>错误处理：<br><img src="http://orkta94wi.bkt.clouddn.com/17-7-7/53660799.jpg-img_big75_white" alt=""></p>
+<p>错误处理：<br><img src="https://tiger-site.oss-cn-beijing.aliyuncs.com/17-7-7/53660799.jpg?x-oss-process=style/img_big75_white" alt=""></p>
 <blockquote>
-<p>看到上面的错误信息，可以断定咱们的端口号被占用了。 修改端口号：config&gt;index.js—-&gt;port:8000<br>，然后再运行npm run dev</p>
+<p>看到上面的错误信息，可以断定咱们的端口号被占用了。 修改端口号：config&gt;index.js—-&gt;port:8000<br>，然后再运行 npm run dev</p>
 </blockquote>
-<h3 id="打上线包"><a href="#打上线包" class="headerlink" title="打上线包"></a>打上线包</h3><p>项目开发完成之后，可以输入 cnpm run build 来进行打包工作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm run build</span><br></pre></td></tr></table></figure></p>
+<h3 id="打上线包"><a href="#打上线包" class="headerlink" title="打上线包"></a>打上线包</h3><p>项目开发完成之后，可以输入 cnpm run build 来进行打包工作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm run build</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>PS:打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看 项目上线时，只需要将 dist文件夹放到服务器就行了</p>
+<p>PS:打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看 项目上线时，只需要将 dist 文件夹放到服务器就行了</p>
 </blockquote>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>到这里我们已经初步体验了一把vue2.0,是不是感觉也没那么复杂,本篇为初识篇，后面将会在本博客继续我们的vue2入坑之旅,请持续关注本博客<a href="http://tigerliu.site">Tigerliu Blog</a>，喜欢可收藏分享！！！</p>
-<p>vue相关链接：<br><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">vue中文官网</a><br><a href="https://www.vue-js.com/" target="_blank" rel="noopener">vue中文社区</a><br><a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">vue中文API</a><br><a href="http://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">vue中文教程</a><br><a href="http://www.runoob.com/vue2/vue-tutorial.html" target="_blank" rel="noopener">vue菜鸟教程</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>到这里我们已经初步体验了一把 vue2.0,是不是感觉也没那么复杂,本篇为初识篇，后面将会在本博客继续我们的 vue2 入坑之旅,请持续关注本博客<a href="http://tigerliu.site">Tigerliu Blog</a>，喜欢可收藏分享！！！</p>
+<p>vue 相关链接：<br><a href="https://cn.vuejs.org/" target="_blank" rel="noopener">vue 中文官网</a><br><a href="https://www.vue-js.com/" target="_blank" rel="noopener">vue 中文社区</a><br><a href="https://cn.vuejs.org/v2/api/" target="_blank" rel="noopener">vue 中文 API</a><br><a href="http://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">vue 中文教程</a><br><a href="http://www.runoob.com/vue2/vue-tutorial.html" target="_blank" rel="noopener">vue 菜鸟教程</a></p>
 
       
       
@@ -353,7 +359,7 @@
         <p><span>本文标题:</span><a href="/2017/07/vue2/">Vue2.0最全入坑指南(初识篇)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
         <p><span>发布时间:</span>2017年07月07日 - 11时23分</p>
-        <p><span>最后更新:</span>2018年10月26日 - 11时47分</p>
+        <p><span>最后更新:</span>2018年11月05日 - 17时34分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/07/vue2/" title="Vue2.0最全入坑指南(初识篇)">http://tigerliu.site/2017/07/vue2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2017/07/vue2/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -391,7 +397,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装node-js-git"><span class="toc-number">1.1.</span> <span class="toc-text">安装node.js/git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装webpack-选装"><span class="toc-number">1.2.</span> <span class="toc-text">安装webpack(选装)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装vue-cli"><span class="toc-number">1.3.</span> <span class="toc-text">安装vue-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue项目初始化"><span class="toc-number">1.4.</span> <span class="toc-text">vue项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行第一个vue项目"><span class="toc-number">1.5.</span> <span class="toc-text">运行第一个vue项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打上线包"><span class="toc-number">1.6.</span> <span class="toc-text">打上线包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-node-js-git"><span class="toc-number">1.1.</span> <span class="toc-text">安装 node.js/git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-webpack-选装"><span class="toc-number">1.2.</span> <span class="toc-text">安装 webpack(选装)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装-vue-cli"><span class="toc-number">1.3.</span> <span class="toc-text">安装 vue-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-项目初始化"><span class="toc-number">1.4.</span> <span class="toc-text">vue 项目初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行第一个-vue-项目"><span class="toc-number">1.5.</span> <span class="toc-text">运行第一个 vue 项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打上线包"><span class="toc-number">1.6.</span> <span class="toc-text">打上线包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
