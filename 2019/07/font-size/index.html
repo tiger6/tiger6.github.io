@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>移动端字体放大的解决方案 | Tigerliu Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。">
+<meta name="keywords" content="font-size,mobile,fontsize,fontSize,android,ios">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端字体放大的解决方案">
+<meta property="og:url" content="http://tigerliu.site/2019/07/font-size/index.html">
+<meta property="og:site_name" content="Tigerliu Blog">
+<meta property="og:description" content="前言正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-07-17T10:39:28.756Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端字体放大的解决方案">
+<meta name="twitter:description" content="前言正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。">
+  
+    <link rel="alternative" href="/atom.xml" title="Tigerliu Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">Tigerliu</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">人生如果无误，铅笔何须橡皮。</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder=" Search...">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档</a></li>
+                        
+                            <li><a href="/tags">标签</a></li>
+                        
+                            <li><a href="/404.html">公益404</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/tiger6" title="github">github</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/u/1827102445" title="weibo">weibo</a>
+                            
+                                <a class="fl rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                                <a class="fl segmentfault" target="_blank" href="https://segmentfault.com/u/tiger6" title="segmentfault">segmentfault</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/404/" style="font-size: 10px;">404</a> <a href="/tags/F2E/" style="font-size: 10px;">F2E</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Hexo-Blog/" style="font-size: 10px;">Hexo Blog</a> <a href="/tags/IDE/" style="font-size: 10px;">IDE</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/String/" style="font-size: 12.5px;">String</a> <a href="/tags/SyntaxError/" style="font-size: 10px;">SyntaxError</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/android/" style="font-size: 10px;">android</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/coding/" style="font-size: 10px;">coding</a> <a href="/tags/comments/" style="font-size: 10px;">comments</a> <a href="/tags/css/" style="font-size: 12.5px;">css</a> <a href="/tags/css优化/" style="font-size: 10px;">css优化</a> <a href="/tags/dinosaur/" style="font-size: 10px;">dinosaur</a> <a href="/tags/dva/" style="font-size: 10px;">dva</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/es7/" style="font-size: 10px;">es7</a> <a href="/tags/es8/" style="font-size: 10px;">es8</a> <a href="/tags/es9/" style="font-size: 10px;">es9</a> <a href="/tags/font-size/" style="font-size: 10px;">font-size</a> <a href="/tags/fontSize/" style="font-size: 10px;">fontSize</a> <a href="/tags/fontsize/" style="font-size: 10px;">fontsize</a> <a href="/tags/git/" style="font-size: 12.5px;">git</a> <a href="/tags/github/" style="font-size: 12.5px;">github</a> <a href="/tags/git命令/" style="font-size: 10px;">git命令</a> <a href="/tags/hash/" style="font-size: 10px;">hash</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-dns/" style="font-size: 10px;">hexo dns</a> <a href="/tags/hexo-google统计/" style="font-size: 10px;">hexo google统计</a> <a href="/tags/hexo-seo/" style="font-size: 10px;">hexo seo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-yilia/" style="font-size: 10px;">hexo yilia</a> <a href="/tags/hexo-主题/" style="font-size: 10px;">hexo 主题</a> <a href="/tags/hexo-域名/" style="font-size: 10px;">hexo 域名</a> <a href="/tags/hexo-七牛/" style="font-size: 10px;">hexo+七牛</a> <a href="/tags/hexo命令/" style="font-size: 10px;">hexo命令</a> <a href="/tags/hexo百度收录/" style="font-size: 10px;">hexo百度收录</a> <a href="/tags/hexo百度统计/" style="font-size: 10px;">hexo百度统计</a> <a href="/tags/hexo评论/" style="font-size: 10px;">hexo评论</a> <a href="/tags/hexo进阶/" style="font-size: 12.5px;">hexo进阶</a> <a href="/tags/history/" style="font-size: 10px;">history</a> <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/ide/" style="font-size: 10px;">ide</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/js/" style="font-size: 20px;">js</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/mobile/" style="font-size: 10px;">mobile</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/node/" style="font-size: 12.5px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/router/" style="font-size: 10px;">router</a> <a href="/tags/sublime/" style="font-size: 10px;">sublime</a> <a href="/tags/token/" style="font-size: 10px;">token</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vue/" style="font-size: 17.5px;">vue</a> <a href="/tags/vue-cli/" style="font-size: 10px;">vue-cli</a> <a href="/tags/vue2-0/" style="font-size: 15px;">vue2.0</a> <a href="/tags/vue入坑/" style="font-size: 15px;">vue入坑</a> <a href="/tags/vue组件/" style="font-size: 10px;">vue组件</a> <a href="/tags/内核/" style="font-size: 10px;">内核</a> <a href="/tags/前端/" style="font-size: 12.5px;">前端</a> <a href="/tags/前端框架/" style="font-size: 17.5px;">前端框架</a> <a href="/tags/博客搭建/" style="font-size: 10px;">博客搭建</a> <a href="/tags/友言/" style="font-size: 10px;">友言</a> <a href="/tags/命令/" style="font-size: 10px;">命令</a> <a href="/tags/多说/" style="font-size: 10px;">多说</a> <a href="/tags/字符串/" style="font-size: 12.5px;">字符串</a> <a href="/tags/常见问题/" style="font-size: 10px;">常见问题</a> <a href="/tags/恐龙/" style="font-size: 10px;">恐龙</a> <a href="/tags/断网/" style="font-size: 10px;">断网</a> <a href="/tags/来必力/" style="font-size: 10px;">来必力</a> <a href="/tags/浏览器/" style="font-size: 10px;">浏览器</a> <a href="/tags/环境搭建/" style="font-size: 12.5px;">环境搭建</a> <a href="/tags/生产环境/" style="font-size: 10px;">生产环境</a> <a href="/tags/畅言/" style="font-size: 10px;">畅言</a> <a href="/tags/网易云跟帖/" style="font-size: 10px;">网易云跟帖</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a> <a href="/tags/高分/" style="font-size: 10px;">高分</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">前端工程师一枚，坐标深圳。博客为个人笔记，仅供参考。文章有些许疑问，文末留言。转载请注明出处，谢谢大家。</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">Tigerliu</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/avatar.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">Tigerliu</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">人生如果无误，铅笔何须橡皮。</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档</a></li>
+                
+                    <li><a href="/tags">标签</a></li>
+                
+                    <li><a href="/404.html">公益404</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/tiger6" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/1827102445" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                        <a class="segmentfault" target="_blank" href="https://segmentfault.com/u/tiger6" title="segmentfault">segmentfault</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-font-size" class="article article-type-post" itemscope="" itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/font-size/" class="article-date">
+      <time datetime="2019-07-15T09:32:58.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端字体放大的解决方案
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/mobile/">mobile</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/font-size/">font-size</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fontSize/">fontSize</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fontsize/">fontsize</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mobile/">mobile</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。<br><a id="more"></a></p>
+<h3 id="1-Meta设置"><a href="#1-Meta设置" class="headerlink" title="1.Meta设置"></a>1.Meta设置</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>保持屏幕比例1:1 禁止缩放,但这里对字体无效</p>
+</blockquote>
+<h3 id="2-IOS解决方案"><a href="#2-IOS解决方案" class="headerlink" title="2.IOS解决方案"></a>2.IOS解决方案</h3><p>在iPhone系统设置中的“更大字体”里调整字号后，各个应用里中Webview里的文字大小似乎没有受到影响。但是对于诸如微信、UC浏览器等可以在APP里设置网页字体大小的应用，还是有限制调整字号的需求的。它们调整字体大小是通过给body设置-webkit-text-size-adjust属性实现的，因此只要限制这个属性不被修改即可：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">-webkit-text-size-adjust</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-Android解决方案"><a href="#3-Android解决方案" class="headerlink" title="3.Android解决方案"></a>3.Android解决方案</h3><ul>
+<li><p>方案1(APP方法)<br>如果是在自己开发的APP中，可以在客户端的WebView组件中设置字体默认的缩放比例，以避免手机系统的字体修改对页面字体及布局造成影响。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WebSettings settings = webView.getSettings();</span><br><span class="line">settings.setTextZoom(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方案2(Android微信)<br>如果是在微信环境中，参考微信开放平台的文档，须通过WeixinJSBridge对象将网页的字体大小设置为默认大小，并且重写设置字体大小的方法，让用户不能在该网页下设置字体大小。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> WeixinJSBridge == <span class="string">"object"</span> &amp;&amp; <span class="keyword">typeof</span> WeixinJSBridge.invoke == <span class="string">"function"</span>) &#123;</span><br><span class="line">    handleFontSize();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.addEventListener) &#123;</span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">document</span>.attachEvent) &#123;</span><br><span class="line">      <span class="built_in">document</span>.attachEvent(<span class="string">"WeixinJSBridgeReady"</span>, handleFontSize);</span><br><span class="line">      <span class="built_in">document</span>.attachEvent(<span class="string">"onWeixinJSBridgeReady"</span>, handleFontSize);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleFontSize</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 设置网页字体为默认大小</span></span><br><span class="line">    WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">    <span class="comment">// 重写设置网页字体大小的事件</span></span><br><span class="line">    WeixinJSBridge.on(<span class="string">'menu:setfont'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      WeixinJSBridge.invoke(<span class="string">'setFontSizeCallback'</span>, &#123; <span class="string">'fontSize'</span> : <span class="number">0</span> &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>需要注意的是，这段代码在Android微信环境中会延时生效。如果预先设置字号大小不是“标准”，打开网页时页面会按照设置的缩放效果展示约1秒（等WeixinJSBridge对象初始化完成）后才调整到正常。这个时间差的问题目前暂时没有合适的解决方式，只能通过增加loading动画、延迟展示时间等方式来尽量消除用户的不适感</p>
+</blockquote>
+<ul>
+<li>方案3(webview/微信通用)<br>Android因为改变的是字体的大小，所以可以考虑将字体大小在设置的时候进行等比例缩小。例如，一个文字希望以10px来进行渲染，当webview被放大两倍时，此时font-size会变为20px。因此我们可以在取到这个放大比例之后，对原样式进行等比缩小，比如将原文字大小设置为5px，渲染的时候就变成了10px.</li>
+</ul>
+<p>如果我们的页面字体大小都使用rem进行声明，那么我们就只需要在页面加载的时候根据缩放比例计算出html元素的字体大小即可！详见下方代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    $dom.style = <span class="string">'font-size:10px;'</span>;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild($dom);</span><br><span class="line">    <span class="comment">// 计算出放大后的字体</span></span><br><span class="line">    <span class="keyword">var</span> scaledFontSize = <span class="built_in">parseInt</span>(<span class="built_in">window</span>.getComputedStyle($dom, <span class="literal">null</span>).getPropertyValue(<span class="string">'font-size'</span>));</span><br><span class="line">    <span class="built_in">document</span>.body.removeChild($dom);</span><br><span class="line">    <span class="comment">// 计算原字体和放大后字体的比例</span></span><br><span class="line">    <span class="keyword">var</span> scaleFactor = <span class="number">10</span> / scaledFontSize;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 取html元素的字体大小</span></span><br><span class="line">    <span class="comment">// 注意，这个大小也经过缩放了</span></span><br><span class="line">    <span class="comment">// 所以下方计算的时候 *scaledFontSize是原来的html字体大小</span></span><br><span class="line">    <span class="comment">// 再次 *scaledFontSize才是我们要设置的大小</span></span><br><span class="line">    <span class="keyword">var</span> originRootFontSize = <span class="built_in">parseInt</span>(<span class="built_in">window</span>.getComputedStyle(<span class="built_in">document</span>.documentElement, <span class="literal">null</span>).getPropertyValue(<span class="string">'font-size'</span>));</span><br><span class="line">    <span class="built_in">document</span>.documentElement.style.fontSize = originRootFontSize * scaleFactor * scaleFactor + <span class="string">'px'</span>;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>因为这段代码中创建了一个元素，并放入了document.body中，所以不能放在head中运行。如果放在页尾运行的话，则有可能会产生闪烁的情况，因此最好的办法是将这段代码放在<body>开始的地方</body></p>
+<blockquote>
+<p>除了在Android webview以外，以上代码在 Android 微信中实测也有效，亲测可用！</p>
+</blockquote>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>其实正常情况下，我们考虑常规操作就OK了，某些用户想放大字体看效果（估计是眼神不好），按理说我们的页面也要跟着放大并且布局不能乱掉（用户想要的结果），但事实上我们处理起来并不是一个布局的问题，得按设计来（牵扯太多，不想改）。但是产品、老板、用户不接受这样的错乱页面，我们没办法只能找解决方案，做一个都能接受的处理。</p>
+<p>相关链接：<br><a href="https://juejin.im/post/59f678d7f265da43333dabb7" target="_blank" rel="noopener">移动端字体放大问题的研究</a></p>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫">
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝"></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信"></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/07/font-size/">移动端字体放大的解决方案</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
+        <p><span>发布时间:</span>2019年07月15日 - 17时32分</p>
+        <p><span>最后更新:</span>2019年07月17日 - 18时39分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/07/font-size/" title="移动端字体放大的解决方案">http://tigerliu.site/2019/07/font-size/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2019/07/font-size/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/10/vue-history/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue history模式在nginx下错误的解决方案</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Meta设置"><span class="toc-number">1.1.</span> <span class="toc-text">1.Meta设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-IOS解决方案"><span class="toc-number">1.2.</span> <span class="toc-text">2.IOS解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Android解决方案"><span class="toc-number">1.3.</span> <span class="toc-text">3.Android解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结语"><span class="toc-number">2.</span> <span class="toc-text">结语</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <div id="gitments"></div>
+<script src="/js/gitment.browser.js"></script>
+<!-- <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css"> -->
+<script src="https://billts.site/js/gitment.js"></script>
+<script>
+  var gitment = new Gitment({
+    id: window.location.pathname,
+    owner: 'tiger6',
+    repo: 'tiger6.github.io',
+    oauth: {
+      client_id: '1babb2476a2b98657275',
+      client_secret: '5fd1be83ce70b3f39576be4a8c3c092773962c6d',
+    },
+  })
+  gitment.render('gitments')
+</script>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2018/10/vue-history/" title="下一篇: vue history模式在nginx下错误的解决方案">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/07/font-size/">移动端字体放大的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/vue-history/">vue history模式在nginx下错误的解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/dinosaur/">使用前端方式挑战 Chrome 小恐龙游戏高分</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/vue2-k/">VUE使用中遇到的一些坑</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/02/css/">优雅的写CSS样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/es8/">ES8新特性整理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/vue2-2/">Vue2.0最全入坑指南(组件初识篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/vue2-1/">Vue2.0最全入坑指南(配置篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/hexo-3/">Hexo进阶高级教程（三）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/dva/">初探基于React+Redux前端应用框架Dva</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/vue2/">Vue2.0最全入坑指南(初识篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/node/">Node本地环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/string2/">常见字符串拼接方式(JAVA篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/string1/">常见字符串拼接方式(JS篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/hexo-2/">Hexo进阶高级教程（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/hexo-1/">Hexo进阶高级教程(一)</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/json/">深入理解JSON</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/linux/">Linux常用命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/interview/">那些年我们遇到过的面试问题总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/Git-1/">Git 二三事</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/sublime-1/">Sublime 笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/06/Hexo-github/">Hexo的那些事儿</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 Tigerliu
+            </div>
+            <div class="footer-right">
+                <p>Hosted by <a href="https://pages.coding.me" style="font-weight: bold" rel="external nofollow">Coding Pages</a></p>
+                <!-- <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman -->
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">用户到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 22;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9758eb7262d2dc9c4853675d4fe1bb60";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    (function () {
+        'use strict';
+
+        function getMatchData(keyword, data) {
+            var matchData = [];
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].title.toLowerCase().indexOf(keyword) >= 0)
+                    matchData.push(data[i])
+            }
+            return matchData;
+        }
+        var $input = $('#local-search-input');
+        var $resultContent = $('#local-search-result');
+        $input.keyup(function () {
+            $.ajax({
+                url: '/content.json',
+                dataType: "json",
+                success: function (json) {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keyword = $input.val().trim().toLowerCase();
+                    $resultContent.innerHTML = "";
+                    if ($input.val().trim().length <= 0) {
+                        $resultContent.empty();
+                        $('#switch-area').show();
+                        return;
+                    }
+                    var results = getMatchData(keyword, json);
+                    if (results.length === 0) {
+                        $resultContent.empty();
+                        $('#switch-area').show();
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        str += "<li><a href='/" + results[i].path +
+                            "' class='search-result-title'>" + results[i].title + "</a></li>";
+                    }
+                    str += "</ul>";
+                    $resultContent.empty();
+                    $resultContent.append(str);
+                    $('#switch-area').hide();
+                }
+            });
+        });
+    })();
+</script>
+
+  </div>
+</body>
+</html>

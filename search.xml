@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[移动端字体放大的解决方案]]></title>
+    <url>%2F2019%2F07%2Ffont-size%2F</url>
+    <content type="text"><![CDATA[前言正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。 1.Meta设置1&lt;meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt; 保持屏幕比例1:1 禁止缩放,但这里对字体无效 2.IOS解决方案在iPhone系统设置中的“更大字体”里调整字号后，各个应用里中Webview里的文字大小似乎没有受到影响。但是对于诸如微信、UC浏览器等可以在APP里设置网页字体大小的应用，还是有限制调整字号的需求的。它们调整字体大小是通过给body设置-webkit-text-size-adjust属性实现的，因此只要限制这个属性不被修改即可：123body &#123; -webkit-text-size-adjust: none !important;&#125; 3.Android解决方案 方案1(APP方法)如果是在自己开发的APP中，可以在客户端的WebView组件中设置字体默认的缩放比例，以避免手机系统的字体修改对页面字体及布局造成影响。 12WebSettings settings = webView.getSettings();settings.setTextZoom(100); 方案2(Android微信)如果是在微信环境中，参考微信开放平台的文档，须通过WeixinJSBridge对象将网页的字体大小设置为默认大小，并且重写设置字体大小的方法，让用户不能在该网页下设置字体大小。 1234567891011121314151617181920(function() &#123; if (typeof WeixinJSBridge == "object" &amp;&amp; typeof WeixinJSBridge.invoke == "function") &#123; handleFontSize(); &#125; else &#123; if (document.addEventListener) &#123; document.addEventListener("WeixinJSBridgeReady", handleFontSize, false); &#125; else if (document.attachEvent) &#123; document.attachEvent("WeixinJSBridgeReady", handleFontSize); document.attachEvent("onWeixinJSBridgeReady", handleFontSize); &#125; &#125; function handleFontSize() &#123; // 设置网页字体为默认大小 WeixinJSBridge.invoke('setFontSizeCallback', &#123; 'fontSize' : 0 &#125;); // 重写设置网页字体大小的事件 WeixinJSBridge.on('menu:setfont', function() &#123; WeixinJSBridge.invoke('setFontSizeCallback', &#123; 'fontSize' : 0 &#125;); &#125;); &#125;&#125;)(); 需要注意的是，这段代码在Android微信环境中会延时生效。如果预先设置字号大小不是“标准”，打开网页时页面会按照设置的缩放效果展示约1秒（等WeixinJSBridge对象初始化完成）后才调整到正常。这个时间差的问题目前暂时没有合适的解决方式，只能通过增加loading动画、延迟展示时间等方式来尽量消除用户的不适感 方案3(webview/微信通用)Android因为改变的是字体的大小，所以可以考虑将字体大小在设置的时候进行等比例缩小。例如，一个文字希望以10px来进行渲染，当webview被放大两倍时，此时font-size会变为20px。因此我们可以在取到这个放大比例之后，对原样式进行等比缩小，比如将原文字大小设置为5px，渲染的时候就变成了10px. 如果我们的页面字体大小都使用rem进行声明，那么我们就只需要在页面加载的时候根据缩放比例计算出html元素的字体大小即可！详见下方代码:1234567891011121314151617(function()&#123; var $dom = document.createElement('div'); $dom.style = 'font-size:10px;'; document.body.appendChild($dom); // 计算出放大后的字体 var scaledFontSize = parseInt(window.getComputedStyle($dom, null).getPropertyValue('font-size')); document.body.removeChild($dom); // 计算原字体和放大后字体的比例 var scaleFactor = 10 / scaledFontSize; // 取html元素的字体大小 // 注意，这个大小也经过缩放了 // 所以下方计算的时候 *scaledFontSize是原来的html字体大小 // 再次 *scaledFontSize才是我们要设置的大小 var originRootFontSize = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size')); document.documentElement.style.fontSize = originRootFontSize * scaleFactor * scaleFactor + 'px';&#125;)(); 因为这段代码中创建了一个元素，并放入了document.body中，所以不能放在head中运行。如果放在页尾运行的话，则有可能会产生闪烁的情况，因此最好的办法是将这段代码放在开始的地方 除了在Android webview以外，以上代码在 Android 微信中实测也有效，亲测可用！ 结语其实正常情况下，我们考虑常规操作就OK了，某些用户想放大字体看效果（估计是眼神不好），按理说我们的页面也要跟着放大并且布局不能乱掉（用户想要的结果），但事实上我们处理起来并不是一个布局的问题，得按设计来（牵扯太多，不想改）。但是产品、老板、用户不接受这样的错乱页面，我们没办法只能找解决方案，做一个都能接受的处理。 相关链接：移动端字体放大问题的研究]]></content>
+      <categories>
+        <category>mobile</category>
+      </categories>
+      <tags>
+        <tag>font-size</tag>
+        <tag>mobile</tag>
+        <tag>fontsize</tag>
+        <tag>fontSize</tag>
+        <tag>android</tag>
+        <tag>ios</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue history模式在nginx下错误的解决方案]]></title>
     <url>%2F2018%2F10%2Fvue-history%2F</url>
     <content type="text"><![CDATA[前言众所周知 vue 默认的路由为 hash 模式，在 URL 上面会带一个#号，然而某些时候并不是我们想要的。如何去掉#号？去掉#号后的一些问题如何处理？下面我们简单探讨下这块内容。 使用 history 模式如果不想要很丑的 hash，我们可以用路由的 history 模式，这种模式充分利用 history.pushState API 来完成 URL 跳转而无须重新加载页面。 修改路由模式 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 修改 config/index.js config/index.js 中 build 下的 assetsPublicPath 从’./‘改成’/‘ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 在 nginx 下的配置Apache 12345678 &lt;IfModule mod_rewrite.c&gt; RewriteEngine On RewriteBase / RewriteRule ^index\.html$ - [L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-f RewriteCond %&#123;REQUEST_FILENAME&#125; !-d RewriteRule . /index.html [L]&lt;/IfModule&gt; 除了 mod_rewrite，你也可以使用 FallbackResource nginx 123 location / &#123; try_files $uri $uri/ /index.html;&#125; 原生 Node.js 123456789101112131415161718192021const http = require('http');const fs = require('fs');const httpPort = 80;http .createServer((req, res) =&gt; &#123; fs.readFile('index.htm', 'utf-8', (err, content) =&gt; &#123; if (err) &#123; console.log('We cannot open "index.htm" file.'); &#125; res.writeHead(200, &#123; 'Content-Type': 'text/html; charset=utf-8' &#125;); res.end(content); &#125;); &#125;) .listen(httpPort, () =&gt; &#123; console.log('Server listening on: http://localhost:%s', httpPort); &#125;); 详细配置见官方配置 404 的解决方案第一种方式见上面–在 nginx 下的配置，还是贴一下： 123location / &#123; try_files $uri $uri/ /index.html;&#125; 第二招，逻辑类似 12345678location / &#123; root /data/nginx/html; index index.html index.htm; if (!-e $request_filename) &#123; rewrite ^/(.*) /index.html last; break; &#125; &#125; 第三式,直接转发到 index.html 12345location / &#123; root /data/nginx/html; index index.html index.htm; error_page 404 /index.html; &#125; 第四招，类似第二招 12345678 location / &#123; root html; try_files $uri $uri/ @router; index index.html index.htm;&#125;location @router &#123; rewrite ^.*$ /index.html last;&#125; Uncaught SyntaxError: Unexpected token &lt;错误配置好了刷新后一片空白？打开控制台一看什么鬼，Uncaught SyntaxError: Unexpected token &lt;错误？貌似是 JS 的错误，下面我们逐一排查。 错误排查 检查配置有没有问题： 检查 config/index.js 中 build 下的 assetsPublicPath 是否正确？ 123456789module.exports = &#123; build: &#123; env: require('./prod.env'), index: path.resolve(__dirname, '../dist/index.html'), assetsRoot: path.resolve(__dirname, '../dist'), assetsSubDirectory: 'static', assetsPublicPath: '/', productionSourceMap: true, ..... 其他代码略 检查模式是否为 history 1234const router = new VueRouter(&#123; mode: 'history', routes: [...]&#125;) 检查路由路径你的子路径需要加上去，给每一个 component 加上 name，例如： 12345678910111213141516171819const router = new Router(&#123; mode: 'history', routes: [ &#123; path: '/', component: Index, name: 'index', redirect: '/home', children: [&#123; path: 'home', //这里会不会有问题？ component: Home &#125;, &#123; path: 'goodsDetails', //子路径需要配完整，应该是/home/goodsDetails component: goodsDetails &#125;, &#125; ]&#125;) 以上都检查完，打包重新部署看看 修复问题如果还有问题，试试下面的配置，其实 js、css、png 文件我们不需要转到 index.html 12345location / &#123; root html; rewrite ^.+(?&lt;!js|css|png|map)$ /index.html break; index index.html index.htm;&#125; 结语遇到问题，先分析下具体的原因，一步一步排查，总归还是有解决办法的。出现 404，空白页，JS 问题，总觉得是我们前端哪儿有问题，排查完才发现是配置问题，以上几招供大家参考，能解决问题的方法就是好方法！]]></content>
@@ -8,8 +24,8 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
         <tag>node</tag>
+        <tag>vue</tag>
         <tag>history</tag>
         <tag>nginx</tag>
         <tag>tomcat</tag>
@@ -37,32 +53,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Sublime 笔记]]></title>
-    <url>%2F2018%2F10%2Fsublime-1%2F</url>
-    <content type="text"><![CDATA[什么是 sublimeSublime Text 是一个代码编辑器（Sublime Text 2 是收费软件，但可以无限期试用），也是 HTML 和散文先进的文本编辑器。Sublime Text 是由程序员 Jon Skinner 于 2008 年 1 月份所开发出来，它最初被设计为一个具有丰富扩展功能的 Vim本文地址：http://tigerliu.site/2017/06/sublime-1/ 1. 控制台安装 按Ctrl+`调出 console（注：安装有 QQ 输入法的这个快捷键会有冲突的，输入法属性设置-输入法管理-取消热键切换至 QQ 拼音）粘贴以下代码到底部命令行并回车： 1import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) 重启 Sublime Text 3 如果在 Perferences-&gt;package settings 中看到 package control 这一项，则安装成功 2. Package Control 安装插件 按下Ctrl+Shift+P调出命令 js 面板输入install 调出 Install Package 选项并回车，然后在列表中选中要安装的插件 JS Format：一个JS代码格式化插件SublimeLinter：一个支持lint语法的插件，可以高亮linter认为有错误的代码行jQuery Package for sublime Text：如果你离不开jQuery的话，这个必备Emmet：Emmet 项目的前身是前端开发人员熟知的 Zen Coding（快速编写 HTML/CSS 代码的方案）AllAutocomplete：Sublime Text 默认的 Autocomplete 功能只考虑当前的文件，而 AllAutocomplete 插件会搜索所有打开的文件来寻找匹配的提示词SublimeREPL：这可能是对程序员最有用的插件。SublimeREPL 允许你在 Sublime Texxt 中运行各种语言（NodeJS ， Python，Ruby， Scala 和 Haskell 等等）ColorPicker：通常，如果你想使用一个颜色选择器DocBlockr：如果你遵循的编码的风格很严格，这款插件能够使你的任务更容易SublimeCodeIntel：代码提示工具BracketHighlighter：成对匹配增强，并修改括号等的颜色ConvertToUTF8：UTF8转换FileDiffs：查找文档不同AutoFileName：自动提示路径插件HTML5：Sublime Text3支持HTML5Sass：Sublime Text3支持SassLess：Sublime Text3支持Less 3. 主题安装 常用的几款主题 Soda Theme SoDaReloaded Theme Flatland Theme Material Theme Boxy Theme 由于上面主题都已经被收录到Package Control 的数据库中，故最简单的方法是使用此方法进行安装。 使用Ctrl+Shift+P快捷键或者进入菜单：Preferences（首选项） - PackageControl（插件控制），调出命令输入框，输入Install Package 命令搜索 Theme - Soda 或者 Theme Flatland 等，回车确认安装即可。然后依然需要使用方法一的配置方式来激活新装的主题 下面为博主常用配置： SoDaReloaded +Flatland 备注：先分别安装 Flatland，SoDaReloaded 主题，然后进入 Preferences（首选项）-&gt;Set User(设置-用户) 123456789101112131415161718192021222324&#123; "color_scheme": "Packages/Theme - Flatland/Flatland Monokai.tmTheme", "draw_shadows": false, //忽略node_modules、.git、cvs、.svn等开头的文件夹 "folder_exclude_patterns": [ ".svn", ".git", ".hg", "CVS", "node_modules" ], "font_size": 14, "ignored_packages": [ "Vintage" ], "soda_classic_tabs": true, "soda_rect_scrollbars": true, "soda_tabs_autowidth": true, "theme": "SoDaReloaded Dark.sublime-theme", "update_check": false, "word_wrap": "auto"&#125; Material-Theme 备注：先安装 Material 主题，然后进入 Preferences（首选项）-&gt;Set User(设置-用户) 1234567891011121314151617181920212223242526272829303132&#123; "always_show_minimap_viewport": true, "bold_folder_labels": true, "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme", "draw_shadows": false, "folder_exclude_patterns": [ ".svn", ".git", ".hg", "CVS", "node_modules" ], "font_options": [ "gray_antialias" ], "font_size": 13, "ignored_packages": [ "Vintage" ], "indent_guide_options": [ "draw_normal", "draw_active" ], "line_padding_bottom": 3, "line_padding_top": 3, "overlay_scroll_bars": "enabled", "theme": "Material-Theme.sublime-theme"&#125; 4. 自定义快捷键 进入 Preferences（首选项）-&gt;Key Bindings User(按键绑定-用户) 1234567891011121314151617181920[ &#123; keys: ['ctrl+shift+k'], command: 'find_under_expand' &#125;, &#123; keys: ['ctrl+k', 'ctrl+shift'], command: 'find_under_expand_skip' &#125;, // 删除当前行 &#123; keys: ['ctrl+d'], command: 'run_macro_file', args: &#123; file: 'res://Packages/Default/Delete Line.sublime-macro' &#125; &#125;, //大小写转换 &#123; keys: ['ctrl+shift+z'], command: 'upper_case' &#125;, &#123; keys: ['ctrl+shift+x'], command: 'lower_case' &#125;, // 复制选中行到行后 &#123; keys: ['ctrl+alt+down'], command: 'duplicate_line' &#125;, // 选词(按住-继续选择下个相同的字符串) &#123; keys: ['ctrl+g'], command: 'find_under_expand' &#125;, // gb一次选中所有的 &#123; keys: ['ctrl+g', 'ctrl+b'], command: 'find_all_under' &#125;, // 与上行互换 &#123; keys: ['alt+up'], command: 'swap_line_up' &#125;, // 与下行互换 &#123; keys: ['alt+down'], command: 'swap_line_down' &#125;, &#123; keys: ['alt+/', 'alt+/'], command: 'insert_best_completion' &#125;]; 5.常用快捷键 Ctrl+Shift+T可以打开之前关闭的tab页，这点同 chrome 是一样的 Ctrl+R定位函数； Ctrl+G定位到行； 有时我们需要对一片区域的所有行进行同时编辑，Ctrl+Shift+L可以将当前选中区域打散，然后进行同时编辑 有打散自然就有合并，Ctrl + J(mac 下 Command ＋ J)可以把当前选中区域合并为一行： 在Ctrl + P(Command+P)匹配到文件后，我们可以进行后续输入以跳转到更精确的位置 Ctrl + Enter(Mac~Command+Enter)在当前行下面新增一行然后跳至该行； Ctrl + Shift + Enter在当前行上面增加一行并跳至该行 Ctrl + ↑/↓移动当前显示区域 Ctrl + Shift + ↑/↓移动当前行 Ctrl + N在当前窗口创建一个新标签， Ctrl + W关闭当前标签， Ctrl + Shift + T恢复刚刚关闭的标签编辑代码时我们经常会开多个窗口，所以分屏很重要。 Windows 下：Alt + Shift + 2进行左右分屏， Alt + Shift + 8进行上下分屏， Alt + Shift + 5进行上下左右分屏（即分为四屏）Sublime text 删除插件步骤：“Ctrl+Shift+P”—“Remove Package”—“找到需要删除的插件，并点击即可删除”]]></content>
-      <categories>
-        <category>IDE</category>
-      </categories>
-      <tags>
-        <tag>sublime</tag>
-        <tag>IDE</tag>
-        <tag>ide</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Git 二三事]]></title>
-    <url>%2F2018%2F10%2FGit-1%2F</url>
-    <content type="text"><![CDATA[什么是 GitGit 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。本文地址：http://tigerliu.site/2017/06/Git-1/ 1. Git 版本库什么是版本库？版本库又名仓库，英文名 repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改，删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。所以创建一个版本库也非常简单，如下我是 D 盘 –&gt; www 下 目录下新建一个 testgit 版本库 通过命令 git init 把这个目录变成 git 可以管理的仓库，如下： 这时候你当前 testgit 目录下会多了一个.git 的目录，这个目录是 Git 来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把 git 仓库给破坏了。如下：把文件添加到版本库中。首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如 txt 文件，网页，所有程序的代码等，Git 也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从 1kb 变成 2kb，但是到底改了啥，版本控制也不知道。 2. Git 常用命令git init 初始化 git 仓库 git add 添加到暂存区 git add . 他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。 git add -u 他仅监控已经被 add 的文件（即 tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untrackedfile）。（git add –update 的缩写） git add -A 是上面两个功能的合集（git add –all 的缩写） git add xx 文件名 单个文件添加到仓库 总结： · git add -A 提交所有变化 · git add -u 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new) · git add . 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件 提交到仓库 1$ git commit -m '注释xxx' 查看是否还有文件未提交 1$ git status 查看某文件是否有改动 1$ git diff xxx文件名 查看下历史记录 1$ git log 查看日志单行显示 1$ git log –pretty=oneline 那么如果要回退到上上个版本只需把 HEAD^ 改成 HEAD^^ 1$ git reset –-hard HEAD^ 以此类推。那如果要回退到前 100 个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作 1$ git reset –-hard HEAD~100 可以通过如下命令即可获取到版本号 1$ git reflog 通过上面的显示我们可以知道，增加内容 3333 的版本号是 6fcfc89.我们现在可以命令git reset –hard 6fcfc89 来恢复了 查看文件内容 1$ cat xxx文件名 可以丢弃工作区的修改 1$ git checkout -- file 删除文件命令 1$ rm file 如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上 rm 命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行 commit 命令 提交掉 只要没有commit之前，如果我想在版本库中恢复此文件如何操作呢？ 可以使用如下命令 git checkout — b.txt，如下所示： 3. Git 修改用户名以及提交邮箱 git 修改当前的 project 的用户名的命令为： 1$ git config user.name 你的目标用户名; git 修改当前的 project 提交邮箱的命令为： 1$ git config user.email 你的目标邮箱名; 如果你要修改当前全局的用户名和邮箱时，需要在上面的两条命令中添加一个参数，–global，代表的是全局。 命令分别为： 12$ git config --global user.name 你的目标用户名；$ git config --global user.email 你的目标邮箱名; 当然，你还可以直接修改 git 的配置文件的方式来进行修改。 打开全局的.gitconfig 文件的命令为： 1$ vi ~/.gitconfig; 然后在文件中直接修改即可. 打开当前 project 中的 config 文件，该文件在每个 project 中的.git 目录下，直接进入该目录进行编辑即可。当然，如果没有进行过修改的话，默认打开时没有对应的用户名和密码的。只有进行过修改之后，才会在 config 中产生对应字段 4. Git 本地仓库与 Github 远程仓库关联如果你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，那就需要用到SSH Key，github拿到了你的公钥就会知道内容是你推送的 SSH Key 的配置： Windows 下打开 Git Bash，创建 SSH Key，按提示输入密码，可以不填密码一路回车 1$ ssh-keygen -t rsa -C "注册邮箱" 然后用户主目录/.ssh/下有两个文件，id_rsa是私钥，id_rsa.pub是公钥 获取 key，打开.ssh 下的 id_rsa.pub 文件，里面的内容就是 key 的内容 1$ start ~/.ssh/id_rsa.pub 登录 GitHub，打开”SSH Keys”页面，快捷地址：https://github.com/settings/ssh 测试 ssh key 是否成功，使用命令“ssh -T git@github.com”，如果出现 You’ve successfullyauthenticated, but GitHub does not provide shellaccess。这就表示已成功连上 github 从远程克隆一份到本地可以通过 git clone 1$ git clone git@github.com:tiger6/xxx.git 本地库关联远程库，在本地仓库目录运行命令： 1$ git remote add origin git@github.com:tiger6/xxx.git 推送 master 分支的所有内容 1$ git push -u origin master 第一次使用加上了-u 参数，是推送内容并关联分支。 推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令： 1$ git push origin master 如果我们现在要推送到其他分支，比如 dev 分支上，我们还是那个命令 git 1$ git push origin dev 把最新内容推送到 Github 取回远程主机某个分支的更新(master 主分支) 1$ git pull origin master 当你从远程库克隆时候，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且远程库的默认名称是origin。 要查看远程库的信息 使用 1$ git remote 要查看远程库的详细信息 使用 1$ git remote –v 实战练习本地创建文本 test.txt，运行: 123$ git add text.txt$ git commit -m "添加新文件"$ git push origin master 查看 github 是否同步 基本常用命令如下： mkdir： XX (创建一个空目录 XX指目录名) pwd： 显示当前目录的路径。 git init 把当前的目录变成可以管理的git仓库，生成隐藏.git文件。 git add XX 把xx文件添加到暂存区去。 git commit –m “XX” 提交文件 –m 后面的是注释。 git status 查看仓库状态 git diff XX 查看XX文件修改了那些内容 git log 查看历史记录 git reset –hard HEAD^ 或者 git reset –hard HEAD~ 回退到上一个版本 (如果想回退到100个版本，使用git reset –hard HEAD~100 ) cat XX 查看XX文件内容 git reflog 查看历史记录的版本号id git checkout — XX 把XX文件在工作区的修改全部撤销。 git rm XX 删除XX文件 git remote add origin [https://github.com/tiger6/xxx 关联一个远程库 git remote rm origin 删除关联的远程库 git push –u(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库 git clone [https://github.com/tiger6/xxx 从远程库中克隆 git checkout –b dev 创建dev分支 并切换到dev分支上 git branch 查看当前所有的分支 git checkout master 切换回master分支 git merge dev 在当前的分支上合并dev分支 git branch –d dev 删除dev分支 git branch name 创建分支 git stash 把当前的工作隐藏起来 等以后恢复现场后继续工作 git stash list 查看所有被隐藏的文件列表 git stash apply 恢复被隐藏的文件，但是内容不删除 git stash drop 删除文件 git stash pop 恢复文件的同时 也删除文件 git remote 查看远程库的信息 git remote –v 查看远程库的详细信息 git push origin master Git会把master分支推送到远程库对应的远程分支上]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>git</tag>
-        <tag>git命令</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[VUE使用中遇到的一些坑]]></title>
     <url>%2F2018%2F02%2Fvue2-k%2F</url>
     <content type="text"><![CDATA[前言前端开发对于vue的使用已经越来越多，我们在使用当中会遇到各种各样的问题，本篇主要归纳下在使用中遇到过的一些vue坑。 路由变化页面数据不刷新问题出现这种情况是因为依赖路由的params参数获取写在created生命周期里面，因为相同路由二次甚至多次加载的关系 没有达到监听，退出页面再进入另一个文章页面并不会运行created组件生命周期，导致文章数据还是第一次进入的数据。解决方法：watch监听路由是否变化1234567891011121314151617watch: &#123; // 方法1 '$route'(to, from) &#123; //监听路由是否变化 if(this.$route.params.articleId)&#123; // 判断条件1 判断传递值的变化 //获取文章数据 &#125; &#125; //方法2 '$route'(to, from) &#123; if(to.path == "/page") &#123; /// 判断条件2 监听路由名 监听你从什么路由跳转过来的 this.message = this.$route.query.msg &#125; &#125; &#125; 异步回调函数中使用this无法指向vue实例对象1234567891011121314//setTimeout/setInterval ajax Promise等等data()&#123; return&#123; ... &#125; &#125;,methods ()&#123; setTimeout( function() &#123; //其它几种情况相同 console.log(this);//此时this指向并不是vue实例 导致操作的一些ma'f &#125;,1000);&#125; 解决方案：变量赋值和箭头函数。（参考：var和let的区别：http://blog.csdn.net/nfer_zhuang/article/details/48781671）1234567891011//使用变量访问this实例let self=this; setTimeout( function()&#123; console.log(self); //使用self变量访问this实例&#125;,1000); //箭头函数访问this实例 因为箭头函数本身没有绑定this setTimeout(() =&gt; &#123; console.log(this);&#125;, 500); setInterval路由跳转继续运行并没有及时进行销毁比如一些弹幕，走马灯文字，这类需要定时调用的，路由跳转之后，因为组件已经销毁了，但是setInterval还没有销毁，还在继续后台调用，控制台会不断报错，如果运算量大的话，无法及时清除，会导致严重的页面卡顿.解决办法：在组件生命周期beforeDestroy停止setInterval12345//组件销毁前执行的钩子函数，跟其他生命周期钩子函数的用法相同。beforeDestroy()&#123; //我通常是把setInterval()定时器赋值给this实例，然后就可以像下面这么停止。 clearInterval(this.intervalId);&#125;, vue 滚动行为用法，进入路由需要滚动到浏览器底部、头部等等使用前端路由，当切换到新路由时，想要页面滚到顶部，或者是保持原先的滚动位置，就像重新加载页面那样。 vue-router 能做到，而且更好，它让你可以自定义路由切换时页面如何滚动。注意：这个功能只在支持 history.pushState 的浏览器中可用。路由设置如下：（详情猛戳：https://router.vuejs.org/zh-cn/advanced/scroll-behavior.html）1234567891011121314const router = newVueRouter(&#123; mode: 'history', scrollBehavior (to, from, savedPosition) &#123; if(savedPosition) &#123; //如果savedPosition存在，滚动条会自动跳到记录的值的地方 return savedPosition &#125;else&#123; return&#123; x: 0, y: 0&#125; //savedPosition也是一个记录x轴和y轴位置的对象 &#125; &#125;， routes: [...]&#125;) 实现vue路由拦截浏览器的需求，进行一系列操作，如草稿保存等等场景：为了防止用户失误点错关闭按钮等等，导致没有保存已输入的信息(关键信息)。 用法：12345678910//在路由组件中：...beforeRouteLeave (to, from, next) &#123; if(用户已经输入信息)&#123; //出现弹窗提醒保存草稿，或者自动后台为其保存 &#125;else&#123; next(true); //用户离开 &#125;&#125; 还有beforeEach、beforeRouteUpdate这些生命周期函数。 详情猛戳：https://router.vuejs.org/zh-cn/advanced/navigation-guards.html v-once 只渲染元素和组件一次，优化更新渲染性能v-once 这个指令相信大家用的很少，不过个人感觉还是挺实用的！只渲染元素和组件一次。随后的重新渲染，元素/组件及其所有的子节点将被视为静态内容并跳过。这可以用于优化更新性能。这个就不举例子了，直接猛戳这：v-once（https://cn.vuejs.org/v2/api/#v-once） vue本地代理配置 解决跨域问题,仅限于开发环境这个本地代理用来解决开发环境下的跨域问题，跨域可谓老生常谈的问题了，proxy 在 vue 中配置代理非常简单：1234567891011121314151617181920//比方说你要访问 http://192.168.1.xxx:8888/backEnd/paper这个接口//配置 config.js下面proxyTable对象proxyTable: &#123; '/backEnd':&#123; target:'http://192.168.3.200:8888', //目标接口域名有端口可以把端口也写上 //或者prot本地起服务端口与服务端统一 changeOrigin:true, &#125;&#125;,// 发送request请求axios.get('/backEnd/page') //按代理配置 匹配到/backEnd就代理到目标target地址.then((res) =&gt; &#123; console.log(res) // 数据完全拿得到 配置成功 this.newsList = res.data&#125;, (err) =&gt; &#123; console.log(err)&#125;) 本地开发没有任何问题，部署服务器就404啊这些问题由于前端路由缘故，单页面应用应该放到nginx或者apache、tomcat等web代理服务器中，千万不要直接访问index.html，同时要根据自己服务器的项目路径更改react或vue的路由地址。注意点： vue-router的 history 模式 服务nginx配置 具体详情可以猛戳：如何部署单页面项目到服务（https://segmentfault.com/a/1190000012675012） vue中传入事件$event在vue中，我们传入的事件一定是$event，但是获取时， e.currentTarget 和 e.target 获取的不一样的，区别在于 前者是当前的元素，即冒泡的最后一个绑定事件的元素，而后者是 最原始的元素。 关键： 后者可以实现事件代理 在v-for下的列表中，如何向方法传递参数？ 我们可以在一个list中绑定 v-for=”item,index in items”， 这样，我们就可以获取到相应的item和index（从0开始），另外，如果我们希望向list中的某个v-on:click = “handler” 传递参数，可以直接传递，比如： v-on:click=”handler(index)”， 这样就可以向methods下的handler传递参数了。 我们还可以传递$event直接给hanlder，然后通过e.currentTarget获取到这个元素。 结语其实很多问题都可以在API里找到，只是我们在使用的时候会遗忘，遇到问题可以先排查代码，然后再查询官网API，基本都会迎刃而解。本篇文章简单归纳了一些常见的问题，后续有其他问题会再次归纳总结！！！相关链接：https://segmentfault.com/a/1190000013008420]]></content>
@@ -70,12 +60,12 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
-        <tag>Vue</tag>
-        <tag>vue2.0</tag>
         <tag>前端框架</tag>
         <tag>js</tag>
         <tag>javascript</tag>
+        <tag>vue</tag>
+        <tag>Vue</tag>
+        <tag>vue2.0</tag>
         <tag>vue入坑</tag>
       </tags>
   </entry>
@@ -116,12 +106,12 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
-        <tag>Vue</tag>
-        <tag>vue2.0</tag>
         <tag>前端框架</tag>
         <tag>js</tag>
         <tag>javascript</tag>
+        <tag>vue</tag>
+        <tag>Vue</tag>
+        <tag>vue2.0</tag>
         <tag>vue组件</tag>
         <tag>vue入坑</tag>
       </tags>
@@ -134,12 +124,12 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
-        <tag>Vue</tag>
-        <tag>vue2.0</tag>
         <tag>前端框架</tag>
         <tag>js</tag>
         <tag>javascript</tag>
+        <tag>vue</tag>
+        <tag>Vue</tag>
+        <tag>vue2.0</tag>
         <tag>vue入坑</tag>
         <tag>vue-cli</tag>
       </tags>
@@ -170,9 +160,9 @@
         <category>react</category>
       </categories>
       <tags>
-        <tag>前端框架</tag>
         <tag>react</tag>
         <tag>dva</tag>
+        <tag>前端框架</tag>
       </tags>
   </entry>
   <entry>
@@ -183,14 +173,14 @@
         <category>vue</category>
       </categories>
       <tags>
-        <tag>vue</tag>
-        <tag>Vue</tag>
-        <tag>vue2.0</tag>
         <tag>前端框架</tag>
         <tag>js</tag>
         <tag>javascript</tag>
-        <tag>vue入坑</tag>
         <tag>环境搭建</tag>
+        <tag>vue</tag>
+        <tag>Vue</tag>
+        <tag>vue2.0</tag>
+        <tag>vue入坑</tag>
       </tags>
   </entry>
   <entry>
@@ -275,10 +265,10 @@
         <category>JS</category>
       </categories>
       <tags>
-        <tag>js</tag>
-        <tag>javascript</tag>
         <tag>json</tag>
         <tag>jsonp</tag>
+        <tag>js</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -312,6 +302,32 @@
         <tag>F2E</tag>
         <tag>浏览器</tag>
         <tag>内核</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Git 二三事]]></title>
+    <url>%2F2017%2F06%2FGit-1%2F</url>
+    <content type="text"><![CDATA[什么是 GitGit 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git 的读音为/gɪt/。 Git 是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。本文地址：http://tigerliu.site/2017/06/Git-1/ 1. Git 版本库什么是版本库？版本库又名仓库，英文名 repository,你可以简单的理解一个目录，这个目录里面的所有文件都可以被 Git 管理起来，每个文件的修改，删除，Git 都能跟踪，以便任何时刻都可以追踪历史，或者在将来某个时刻还可以将文件”还原”。所以创建一个版本库也非常简单，如下我是 D 盘 –&gt; www 下 目录下新建一个 testgit 版本库 通过命令 git init 把这个目录变成 git 可以管理的仓库，如下： 这时候你当前 testgit 目录下会多了一个.git 的目录，这个目录是 Git 来跟踪管理版本的，没事千万不要手动乱改这个目录里面的文件，否则，会把 git 仓库给破坏了。如下：把文件添加到版本库中。首先要明确下，所有的版本控制系统，只能跟踪文本文件的改动，比如 txt 文件，网页，所有程序的代码等，Git 也不列外，版本控制系统可以告诉你每次的改动，但是图片，视频这些二进制文件，虽能也能由版本控制系统管理，但没法跟踪文件的变化，只能把二进制文件每次改动串起来，也就是知道图片从 1kb 变成 2kb，但是到底改了啥，版本控制也不知道。 2. Git 常用命令git init 初始化 git 仓库 git add 添加到暂存区 git add . 他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。 git add -u 他仅监控已经被 add 的文件（即 tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untrackedfile）。（git add –update 的缩写） git add -A 是上面两个功能的合集（git add –all 的缩写） git add xx 文件名 单个文件添加到仓库 总结： · git add -A 提交所有变化 · git add -u 提交被修改(modified)和被删除(deleted)文件，不包括新文件(new) · git add . 提交新文件(new)和被修改(modified)文件，不包括被删除(deleted)文件 提交到仓库 1$ git commit -m '注释xxx' 查看是否还有文件未提交 1$ git status 查看某文件是否有改动 1$ git diff xxx文件名 查看下历史记录 1$ git log 查看日志单行显示 1$ git log –pretty=oneline 那么如果要回退到上上个版本只需把 HEAD^ 改成 HEAD^^ 1$ git reset –-hard HEAD^ 以此类推。那如果要回退到前 100 个版本的话，使用上面的方法肯定不方便，我们可以使用下面的简便命令操作 1$ git reset –-hard HEAD~100 可以通过如下命令即可获取到版本号 1$ git reflog 通过上面的显示我们可以知道，增加内容 3333 的版本号是 6fcfc89.我们现在可以命令git reset –hard 6fcfc89 来恢复了 查看文件内容 1$ cat xxx文件名 可以丢弃工作区的修改 1$ git checkout -- file 删除文件命令 1$ rm file 如上：一般情况下，可以直接在文件目录中把文件删了，或者使用如上 rm 命令：rm b.txt ，如果我想彻底从版本库中删掉了此文件的话，可以再执行 commit 命令 提交掉 只要没有commit之前，如果我想在版本库中恢复此文件如何操作呢？ 可以使用如下命令 git checkout — b.txt，如下所示： 3. Git 修改用户名以及提交邮箱 git 修改当前的 project 的用户名的命令为： 1$ git config user.name 你的目标用户名; git 修改当前的 project 提交邮箱的命令为： 1$ git config user.email 你的目标邮箱名; 如果你要修改当前全局的用户名和邮箱时，需要在上面的两条命令中添加一个参数，–global，代表的是全局。 命令分别为： 12$ git config --global user.name 你的目标用户名；$ git config --global user.email 你的目标邮箱名; 当然，你还可以直接修改 git 的配置文件的方式来进行修改。 打开全局的.gitconfig 文件的命令为： 1$ vi ~/.gitconfig; 然后在文件中直接修改即可. 打开当前 project 中的 config 文件，该文件在每个 project 中的.git 目录下，直接进入该目录进行编辑即可。当然，如果没有进行过修改的话，默认打开时没有对应的用户名和密码的。只有进行过修改之后，才会在 config 中产生对应字段 4. Git 本地仓库与 Github 远程仓库关联如果你已经在本地创建了一个Git仓库，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，那就需要用到SSH Key，github拿到了你的公钥就会知道内容是你推送的 SSH Key 的配置： Windows 下打开 Git Bash，创建 SSH Key，按提示输入密码，可以不填密码一路回车 1$ ssh-keygen -t rsa -C "注册邮箱" 然后用户主目录/.ssh/下有两个文件，id_rsa是私钥，id_rsa.pub是公钥 获取 key，打开.ssh 下的 id_rsa.pub 文件，里面的内容就是 key 的内容 1$ start ~/.ssh/id_rsa.pub 登录 GitHub，打开”SSH Keys”页面，快捷地址：https://github.com/settings/ssh 测试 ssh key 是否成功，使用命令“ssh -T git@github.com”，如果出现 You’ve successfullyauthenticated, but GitHub does not provide shellaccess。这就表示已成功连上 github 从远程克隆一份到本地可以通过 git clone 1$ git clone git@github.com:tiger6/xxx.git 本地库关联远程库，在本地仓库目录运行命令： 1$ git remote add origin git@github.com:tiger6/xxx.git 推送 master 分支的所有内容 1$ git push -u origin master 第一次使用加上了-u 参数，是推送内容并关联分支。 推送成功后就可以看到远程和本地的内容一模一样，下次只要本地作了提交，就可以通过命令： 1$ git push origin master 如果我们现在要推送到其他分支，比如 dev 分支上，我们还是那个命令 git 1$ git push origin dev 把最新内容推送到 Github 取回远程主机某个分支的更新(master 主分支) 1$ git pull origin master 当你从远程库克隆时候，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且远程库的默认名称是origin。 要查看远程库的信息 使用 1$ git remote 要查看远程库的详细信息 使用 1$ git remote –v 实战练习本地创建文本 test.txt，运行: 123$ git add text.txt$ git commit -m "添加新文件"$ git push origin master 查看 github 是否同步 基本常用命令如下： mkdir： XX (创建一个空目录 XX指目录名) pwd： 显示当前目录的路径。 git init 把当前的目录变成可以管理的git仓库，生成隐藏.git文件。 git add XX 把xx文件添加到暂存区去。 git commit –m “XX” 提交文件 –m 后面的是注释。 git status 查看仓库状态 git diff XX 查看XX文件修改了那些内容 git log 查看历史记录 git reset –hard HEAD^ 或者 git reset –hard HEAD~ 回退到上一个版本 (如果想回退到100个版本，使用git reset –hard HEAD~100 ) cat XX 查看XX文件内容 git reflog 查看历史记录的版本号id git checkout — XX 把XX文件在工作区的修改全部撤销。 git rm XX 删除XX文件 git remote add origin [https://github.com/tiger6/xxx 关联一个远程库 git remote rm origin 删除关联的远程库 git push –u(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库 git clone [https://github.com/tiger6/xxx 从远程库中克隆 git checkout –b dev 创建dev分支 并切换到dev分支上 git branch 查看当前所有的分支 git checkout master 切换回master分支 git merge dev 在当前的分支上合并dev分支 git branch –d dev 删除dev分支 git branch name 创建分支 git stash 把当前的工作隐藏起来 等以后恢复现场后继续工作 git stash list 查看所有被隐藏的文件列表 git stash apply 恢复被隐藏的文件，但是内容不删除 git stash drop 删除文件 git stash pop 恢复文件的同时 也删除文件 git remote 查看远程库的信息 git remote –v 查看远程库的详细信息 git push origin master Git会把master分支推送到远程库对应的远程分支上]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>git</tag>
+        <tag>git命令</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sublime 笔记]]></title>
+    <url>%2F2017%2F06%2Fsublime-1%2F</url>
+    <content type="text"><![CDATA[什么是 sublimeSublime Text 是一个代码编辑器（Sublime Text 2 是收费软件，但可以无限期试用），也是 HTML 和散文先进的文本编辑器。Sublime Text 是由程序员 Jon Skinner 于 2008 年 1 月份所开发出来，它最初被设计为一个具有丰富扩展功能的 Vim本文地址：http://tigerliu.site/2017/06/sublime-1/ 1. 控制台安装 按Ctrl+`调出 console（注：安装有 QQ 输入法的这个快捷键会有冲突的，输入法属性设置-输入法管理-取消热键切换至 QQ 拼音）粘贴以下代码到底部命令行并回车： 1import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read()) 重启 Sublime Text 3 如果在 Perferences-&gt;package settings 中看到 package control 这一项，则安装成功 2. Package Control 安装插件 按下Ctrl+Shift+P调出命令 js 面板输入install 调出 Install Package 选项并回车，然后在列表中选中要安装的插件 JS Format：一个JS代码格式化插件SublimeLinter：一个支持lint语法的插件，可以高亮linter认为有错误的代码行jQuery Package for sublime Text：如果你离不开jQuery的话，这个必备Emmet：Emmet 项目的前身是前端开发人员熟知的 Zen Coding（快速编写 HTML/CSS 代码的方案）AllAutocomplete：Sublime Text 默认的 Autocomplete 功能只考虑当前的文件，而 AllAutocomplete 插件会搜索所有打开的文件来寻找匹配的提示词SublimeREPL：这可能是对程序员最有用的插件。SublimeREPL 允许你在 Sublime Texxt 中运行各种语言（NodeJS ， Python，Ruby， Scala 和 Haskell 等等）ColorPicker：通常，如果你想使用一个颜色选择器DocBlockr：如果你遵循的编码的风格很严格，这款插件能够使你的任务更容易SublimeCodeIntel：代码提示工具BracketHighlighter：成对匹配增强，并修改括号等的颜色ConvertToUTF8：UTF8转换FileDiffs：查找文档不同AutoFileName：自动提示路径插件HTML5：Sublime Text3支持HTML5Sass：Sublime Text3支持SassLess：Sublime Text3支持Less 3. 主题安装 常用的几款主题 Soda Theme SoDaReloaded Theme Flatland Theme Material Theme Boxy Theme 由于上面主题都已经被收录到Package Control 的数据库中，故最简单的方法是使用此方法进行安装。 使用Ctrl+Shift+P快捷键或者进入菜单：Preferences（首选项） - PackageControl（插件控制），调出命令输入框，输入Install Package 命令搜索 Theme - Soda 或者 Theme Flatland 等，回车确认安装即可。然后依然需要使用方法一的配置方式来激活新装的主题 下面为博主常用配置： SoDaReloaded +Flatland 备注：先分别安装 Flatland，SoDaReloaded 主题，然后进入 Preferences（首选项）-&gt;Set User(设置-用户) 123456789101112131415161718192021222324&#123; "color_scheme": "Packages/Theme - Flatland/Flatland Monokai.tmTheme", "draw_shadows": false, //忽略node_modules、.git、cvs、.svn等开头的文件夹 "folder_exclude_patterns": [ ".svn", ".git", ".hg", "CVS", "node_modules" ], "font_size": 14, "ignored_packages": [ "Vintage" ], "soda_classic_tabs": true, "soda_rect_scrollbars": true, "soda_tabs_autowidth": true, "theme": "SoDaReloaded Dark.sublime-theme", "update_check": false, "word_wrap": "auto"&#125; Material-Theme 备注：先安装 Material 主题，然后进入 Preferences（首选项）-&gt;Set User(设置-用户) 1234567891011121314151617181920212223242526272829303132&#123; "always_show_minimap_viewport": true, "bold_folder_labels": true, "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme", "draw_shadows": false, "folder_exclude_patterns": [ ".svn", ".git", ".hg", "CVS", "node_modules" ], "font_options": [ "gray_antialias" ], "font_size": 13, "ignored_packages": [ "Vintage" ], "indent_guide_options": [ "draw_normal", "draw_active" ], "line_padding_bottom": 3, "line_padding_top": 3, "overlay_scroll_bars": "enabled", "theme": "Material-Theme.sublime-theme"&#125; 4. 自定义快捷键 进入 Preferences（首选项）-&gt;Key Bindings User(按键绑定-用户) 123456789101112131415161718192021222324[ &#123; keys: ["ctrl+shift+k"], command: "find_under_expand" &#125;, &#123; keys: ["ctrl+k", "ctrl+shift"], command: "find_under_expand_skip" &#125;, // 删除当前行 &#123; keys: ["ctrl+d"], command: "run_macro_file", args: &#123; file: "res://Packages/Default/Delete Line.sublime-macro" &#125; &#125;, //大小写转换 &#123; keys: ["ctrl+shift+z"], command: "upper_case" &#125;, &#123; keys: ["ctrl+shift+x"], command: "lower_case" &#125;, // 复制选中行到行后 &#123; keys: ["ctrl+alt+down"], command: "duplicate_line" &#125;, // 选词(按住-继续选择下个相同的字符串) &#123; keys: ["ctrl+g"], command: "find_under_expand" &#125;, // gb一次选中所有的 &#123; keys: ["ctrl+g", "ctrl+b"], command: "find_all_under" &#125;, // 与上行互换 &#123; keys: ["alt+up"], command: "swap_line_up" &#125;, // 与下行互换 &#123; keys: ["alt+down"], command: "swap_line_down" &#125;, &#123; keys: ["alt+/", "alt+/"], command: "insert_best_completion" &#125;]; 5.常用快捷键 Ctrl+Shift+T可以打开之前关闭的tab页，这点同 chrome 是一样的 Ctrl+R定位函数； Ctrl+G定位到行； 有时我们需要对一片区域的所有行进行同时编辑，Ctrl+Shift+L可以将当前选中区域打散，然后进行同时编辑 有打散自然就有合并，Ctrl + J(mac 下 Command ＋ J)可以把当前选中区域合并为一行： 在Ctrl + P(Command+P)匹配到文件后，我们可以进行后续输入以跳转到更精确的位置 Ctrl + Enter(Mac~Command+Enter)在当前行下面新增一行然后跳至该行； Ctrl + Shift + Enter在当前行上面增加一行并跳至该行 Ctrl + ↑/↓移动当前显示区域 Ctrl + Shift + ↑/↓移动当前行 Ctrl + N在当前窗口创建一个新标签， Ctrl + W关闭当前标签， Ctrl + Shift + T恢复刚刚关闭的标签编辑代码时我们经常会开多个窗口，所以分屏很重要。 Windows 下：Alt + Shift + 2进行左右分屏， Alt + Shift + 8进行上下分屏， Alt + Shift + 5进行上下左右分屏（即分为四屏）Sublime text 删除插件步骤：“Ctrl+Shift+P”—“Remove Package”—“找到需要删除的插件，并点击即可删除”]]></content>
+      <categories>
+        <category>IDE</category>
+      </categories>
+      <tags>
+        <tag>sublime</tag>
+        <tag>IDE</tag>
+        <tag>ide</tag>
       </tags>
   </entry>
   <entry>
