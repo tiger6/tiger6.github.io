@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[导出git修改的文件]]></title>
+    <url>%2F2019%2F08%2Fgitdiff%2F</url>
+    <content type="text"><![CDATA[前言在实际开发中，有时候只提交修改过的代码，之前我的做法是一个一个文件地复制，这种方法速度慢，而且容易出错。在网上找了一下，其实用Git的功能就可以实现差分代码提交。 基本思路大致是用git diff取出两个版本之间的差异文件，用git archive来打包差异文件。该方法只能在Bash下执行，所以在Windows下，要用到Git自带的Bash。 1.查看差异文件要导出Git仓库中某两次提交之间的文件差异，必须要先知道有哪些文件发生了差异。git diff指令能很方便的协助我们完成这样的操作。 本次使用到的git diff指令的用法：git diff COMMIT_ID_1 COMMIT_DI_2，其中的COMMIT_ID_X就是通过git log指令查看到的提交ID。 示例（取当前提交到上一次提交的文件）：1git diff --name-only 69351d6..035b375 或者1git diff --name-only HEAD~1...HEAD 一般情况下，commit_id取前七位就可以了 2.配合archive打包git archive -o 导出文件名.zip 导出版本号 $(git diff –name-only 旧版本号..新版本号)一般来说，导出版本号和新版本号是一样的，示例：1git archive -o update.zip 035b375 $(git diff --name-only 69351d6..035b375) 或者1git archive -o update.zip HEAD $(git diff --name-only HEAD~1..HEAD) Git的版本号比较长，有40位，一般来说，取前七位就行。导出的ZIP是按目录生成的，这样提交差异代码时也非常方便。 3.结合xargs打包仔细观察git diff –name-only指令的执行结果，这不正是这些文件在根目录中的相对地址嘛？结合xargs指令可以非常快速地将差异文件给打包了。可以用tar指令进行压缩，示例：1git diff --name-only 69351d6...035b375 | xargs tar -zcvf update.tar.gz 指定某个打包输出目录：1git diff --name-only 69351d6...035b375 | xargs tar -zcvf /d/update.tar.gz 就会在D盘下面新增一个update.tar.gz 打包文件,如果我们固定一个打包输出目录，这个命令非常有用。 执行本打包指令的时候，一定要在项目的根目录中执行，以为不论是在项目目录中的哪个位置，gitdiff指令输出的文件路径都是相对于项目根目录的,在非项目根目录下执行xargs tar的时候会提示找不到文件 4.快捷用法以上的COMMIT_ID_X其实可以用HEAD来代替，比如HEAD表示当前提交，HEAD^表示上一次提交,HEAD^^表示上上次提交，所以我们输出当前和上次提交的差异就可以写成这样git diff –name-only HEAD^ HEAD。其中可以省略后面的HEAD，因为指令会默认拿HEAD^和当前提交作比对；还有一种写法：HEAD~0表示当前提交，HEAD~1表示上一次提交，HEAD~2表示上上次提交，以此类推。 关于Git中的HEAD定义，《Git版本控制管理中》是这样描述的：「HEAD始终指向当前分支的最近提交。当切换分支时，HEAD会更新为指向新分支的最新提交」 结语本篇文章我们提到了两种打包方法分别是diff+archive，diff+xargs(支持自定义打包输出目录)，两种方法打包结果都一致。里面的目录结构和项目的结构保持一致，并且只包含差异文件，这就是我们所需要的。不过保证打包的正确、可靠性，打包后建议还是自己再检查一遍，特别是需要发布到线上版本的打包文件。]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>gitdiff</tag>
+        <tag>diff</tag>
+        <tag>导出</tag>
+        <tag>node</tag>
+        <tag>git命令</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[移动端字体放大的解决方案]]></title>
     <url>%2F2019%2F07%2Ffont-size%2F</url>
     <content type="text"><![CDATA[前言正常情况下我们调整手机的字体大小，我们在webview中也会看到的效果也是被放大的，但是用了rem算法的内嵌页，字体也会随着变大，从而导致文本不居中、文字折行、布局混乱等问题。在此对字体放大的问题做一个笔记，下面列几条对字体放大有用的解决方案。 1.Meta设置1&lt;meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt; 保持屏幕比例1:1 禁止缩放,但这里对字体无效 2.IOS解决方案在iPhone系统设置中的“更大字体”里调整字号后，各个应用里中Webview里的文字大小似乎没有受到影响。但是对于诸如微信、UC浏览器等可以在APP里设置网页字体大小的应用，还是有限制调整字号的需求的。它们调整字体大小是通过给body设置-webkit-text-size-adjust属性实现的，因此只要限制这个属性不被修改即可：123body &#123; -webkit-text-size-adjust: none !important;&#125; 3.Android解决方案 方案1(APP方法) 如果是在自己开发的APP中，可以在客户端的WebView组件中设置字体默认的缩放比例，以避免手机系统的字体修改对页面字体及布局造成影响。12WebSettings settings = webView.getSettings();settings.setTextZoom(100); 方案2(Android微信) 如果是在微信环境中，参考微信开放平台的文档，须通过WeixinJSBridge对象将网页的字体大小设置为默认大小，并且重写设置字体大小的方法，让用户不能在该网页下设置字体大小。1234567891011121314151617181920(function() &#123; if (typeof WeixinJSBridge == "object" &amp;&amp; typeof WeixinJSBridge.invoke == "function") &#123; handleFontSize(); &#125; else &#123; if (document.addEventListener) &#123; document.addEventListener("WeixinJSBridgeReady", handleFontSize, false); &#125; else if (document.attachEvent) &#123; document.attachEvent("WeixinJSBridgeReady", handleFontSize); document.attachEvent("onWeixinJSBridgeReady", handleFontSize); &#125; &#125; function handleFontSize() &#123; // 设置网页字体为默认大小 WeixinJSBridge.invoke('setFontSizeCallback', &#123; 'fontSize' : 0 &#125;); // 重写设置网页字体大小的事件 WeixinJSBridge.on('menu:setfont', function() &#123; WeixinJSBridge.invoke('setFontSizeCallback', &#123; 'fontSize' : 0 &#125;); &#125;); &#125;&#125;)(); 需要注意的是，这段代码在Android微信环境中会延时生效。如果预先设置字号大小不是“标准”，打开网页时页面会按照设置的缩放效果展示约1秒（等WeixinJSBridge对象初始化完成）后才调整到正常。这个时间差的问题目前暂时没有合适的解决方式，只能通过增加loading动画、延迟展示时间等方式来尽量消除用户的不适感 方案3(webview/微信通用) Android因为改变的是字体的大小，所以可以考虑将字体大小在设置的时候进行等比例缩小。例如，一个文字希望以10px来进行渲染，当webview被放大两倍时，此时font-size会变为20px。因此我们可以在取到这个放大比例之后，对原样式进行等比缩小，比如将原文字大小设置为5px，渲染的时候就变成了10px. 如果我们的页面字体大小都使用rem进行声明，那么我们就只需要在页面加载的时候根据缩放比例计算出html元素的字体大小即可！详见下方代码:1234567891011121314151617(function()&#123; var $dom = document.createElement('div'); $dom.style = 'font-size:10px;'; document.body.appendChild($dom); // 计算出放大后的字体 var scaledFontSize = parseInt(window.getComputedStyle($dom, null).getPropertyValue('font-size')); document.body.removeChild($dom); // 计算原字体和放大后字体的比例 var scaleFactor = 10 / scaledFontSize; // 取html元素的字体大小 // 注意，这个大小也经过缩放了 // 所以下方计算的时候 *scaledFontSize是原来的html字体大小 // 再次 *scaledFontSize才是我们要设置的大小 var originRootFontSize = parseInt(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size')); document.documentElement.style.fontSize = originRootFontSize * scaleFactor * scaleFactor + 'px';&#125;)(); 因为这段代码中创建了一个元素，并放入了document.body中，所以不能放在head中运行。如果放在页尾运行的话，则有可能会产生闪烁的情况，因此最好的办法是将这段代码放在开始的地方 除了在Android webview以外，以上代码在 Android 微信中实测也有效，亲测可用！ 结语其实正常情况下，我们考虑常规操作就OK了，某些用户想放大字体看效果（估计是眼神不好），按理说我们的页面也要跟着放大并且布局不能乱掉（用户想要的结果），但事实上我们处理起来并不是一个布局的问题，得按设计来（牵扯太多，不想改）。但是产品、老板、用户不接受这样的错乱页面，我们没办法只能找解决方案，做一个都能接受的处理。 相关链接：移动端字体放大问题的研究]]></content>
@@ -191,10 +207,10 @@
         <category>node</category>
       </categories>
       <tags>
+        <tag>git</tag>
         <tag>node</tag>
         <tag>环境搭建</tag>
         <tag>npm</tag>
-        <tag>git</tag>
       </tags>
   </entry>
   <entry>
