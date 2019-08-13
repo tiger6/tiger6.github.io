@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Tigerliu Blog">
 <meta property="og:description" content="前言在实际开发中，有时候只提交修改过的代码，之前我的做法是一个一个文件地复制，这种方法速度慢，而且容易出错。在网上找了一下，其实用Git的功能就可以实现差分代码提交。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-12T10:37:28.629Z">
+<meta property="og:updated_time" content="2019-08-13T01:31:01.003Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="导出git修改的文件">
 <meta name="twitter:description" content="前言在实际开发中，有时候只提交修改过的代码，之前我的做法是一个一个文件地复制，这种方法速度慢，而且容易出错。在网上找了一下，其实用Git的功能就可以实现差分代码提交。">
@@ -278,6 +278,7 @@
 <p>关于Git中的HEAD定义，《Git版本控制管理中》是这样描述的：「HEAD始终指向当前分支的最近提交。当切换分支时，HEAD会更新为指向新分支的最新提交」</p>
 </blockquote>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇文章我们提到了两种打包方法分别是diff+archive，diff+xargs(支持自定义打包输出目录)，两种方法打包结果都一致。里面的目录结构和项目的结构保持一致，并且只包含差异文件，这就是我们所需要的。不过保证打包的正确、可靠性，打包后建议还是自己再检查一遍，特别是需要发布到线上版本的打包文件。</p>
+<p>相关链接：<br><a href="https://git-scm.com/docs/git-archive" target="_blank" rel="noopener">https://git-scm.com/docs/git-archive</a><br><a href="https://git-scm.com/docs/git-diff" target="_blank" rel="noopener">https://git-scm.com/docs/git-diff</a><br><a href="https://www.runoob.com/linux/linux-comm-xargs.html" target="_blank" rel="noopener">https://www.runoob.com/linux/linux-comm-xargs.html</a></p>
 
       
       
@@ -336,7 +337,7 @@
         <p><span>本文标题:</span><a href="/2019/08/gitdiff/">导出git修改的文件</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tigerliu 的个人博客">Tigerliu</a></p>
         <p><span>发布时间:</span>2019年08月12日 - 17时58分</p>
-        <p><span>最后更新:</span>2019年08月12日 - 18时37分</p>
+        <p><span>最后更新:</span>2019年08月13日 - 09时31分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/08/gitdiff/" title="导出git修改的文件">http://tigerliu.site/2019/08/gitdiff/</a>
             <span class="copy-path" data-clipboard-text="原文: http://tigerliu.site/2019/08/gitdiff/　　作者: Tigerliu" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
